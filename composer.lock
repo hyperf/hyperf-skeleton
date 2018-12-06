@@ -765,7 +765,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/config",
-                "reference": "8b9cbcfa4eb51636416bc44f33929f977bb4e5ad",
+                "reference": "fc86624c36e7bf3ab3488f95298101299f7f9a4f",
                 "shasum": null
             },
             "require": {
@@ -840,7 +840,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/di",
-                "reference": "e14a7a3ed3727f5fe13d6d0d5ed916e6420cb530",
+                "reference": "3d37ad40e0aeb08dfbc9b3e2f9936b4cffc1e11a",
                 "shasum": null
             },
             "require": {
@@ -917,7 +917,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/dispatcher",
-                "reference": "979d6f0c14284fe6b14dbc95f5e7a9fb71d30460",
+                "reference": "6633f73d1de7ef547672b114418014f0af3ec004",
                 "shasum": null
             },
             "require": {
@@ -995,7 +995,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/http-server",
-                "reference": "4e72f2516a1836edd9a8fa3cf1aa12eee3df4714",
+                "reference": "36ee7c4bd9fd6d66c9798c1bdb6be022c1974596",
                 "shasum": null
             },
             "require": {
@@ -1071,7 +1071,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/hyperflex",
-                "reference": "ad424d869fea23ecacedb23e5278df9f606f64e4",
+                "reference": "c3b5d900512a2c0ecadd168331fcb6c836bbfef5",
                 "shasum": null
             },
             "require": {
@@ -1158,7 +1158,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/memory",
-                "reference": "fc1cf29d01373ea4f4677ea24c73744f22cda18c",
+                "reference": "6500de9e6af8c4f016d777cf5ad312b99d1a1472",
                 "shasum": null
             },
             "require": {
@@ -1231,7 +1231,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/utils",
-                "reference": "8bd868b53b12f0cca6cdb91580e1c68085ccdac0",
+                "reference": "6847e172df0aa94b7872fc666bc5a114e7338643",
                 "shasum": null
             },
             "require": {
