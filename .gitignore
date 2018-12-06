@@ -4,10 +4,6 @@
 *.patch
 .idea/
 .git/
-runtime/
-vendor/
-temp/
-*.lock
 .phpintel/
 .env
 .DS_Store
