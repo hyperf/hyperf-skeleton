@@ -28,8 +28,8 @@
       <file leaf-file-name="CoreMiddleware.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/hyperflex/http-server/src/CoreMiddleware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="44" column="50" lean-forward="true" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+            <state relative-caret-position="20">
+              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -163,8 +163,8 @@
         <option value="$PROJECT_DIR$/vendor/hyperflex/dispatcher/src/HttpDispatcher.php" />
         <option value="$PROJECT_DIR$/vendor/hyperflex/http-server/src/Exception/Handler/HttpExceptionHandler.php" />
         <option value="$PROJECT_DIR$/vendor/hyperflex/hyperflex/src/ExceptionHandlerDispatcher.php" />
-        <option value="$PROJECT_DIR$/vendor/hyperflex/http-server/src/CoreMiddleware.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/vendor/hyperflex/http-server/src/CoreMiddleware.php" />
       </list>
     </option>
   </component>
@@ -547,7 +547,7 @@
       <workItem from="1543392240285" duration="47133000" />
       <workItem from="1543914343816" duration="29000" />
       <workItem from="1543914386864" duration="12928000" />
-      <workItem from="1544003931634" duration="23866000" />
+      <workItem from="1544003931634" duration="24549000" />
     </task>
     <servers />
   </component>
@@ -584,7 +584,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158403000" />
+    <option name="totallyTimeSpent" value="159086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1917" height="1037" extended-state="0" />
@@ -1023,8 +1023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/hyperflex/http-server/src/CoreMiddleware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="44" column="50" lean-forward="true" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+        <state relative-caret-position="20">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
           <folding />
         </state>
       </provider>
