@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
-use Hyperflex\Contracts\ConfigInterface;
 use Hyperflex\DependencyInjection\Definition;
 use Psr\Container\ContainerInterface;
 
@@ -14,15 +13,18 @@ use Psr\Container\ContainerInterface;
 $configFromProviders = \Hyperflex\Config\ProviderConfig::load();
 $definitions = require __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['server_dependencies'] ?? [], $definitions['server_dependencies'] ?? []);
-
-$definitionSource = Definition::reorganizeDefinitionsWithHyperflexDi($serverDependencies ?? []);
 /** @var ContainerInterface $container */
-$container = new \Hyperflex\Di\Container(new \Hyperflex\Di\Definition\DefinitionSource($definitionSource));
-/*$container = (new ContainerBuilder())->useAnnotations(true)
-    ->useAutowiring(true)
-    ->writeProxiesToFile(true, BASE_PATH . '/runtime/container/proxy')
-    ->addDefinitions(Definition::reorganizeDefinitions($serverDependencies ?? []))
-    ->build();*/
+if (true) {
+    $container = new \Hyperflex\Di\Container(new \Hyperflex\Di\Definition\DefinitionSource($serverDependencies));
+} else {
+    $definitionSource = Definition::reorganizeDefinitions($serverDependencies ?? []);
+    $container = (new ContainerBuilder())->useAnnotations(true)
+        ->useAutowiring(true)
+        ->writeProxiesToFile(true, BASE_PATH . '/runtime/container/proxy')
+        ->addDefinitions($definitionSource)
+        ->build();
+}
+
 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new \RuntimeException('The dependency injection container is invalid.');

@@ -3,6 +3,6 @@
 namespace PHPSTORM_META {
 
     // Reflect
-    override(\Hyperflex\Utils\RequestContext::get(0), map('@'));
+    override(\Hyperflex\Utils\Context::get(0), map('@'));
 
 }
