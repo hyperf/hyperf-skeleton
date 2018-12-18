@@ -1,30 +1,11 @@
 <?php
-return [
-    [
-        'path' => '/index',
-        'methods' => [
-            'GET', 'POST', 'HEAD'
-        ],
-        'handler' => [
-            \App\Controllers\IndexController::class, 'index'
-        ],
-    ],
-    [
-        'path' => '/user/{id:\d+}',
-        'methods' => [
-            'GET', 'POST', 'HEAD'
-        ],
-        'handler' => [
-            \App\Controllers\IndexController::class, 'user'
-        ],
-    ],
-    [
-        'path' => '/int',
-        'methods' => [
-            'GET', 'POST', 'HEAD'
-        ],
-        'handler' => [
-            \App\Controllers\IndexController::class, 'int'
-        ],
-    ],
-];
+
+use FastRoute\RouteCollector;
+
+/**
+ * @var RouteCollector $router
+ */
+
+$router->addRoute(['GET', 'POST', 'HEAD'], '/index', [\App\Controllers\IndexController::class, 'index']);
+$router->addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controllers\IndexController::class, 'user']);
+$router->addRoute(['GET', 'POST', 'HEAD'], '/int', [\App\Controllers\IndexController::class, 'int']);
