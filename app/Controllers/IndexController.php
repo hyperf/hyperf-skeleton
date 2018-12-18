@@ -13,4 +13,16 @@ class IndexController
         return 'Hello Hyperflex.';
     }
 
+    public function user(int $id)
+    {
+        return [
+            'id' => $id
+        ];
+    }
+
+    public function int()
+    {
+        return 1;
+    }
+
 }

@@ -840,7 +840,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/di",
-                "reference": "3d37ad40e0aeb08dfbc9b3e2f9936b4cffc1e11a",
+                "reference": "0ec94aa3e28b71c3857b907d4d586b686b0c19c5",
                 "shasum": null
             },
             "require": {
@@ -917,7 +917,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/dispatcher",
-                "reference": "6633f73d1de7ef547672b114418014f0af3ec004",
+                "reference": "7725177302e500d7362fe33770d960e13f0ce5ed",
                 "shasum": null
             },
             "require": {
@@ -995,7 +995,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/http-server",
-                "reference": "36ee7c4bd9fd6d66c9798c1bdb6be022c1974596",
+                "reference": "d655778e46f1e0a98d483b0260fa45c06a1f3461",
                 "shasum": null
             },
             "require": {
@@ -1071,7 +1071,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/hyperflex",
-                "reference": "c3b5d900512a2c0ecadd168331fcb6c836bbfef5",
+                "reference": "bff4749514e4e4e902222a6057b89ed5b850ffd4",
                 "shasum": null
             },
             "require": {
@@ -1231,7 +1231,7 @@
             "dist": {
                 "type": "path",
                 "url": "../hyperflex-components/utils",
-                "reference": "6847e172df0aa94b7872fc666bc5a114e7338643",
+                "reference": "bb9bc924aa15ffa634445bca9f2048eb1f99e0fb",
                 "shasum": null
             },
             "require": {
@@ -1743,7 +1743,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1818,16 +1818,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f"
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/3edf0ab943d1985a356721952cba36ff31bd6e5f",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1888,11 +1888,11 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-11-24T09:35:08+00:00"
+            "time": "2018-12-05T08:06:11+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1947,7 +1947,7 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -2072,16 +2072,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "97b9f457df748357eec101df5c8b1c649b543241"
+                "reference": "649460207e77da6c545326c7f53618d23ad2c866"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/97b9f457df748357eec101df5c8b1c649b543241",
-                "reference": "97b9f457df748357eec101df5c8b1c649b543241",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/649460207e77da6c545326c7f53618d23ad2c866",
+                "reference": "649460207e77da6c545326c7f53618d23ad2c866",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2151,7 +2151,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-11-29T14:48:32+00:00"
+            "time": "2018-12-03T22:08:12+00:00"
         }
     ],
     "packages-dev": [
@@ -4077,7 +4077,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
