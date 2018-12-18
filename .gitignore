@@ -9,3 +9,4 @@ vendor/
 .phpintel/
 .env
 .DS_Store
+composer.lock
