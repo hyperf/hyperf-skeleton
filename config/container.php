@@ -17,6 +17,8 @@ $serverDependencies = array_replace($configFromProviders['server_dependencies'] 
 /** @var ContainerInterface $container */
 if (true) {
     $container = new \Hyperflex\Di\Container(new \Hyperflex\Di\Definition\DefinitionSource($serverDependencies));
+    // Init all definitions
+    $container->initDependency();
 } else {
     $definitionSource = Definition::reorganizeDefinitions($serverDependencies ?? []);
     $container = (new ContainerBuilder())->useAnnotations(true)
