@@ -4,6 +4,7 @@ use Hyperflex\Contracts\StdoutLoggerInterface;
 use Psr\Log\LogLevel;
 
 return [
+    'initDependency' => true,
     StdoutLoggerInterface::class => [
         'log_level' => [
             LogLevel::ALERT,

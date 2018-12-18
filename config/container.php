@@ -13,6 +13,7 @@ use Psr\Container\ContainerInterface;
 $configFromProviders = \Hyperflex\Config\ProviderConfig::load();
 $definitions = require __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['server_dependencies'] ?? [], $definitions['server_dependencies'] ?? []);
+
 /** @var ContainerInterface $container */
 if (true) {
     $container = new \Hyperflex\Di\Container(new \Hyperflex\Di\Definition\DefinitionSource($serverDependencies));
