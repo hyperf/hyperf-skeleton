@@ -13,12 +13,12 @@ use Hyperflex\Di;
 
 $configFromProviders = \Hyperflex\Config\ProviderConfig::load();
 $definitions = require __DIR__ . '/dependencies.php';
-$serverDependencies = array_replace($configFromProviders['server_dependencies'] ?? [], $definitions['server_dependencies'] ?? []);
+$serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
 /** @var ContainerInterface $container */
 if (true) {
-    $container = new \Hyperflex\Di\Container(new \Hyperflex\Di\Definition\DefinitionSource($serverDependencies));
+    $container = new Di\Container(new Di\Definition\DefinitionSource($serverDependencies, new Di\Annotation\Scanner()));
     // Init all definitions
-    $container->initDependency();
+    // $container->initDependency();
 } else {
     $definitionSource = Definition::reorganizeDefinitions($dependencies ?? []);
     $container = (new ContainerBuilder())->useAnnotations(true)

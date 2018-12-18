@@ -16,7 +16,7 @@ return [
             ],
             'settings' => [
                 'enable_coroutine' => true,
-                'worker_num' => swoole_cpu_num(),
+                'worker_num' => 1,
                 'pid_file' => 'runtime/hyperflex.pid',
                 'open_tcp_nodelay' => false,
                 'max_coroutine' => 10000,
