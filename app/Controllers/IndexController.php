@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Psr\Container\ContainerInterface;
 use Hyperflex\Di\Annotation\Inject;
 
 class IndexController
@@ -21,9 +20,7 @@ class IndexController
 
     public function user(int $id)
     {
-        return [
-            'id' => $id
-        ];
+        return $this->userService->getUser($id);
     }
 
     public function int()
