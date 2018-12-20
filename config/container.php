@@ -6,7 +6,7 @@ use DI\ContainerBuilder;
 use Hyperflex\DependencyInjection\Definition;
 use Psr\Container\ContainerInterface;
 use Hyperflex\Di;
-
+use Hyperflex\Utils\Composer;
 /**
  * Initial a dependency injection container that implemented PSR-11 and return the container.
  */
@@ -16,7 +16,12 @@ $definitions = require __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
 /** @var ContainerInterface $container */
 if (true) {
-    $container = new Di\Container(new Di\Definition\DefinitionSource($serverDependencies, new Di\Annotation\Scanner()));
+    $scanDirs = Composer::getMergedExtra('hyperflex')['scan.paths'];
+    $scanDirs[] = 'app';
+
+    $scanner = new Di\Annotation\Scanner();
+    $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
+    $container = new Di\Container($definitionSource);
     // Init all definitions
     // $container->initDependency();
 } else {
