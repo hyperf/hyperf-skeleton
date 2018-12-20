@@ -17,9 +17,10 @@ $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], 
 
 /** @var ContainerInterface $container */
 if (true) {
+    $annotations = require __DIR__ . '/autoload/annotations.php';
     $scanDirs = $configFromProviders['scan']['paths'];
-    $scanDirs[] = 'app';
-
+    $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
+    
     $scanner = new Di\Annotation\Scanner();
     $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
     $container = new Di\Container($definitionSource);
