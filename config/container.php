@@ -16,7 +16,7 @@ $definitions = require __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
 /** @var ContainerInterface $container */
 if (true) {
-    $scanDirs = Composer::getMergedExtra('hyperflex')['scan.paths'];
+    $scanDirs = Composer::getMergedExtra('hyperflex')['scan'];
     $scanDirs[] = 'app';
 
     $scanner = new Di\Annotation\Scanner();
