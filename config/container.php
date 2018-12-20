@@ -14,9 +14,10 @@ use Hyperflex\Utils\Composer;
 $configFromProviders = \Hyperflex\Config\ProviderConfig::load();
 $definitions = require __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
+
 /** @var ContainerInterface $container */
 if (true) {
-    $scanDirs = Composer::getMergedExtra('hyperflex')['scan'];
+    $scanDirs = $configFromProviders['scan']['paths'];
     $scanDirs[] = 'app';
 
     $scanner = new Di\Annotation\Scanner();
