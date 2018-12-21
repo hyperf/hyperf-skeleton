@@ -2,8 +2,7 @@
 return [
     'scan' => [
         'paths' => [
-            'app/*',
-            'vendor/hyperflex/*',
+            'app',
         ],
         'ignore_annotations' => [
             'mixin',
