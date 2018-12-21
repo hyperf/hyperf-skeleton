@@ -2,14 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Services\UserService;
 use Hyperflex\Di\Annotation\Inject;
 
 class IndexController
 {
 
+    use TestTrait;
+
     /**
      * @Inject()
-     * @var \App\Services\UserService
+     * @var UserService
      */
     public $userService;
 
