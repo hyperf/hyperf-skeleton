@@ -18,14 +18,14 @@ class IndexController extends Controller
      */
     public $userService;
 
-    public static function staticMethod(int $id)
+    public static function staticMethodCall()
     {
-        return $id . parent::$staticValue;
+        return parent::$staticValue . self::$staticValue . static::$staticValue;
     }
 
     public function index()
     {
-        return 'Hello Hyperflex.' . self::staticMethod(1);
+        return 'Hello Hyperflex.' . self::staticMethodCall();
     }
 
     public function user(int $id)
