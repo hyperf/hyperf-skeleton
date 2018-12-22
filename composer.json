@@ -20,10 +20,9 @@
         "hyperflex/http-server": "dev-master",
         "hyperflex/dispatcher": "dev-master",
         "hyperflex/memory": "dev-master",
+        "hyperflex/grpc-server": "dev-master",
         "doctrine/common": "^2.9",
-        "swoft/http-message": "^1.0",
-        "google/protobuf": "v3.6.1.3",
-        "grpc/grpc": "^1.15"
+        "swoft/http-message": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
@@ -85,6 +84,10 @@
         "6": {
             "type": "path",
             "url": "../hyperflex-components/memory"
+        },
+        "7": {
+            "type": "path",
+            "url": "../hyperflex-components/grpc-server"
         },
         "packagist": {
             "type": "composer",

@@ -21,7 +21,7 @@ class DispatcherFactory
         $router = new RouteCollector($parser, $generator);
 
         Router::init($router);
-        require_once BASE_PATH . '/config/rpc_routes.php';
+        require_once BASE_PATH . '/config/other_routes.php';
 
         return new GroupCountBased($router->getData());
     }
