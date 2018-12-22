@@ -21,5 +21,4 @@ class CoreMiddleware extends \Hyperflex\HttpServer\CoreMiddleware
         $this->container = $container;
         $this->dispatcher = $container->get(Dispatcher::class);
     }
-
 }
