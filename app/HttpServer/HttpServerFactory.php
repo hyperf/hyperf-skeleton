@@ -1,9 +1,9 @@
 <?php
-namespace App\Grpc;
+namespace App\HttpServer;
 
 use Hyperflex\HttpServer\ServerFactory;
 
-class GrpcServerFactory extends ServerFactory
+class HttpServerFactory extends ServerFactory
 {
     protected $coreMiddleware = CoreMiddleware::class;
 }

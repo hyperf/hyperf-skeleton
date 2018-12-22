@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Grpc;
+namespace App\HttpServer;
 
 use FastRoute\RouteCollector;
 use FastRoute\Dispatcher\GroupCountBased;

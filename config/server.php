@@ -31,7 +31,7 @@ return [
                 $sockType = SWOOLE_SOCK_TCP,
             ],
             'callbacks' => [
-                'request' => [\App\Grpc\GrpcServer::class, 'onRequest'],
+                'request' => [\App\HttpServer\HttpServer::class, 'onRequest'],
             ],
         ]
     ],

@@ -1,5 +1,5 @@
 <?php
-namespace App\Grpc;
+namespace App\HttpServer;
 
 interface Dispatcher
 {
