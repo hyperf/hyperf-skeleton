@@ -18,9 +18,9 @@ class HiReply extends \Google\Protobuf\Internal\Message
      */
     private $message = '';
     /**
-     * Generated from protobuf field <code>repeated .grpc.HiUser user = 2;</code>
+     * Generated from protobuf field <code>.grpc.HiUser user = 2;</code>
      */
-    private $user;
+    private $user = null;
 
     /**
      * Constructor.
@@ -29,7 +29,7 @@ class HiReply extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $message
-     *     @type \Grpc\HiUser[]|\Google\Protobuf\Internal\RepeatedField $user
+     *     @type \Grpc\HiUser $user
      * }
      */
     public function __construct($data = NULL) {
@@ -60,8 +60,8 @@ class HiReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .grpc.HiUser user = 2;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>.grpc.HiUser user = 2;</code>
+     * @return \Grpc\HiUser
      */
     public function getUser()
     {
@@ -69,14 +69,14 @@ class HiReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .grpc.HiUser user = 2;</code>
-     * @param \Grpc\HiUser[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>.grpc.HiUser user = 2;</code>
+     * @param \Grpc\HiUser $var
      * @return $this
      */
     public function setUser($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Grpc\HiUser::class);
-        $this->user = $arr;
+        GPBUtil::checkMessage($var, \Grpc\HiUser::class);
+        $this->user = $var;
 
         return $this;
     }

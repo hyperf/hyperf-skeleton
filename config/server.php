@@ -33,6 +33,17 @@ return [
             'callbacks' => [
                 'request' => [\App\HttpServer\HttpServer::class, 'onRequest'],
             ],
+        ],
+        [
+            'server' => \Swoole\Http\Server::class,
+            'constructor' => [
+                $host = '0.0.0.0',
+                $port = 9503,
+                $sockType = SWOOLE_SOCK_TCP,
+            ],
+            'callbacks' => [
+                'request' => [\Hyperflex\GrpcServer\Server::class, 'onRequest'],
+            ],
         ]
     ],
 ];

@@ -14,5 +14,5 @@ message HiUser {
 
 message HiReply {
     string message = 1;
-    repeated HiUser user = 2;
+    HiUser user = 2;
 }
