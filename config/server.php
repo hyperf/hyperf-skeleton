@@ -20,6 +20,18 @@ return [
                 'pid_file' => 'runtime/hyperflex.pid',
                 'open_tcp_nodelay' => false,
                 'max_coroutine' => 10000,
+                'open_http2_protocol' => true
+            ],
+        ],
+        [
+            'server' => \Swoole\Http\Server::class,
+            'constructor' => [
+                $host = '0.0.0.0',
+                $port = 9502,
+                $sockType = SWOOLE_SOCK_TCP,
+            ],
+            'callbacks' => [
+                'request' => [\App\Grpc\GrpcServer::class, 'onRequest'],
             ],
         ]
     ],
