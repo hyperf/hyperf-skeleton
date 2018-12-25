@@ -25,7 +25,7 @@ if (true) {
     $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
     $container = new Di\Container($definitionSource);
     // Init all definitions
-    // $container->initDependency();
+    // $container->initDependencies();
 } else {
     $definitionSource = Definition::reorganizeDefinitions($dependencies ?? []);
     $container = (new ContainerBuilder())->useAnnotations(true)
