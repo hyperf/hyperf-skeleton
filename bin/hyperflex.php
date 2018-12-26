@@ -18,9 +18,6 @@ require BASE_PATH . '/vendor/autoload.php';
     /** @var \Psr\Container\ContainerInterface $container */
     $container = require BASE_PATH . '/config/container.php';
 
-    // TODO: Later move to the right place
-    \Hyperflex\Hyperflex::setContainer($container);
-
     $application = $container->get(\Hyperflex\ApplicationInterface::class);
     $application->run();
 })();

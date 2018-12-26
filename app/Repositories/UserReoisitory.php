@@ -27,11 +27,13 @@ class UserReoisitory
 
     public function fetchOne(int $id): ?array
     {
-        return Arr::where($this->data, function ($item) use ($id) {
+        foreach ($this->data as $item) {
             if (isset($item['id']) && $item['id'] === $id) {
                 return $item;
             }
-        });
+        }
+        return [];
+
     }
 
 }

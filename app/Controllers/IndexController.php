@@ -14,10 +14,19 @@ class IndexController extends Controller
     protected static $staticValue = 2;
 
     /**
-     * @Inject()
      * @var UserService
      */
     public $userService;
+
+    /**
+     * IndexController constructor.
+     *
+     * @param UserService $userService
+     */
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
     public static function staticMethodCall()
     {
