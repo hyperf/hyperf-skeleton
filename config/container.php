@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 use DI\ContainerBuilder;
 use Hyperflex\DependencyInjection\Definition;
-use Psr\Container\ContainerInterface;
 use Hyperflex\Di;
-use Hyperflex\Utils\Composer;
+use Hyperflex\Hyperflex;
+use Psr\Container\ContainerInterface;
+
 /**
  * Initial a dependency injection container that implemented PSR-11 and return the container.
  */
@@ -24,8 +25,6 @@ if (true) {
     $scanner = new Di\Annotation\Scanner();
     $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
     $container = new Di\Container($definitionSource);
-    // Init all definitions
-    // $container->initDependency();
 } else {
     $definitionSource = Definition::reorganizeDefinitions($dependencies ?? []);
     $container = (new ContainerBuilder())->useAnnotations(true)
@@ -40,4 +39,4 @@ if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new \RuntimeException('The dependency injection container is invalid.');
 }
 
-return $container;
+return Hyperflex::setContainer($container);
