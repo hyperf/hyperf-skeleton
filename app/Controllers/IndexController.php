@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Services\UserService;
 use Hyperflex\Di\Annotation\Inject;
+use Swoole\Coroutine;
 
 class IndexController extends Controller
 {
@@ -45,6 +46,13 @@ class IndexController extends Controller
     public function int()
     {
         return 1;
+    }
+
+    public function sleep()
+    {
+        $time = microtime(true);
+        Coroutine::sleep(1);
+        return microtime(true) - $time;
     }
 
 }
