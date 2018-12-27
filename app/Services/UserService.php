@@ -14,9 +14,17 @@ class UserService
      */
     private $repository;
 
-    public function getUser(int $id): array
+    public function getUser(int $id, $defaultName = 'Bob'): array
     {
-        return $this->repository->fetchOne($id);
+        $res = $this->repository->fetchOne($id);
+        if (empty($res)) {
+            return [
+                'id' => $id,
+                'name' => $defaultName
+            ];
+        }
+
+        return $res;
     }
 
     public function getUsers()
