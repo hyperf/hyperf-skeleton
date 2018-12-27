@@ -4,7 +4,7 @@
  */
 return [
     'dependencies' => [
-        \Hyperflex\Contract\ConfigInterface::class => \Hyperflex\Config\ConfigFactory::class,
+        \Hyperf\Contract\ConfigInterface::class => \Hyperf\Config\ConfigFactory::class,
         \App\HttpServer\HttpServer::class => \App\HttpServer\HttpServerFactory::class,
         \App\HttpServer\Dispatcher::class => \App\HttpServer\DispatcherFactory::class,
     ],

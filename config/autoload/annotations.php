@@ -2,7 +2,7 @@
 return [
     'scan' => [
         'paths' => [
-            'vendor/hyperflex',
+            'vendor/hyperf',
             'app',
         ],
         'ignore_annotations' => [

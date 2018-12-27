@@ -1,7 +1,9 @@
 <?php
 
-use Hyperflex\HttpServer\Router\Router;
+use Hyperf\HttpServer\Router\Router;
 
-Router::addGroup('/grpc.hi', function () {
-    Router::post('/sayHello', 'App\Controllers\HiController@sayHello');
-});
+Router::addGroup(
+    '/grpc.hi', function () {
+        Router::post('/sayHello', 'App\Controllers\HiController@sayHello');
+    }
+);

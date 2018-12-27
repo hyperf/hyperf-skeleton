@@ -4,7 +4,7 @@ namespace App\HttpServer;
 
 use Psr\Container\ContainerInterface;
 
-class CoreMiddleware extends \Hyperflex\HttpServer\CoreMiddleware
+class CoreMiddleware extends \Hyperf\HttpServer\CoreMiddleware
 {
     /**
      * @var Dispatcher

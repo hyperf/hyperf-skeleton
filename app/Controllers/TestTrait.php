@@ -3,7 +3,6 @@
 
 namespace App\Controllers;
 
-
 trait TestTrait
 {
 

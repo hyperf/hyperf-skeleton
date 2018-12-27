@@ -2,7 +2,7 @@
 
 namespace App\HttpServer;
 
-use Hyperflex\HttpServer\Router\DispatcherFactory as HttpDispatcherFactory;
+use Hyperf\HttpServer\Router\DispatcherFactory as HttpDispatcherFactory;
 
 class DispatcherFactory extends HttpDispatcherFactory
 {

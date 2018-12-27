@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-
 use Grpc\HiReply;
 use Grpc\HiUser;
 use Swoole\Coroutine;
@@ -15,7 +14,7 @@ class HiController
 
         $reply = new HiReply();
         $reply->setUser($hiUser);
-        $reply->setMessage('Hi Hyperflex!');
+        $reply->setMessage('Hi Hyperf!');
         return $reply;
     }
 }

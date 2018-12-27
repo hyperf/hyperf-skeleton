@@ -2,8 +2,7 @@
 
 namespace App\Services;
 
-
-use Hyperflex\Di\Annotation\Inject;
+use Hyperf\Di\Annotation\Inject;
 
 class UserService
 {
@@ -31,5 +30,4 @@ class UserService
     {
         return $this->repository->fetchAll();
     }
-
 }

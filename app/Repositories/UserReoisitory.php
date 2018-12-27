@@ -2,8 +2,7 @@
 
 namespace App\Repositories;
 
-
-use Hyperflex\Utils\Arr;
+use Hyperf\Utils\Arr;
 
 class UserReoisitory
 {
@@ -33,7 +32,5 @@ class UserReoisitory
             }
         }
         return [];
-
     }
-
 }

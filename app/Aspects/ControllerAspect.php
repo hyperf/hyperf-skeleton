@@ -2,11 +2,10 @@
 
 namespace App\Aspects;
 
-
 use App\Controllers\IndexController;
-use Hyperflex\Di\Annotation\Aspect;
-use Hyperflex\Di\Aop\ArroundInterface;
-use Hyperflex\Di\Aop\ProceedingJoinPoint;
+use Hyperf\Di\Annotation\Aspect;
+use Hyperf\Di\Aop\ArroundInterface;
+use Hyperf\Di\Aop\ProceedingJoinPoint;
 
 /**
  * @Aspect()

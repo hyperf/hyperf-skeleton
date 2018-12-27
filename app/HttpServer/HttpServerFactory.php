@@ -1,7 +1,7 @@
 <?php
 namespace App\HttpServer;
 
-use Hyperflex\HttpServer\ServerFactory;
+use Hyperf\HttpServer\ServerFactory;
 
 class HttpServerFactory extends ServerFactory
 {

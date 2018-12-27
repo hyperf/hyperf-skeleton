@@ -34,7 +34,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        return 'Hello Hyperflex.' . self::staticMethodCall();
+        return 'Hello Hyperf.' . self::staticMethodCall();
     }
 
     public function user(int $id)
@@ -53,5 +53,4 @@ class IndexController extends Controller
         Coroutine::sleep(1);
         return microtime(true) - $time;
     }
-
 }

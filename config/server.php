@@ -10,14 +10,14 @@ return [
                 $sockType = SWOOLE_SOCK_TCP,
             ],
             'callbacks' => [
-                'request' => [\Hyperflex\HttpServer\Server::class, 'onRequest'],
-                'start' => [\Hyperflex\Framework\Bootstrap\ServerStartCallback::class, 'onStart'],
-                'workerStart' => [\Hyperflex\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
+                'request' => [\Hyperf\HttpServer\Server::class, 'onRequest'],
+                'start' => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'onStart'],
+                'workerStart' => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'settings' => [
                 'enable_coroutine' => true,
                 'worker_num' => 1,
-                'pid_file' => 'runtime/hyperflex.pid',
+                'pid_file' => 'runtime/hyperf.pid',
                 'open_tcp_nodelay' => false,
                 'max_coroutine' => 10000,
                 'open_http2_protocol' => true
@@ -42,7 +42,7 @@ return [
                 $sockType = SWOOLE_SOCK_TCP,
             ],
             'callbacks' => [
-                'request' => [\Hyperflex\GrpcServer\Server::class, 'onRequest'],
+                'request' => [\Hyperf\GrpcServer\Server::class, 'onRequest'],
             ],
         ]
     ],

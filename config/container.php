@@ -5,12 +5,11 @@
 
 declare(strict_types=1);
 
-use Hyperflex\Config\ProviderConfig;
-use Hyperflex\Di\Annotation\Scanner;
-use Hyperflex\Di\Container;
-use Hyperflex\Di\Definition\DefinitionSource;
-use Hyperflex\Framework\Hyperflex;
-
+use Hyperf\Config\ProviderConfig;
+use Hyperf\Di\Annotation\Scanner;
+use Hyperf\Di\Container;
+use Hyperf\Di\Definition\DefinitionSource;
+use Hyperf\Framework\Hyperf;
 
 $configFromProviders = ProviderConfig::load();
 $definitions = include __DIR__ . '/dependencies.php';
@@ -27,5 +26,4 @@ $container = new Container($definitionSource);
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new RuntimeException('The dependency injection container is invalid.');
 }
-
-return Hyperflex::setContainer($container);
+return Hyperf::setContainer($container);

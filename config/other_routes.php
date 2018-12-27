@@ -1,5 +1,5 @@
 <?php
 
-use Hyperflex\HttpServer\Router\Router;
+use Hyperf\HttpServer\Router\Router;
 
 Router::get('/', [\App\Controllers\IndexController::class, 'index']);
