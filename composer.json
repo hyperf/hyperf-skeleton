@@ -15,6 +15,7 @@
         "php": ">=7.1",
         "ext-swoole": ">=4.2",
         "hyperflex/config": "dev-master",
+        "hyperflex/contract": "dev-master",
         "hyperflex/di": "dev-master",
         "hyperflex/dispatcher": "dev-master",
         "hyperflex/grpc-server": "dev-master",
