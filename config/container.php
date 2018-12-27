@@ -13,31 +13,22 @@ use Psr\Container\ContainerInterface;
  */
 
 $configFromProviders = \Hyperflex\Config\ProviderConfig::load();
-$definitions = require __DIR__ . '/dependencies.php';
+$definitions = include __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
 
-/** @var ContainerInterface $container */
-if (true) {
-    $annotations = require __DIR__ . '/autoload/annotations.php';
-    $scanDirs = $configFromProviders['scan']['paths'];
-    $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
-    // @TODO Handle different path level.
-    $scanDirs = [
-        'vendor/hyperflex',
-        'app',
-    ];
+$annotations = include __DIR__ . '/autoload/annotations.php';
+$scanDirs = $configFromProviders['scan']['paths'];
+$scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
 
-    $scanner = new Di\Annotation\Scanner();
-    $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
-    $container = new Di\Container($definitionSource);
-} else {
-    $definitionSource = Definition::reorganizeDefinitions($dependencies ?? []);
-    $container = (new ContainerBuilder())->useAnnotations(true)
-        ->useAutowiring(true)
-        ->writeProxiesToFile(true, BASE_PATH . '/runtime/container/proxy')
-        ->addDefinitions($definitionSource)
-        ->build();
-}
+// @TODO Handle different path level.
+$scanDirs = [
+    'vendor/hyperflex',
+    'app',
+];
+
+$scanner = new Di\Annotation\Scanner();
+$definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
+$container = new Di\Container($definitionSource);
 
 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
