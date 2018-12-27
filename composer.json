@@ -30,7 +30,8 @@
         "hyperflex/coding-standard": "~1.0.0",
         "symfony/console": "^4.1",
         "php-di/php-di": "^6.0",
-        "swoft/swoole-ide-helper": "^4.2"
+        "swoft/swoole-ide-helper": "^4.2",
+        "phpmd/phpmd": "^2.6"
     },
     "autoload": {
         "psr-4": {
