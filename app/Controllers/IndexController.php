@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Services\UserService;
-use Hyperflex\Di\Annotation\Inject;
 use Swoole\Coroutine;
 
 class IndexController extends Controller

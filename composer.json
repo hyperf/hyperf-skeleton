@@ -14,15 +14,15 @@
     "require": {
         "php": ">=7.1",
         "ext-swoole": ">=4.2",
-        "hyperflex/hyperflex": "dev-master",
         "hyperflex/config": "dev-master",
         "hyperflex/di": "dev-master",
-        "hyperflex/http-server": "dev-master",
         "hyperflex/dispatcher": "dev-master",
-        "hyperflex/memory": "dev-master",
         "hyperflex/grpc-server": "dev-master",
-        "doctrine/common": "^2.9",
-        "swoft/http-message": "^1.0"
+        "hyperflex/http-server": "dev-master",
+        "hyperflex/framework": "dev-master",
+        "hyperflex/memory": "dev-master",
+        "hyperflex/utils": "dev-master",
+        "hyperflex/hyperflex": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
@@ -59,35 +59,7 @@
     "repositories": {
         "0": {
             "type": "path",
-            "url": "../hyperflex-components/hyperflex"
-        },
-        "1": {
-            "type": "path",
-            "url": "../hyperflex-components/config"
-        },
-        "2": {
-            "type": "path",
-            "url": "../hyperflex-components/utils"
-        },
-        "3": {
-            "type": "path",
-            "url": "../hyperflex-components/di"
-        },
-        "4": {
-            "type": "path",
-            "url": "../hyperflex-components/http-server"
-        },
-        "5": {
-            "type": "path",
-            "url": "../hyperflex-components/dispatcher"
-        },
-        "6": {
-            "type": "path",
-            "url": "../hyperflex-components/memory"
-        },
-        "7": {
-            "type": "path",
-            "url": "../hyperflex-components/grpc-server"
+            "url": "../hyperflex-components"
         },
         "packagist": {
             "type": "composer",

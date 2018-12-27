@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
-use Hyperflex\DependencyInjection\Definition;
+use Hyperflex\Framework\DependencyInjection\Definition;
 use Hyperflex\Di;
-use Hyperflex\Hyperflex;
+use Hyperflex\Framework\Hyperflex;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -21,7 +21,12 @@ if (true) {
     $annotations = require __DIR__ . '/autoload/annotations.php';
     $scanDirs = $configFromProviders['scan']['paths'];
     $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
-    
+    // @TODO Handle different path level.
+    $scanDirs = [
+        'vendor/hyperflex',
+        'app',
+    ];
+
     $scanner = new Di\Annotation\Scanner();
     $definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
     $container = new Di\Container($definitionSource);

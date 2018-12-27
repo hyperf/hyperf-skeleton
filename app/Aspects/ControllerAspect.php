@@ -21,7 +21,7 @@ class ControllerAspect implements ArroundInterface
 
     public $annotations = [];
 
-    public function handle(ProceedingJoinPoint $proceedingJoinPoint)
+    public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {
         $className = $proceedingJoinPoint->className;
         $method = $proceedingJoinPoint->method;

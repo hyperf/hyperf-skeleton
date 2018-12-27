@@ -11,8 +11,8 @@ return [
             ],
             'callbacks' => [
                 'request' => [\Hyperflex\HttpServer\Server::class, 'onRequest'],
-                'start' => [\Hyperflex\Bootstrap\ServerStartCallback::class, 'onStart'],
-                'workerStart' => [\Hyperflex\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
+                'start' => [\Hyperflex\Framework\Bootstrap\ServerStartCallback::class, 'onStart'],
+                'workerStart' => [\Hyperflex\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'settings' => [
                 'enable_coroutine' => true,
