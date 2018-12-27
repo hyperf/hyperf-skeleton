@@ -56,15 +56,7 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "test": "./vendor/bin/phpunit -c phpunit.xml --colors=always",
-        "check": [
-            "@license-check",
-            "@cs-check",
-            "@test"
-        ],
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
-        "phpstan": "phpstan analyze -l max -c phpstan.neon ./app",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "cs-fix": "php-cs-fixer fix $1",
         "start": "php ./bin/hyperf.php start"
     },
     "repositories": {

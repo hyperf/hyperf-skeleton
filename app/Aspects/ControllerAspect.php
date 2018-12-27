@@ -1,4 +1,13 @@
 <?php
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.org
+ * @document https://wiki.hyperf.org
+ * @contact  group@hyperf.org
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Aspects;
 
@@ -8,11 +17,10 @@ use Hyperf\Di\Aop\ArroundInterface;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
 /**
- * @Aspect()
+ * @Aspect
  */
 class ControllerAspect implements ArroundInterface
 {
-
     public $classes
         = [
             IndexController::class,
