@@ -1,18 +1,18 @@
 <?php
-
-declare(strict_types=1);
-
-use DI\ContainerBuilder;
-use Hyperflex\Framework\DependencyInjection\Definition;
-use Hyperflex\Di;
-use Hyperflex\Framework\Hyperflex;
-use Psr\Container\ContainerInterface;
-
 /**
  * Initial a dependency injection container that implemented PSR-11 and return the container.
  */
 
-$configFromProviders = \Hyperflex\Config\ProviderConfig::load();
+declare(strict_types=1);
+
+use Hyperflex\Config\ProviderConfig;
+use Hyperflex\Di\Annotation\Scanner;
+use Hyperflex\Di\Container;
+use Hyperflex\Di\Definition\DefinitionSource;
+use Hyperflex\Framework\Hyperflex;
+
+
+$configFromProviders = ProviderConfig::load();
 $definitions = include __DIR__ . '/dependencies.php';
 $serverDependencies = array_replace($configFromProviders['dependencies'] ?? [], $definitions['dependencies'] ?? []);
 
@@ -26,13 +26,12 @@ $scanDirs = [
     'app',
 ];
 
-$scanner = new Di\Annotation\Scanner();
-$definitionSource = new Di\Definition\DefinitionSource($serverDependencies, $scanDirs, $scanner);
-$container = new Di\Container($definitionSource);
+$definitionSource = new DefinitionSource($serverDependencies, $scanDirs, new Scanner());
+$container = new Container($definitionSource);
 
 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
-    throw new \RuntimeException('The dependency injection container is invalid.');
+    throw new RuntimeException('The dependency injection container is invalid.');
 }
 
 return Hyperflex::setContainer($container);
