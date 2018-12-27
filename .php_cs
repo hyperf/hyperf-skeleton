@@ -34,6 +34,7 @@ return PhpCsFixer\Config::create()
         'php_unit_strict' => false,
         'single_quote' => true,
         'standardize_not_equals' => true,
+        'declare_strict_types' => true,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
