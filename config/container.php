@@ -20,12 +20,6 @@ $annotations = include __DIR__ . '/autoload/annotations.php';
 $scanDirs = $configFromProviders['scan']['paths'];
 $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
 
-// @TODO Handle different path level.
-$scanDirs = [
-    'vendor/hyperflex',
-    'app',
-];
-
 $definitionSource = new DefinitionSource($serverDependencies, $scanDirs, new Scanner());
 $container = new Container($definitionSource);
 
