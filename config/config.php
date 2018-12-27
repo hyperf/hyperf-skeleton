@@ -1,6 +1,6 @@
 <?php
 // The configurations that placed in this file will loaded after worker started.
-use Hyperflex\Framework\Contracts\StdoutLoggerInterface;
+use Hyperflex\Framework\Contract\StdoutLoggerInterface;
 use Psr\Log\LogLevel;
 
 return [
