@@ -17,6 +17,7 @@ class ControllerAspect implements ArroundInterface
     public $classes
         = [
             IndexController::class,
+            'App\\Services\\*',
         ];
 
     public $annotations = [];
