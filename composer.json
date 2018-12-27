@@ -55,7 +55,16 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "test": "./vendor/bin/phpunit -c phpunit.xml",
+        "test": "./vendor/bin/phpunit -c phpunit.xml --colors=always",
+        "check": [
+            "@license-check",
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "phpstan": "phpstan analyze -l max -c phpstan.neon ./src",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
         "start": "php ./bin/hyperflex.php start"
     },
     "repositories": {
