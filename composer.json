@@ -16,6 +16,7 @@
         "ext-swoole": ">=4.2",
         "hyperf/config": "dev-master",
         "hyperf/contract": "dev-master",
+        "hyperf/devtool": "dev-master",
         "hyperf/di": "dev-master",
         "hyperf/dispatcher": "dev-master",
         "hyperf/grpc-server": "dev-master",
