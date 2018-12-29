@@ -14,6 +14,7 @@ $router->addRoute(['GET', 'POST', 'HEAD'], '/int', 'App\Controllers\IndexControl
 Router::get('/', [\App\Controllers\IndexController::class, 'index']);
 Router::get('/index/index', 'App\Controllers\IndexController@index');
 Router::get('/index/sleep', 'App\Controllers\IndexController@sleep');
+Router::get('/index/database', 'App\Controllers\IndexController@database');
 
 Router::addGroup(
     '/v2', function () {

@@ -12,6 +12,9 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Services\UserService;
+use Hyperf\Database\Connection;
+use Hyperf\DbConnection\Pool\DbPool;
+use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
 class IndexController extends Controller
@@ -60,5 +63,17 @@ class IndexController extends Controller
         $time = microtime(true);
         Coroutine::sleep(1);
         return microtime(true) - $time;
+    }
+
+    public function database(ContainerInterface $container)
+    {
+        $pool = $container->get(DbPool::class);
+        $conn = $pool->get();
+        /** @var Connection $connection */
+        $connection = $conn->getConnection();
+
+        $res = $connection->table('user')->where('id', '=', 1)->get();
+
+        return $res;
     }
 }
