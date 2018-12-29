@@ -1,6 +1,6 @@
 <?php
 
-use Hyperf\HttpServer\Router\Router;
+use Hyperf\GrpcServer\Router\Router;
 
 Router::addGroup(
     '/grpc.hi', function () {
