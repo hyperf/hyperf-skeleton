@@ -17,6 +17,8 @@
         "hyperf/config": "dev-master",
         "hyperf/contract": "dev-master",
         "hyperf/devtool": "dev-master",
+        "hyperf/database": "dev-master",
+        "hyperf/db-connection": "dev-master",
         "hyperf/di": "dev-master",
         "hyperf/dispatcher": "dev-master",
         "hyperf/grpc-server": "dev-master",
