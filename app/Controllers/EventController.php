@@ -4,9 +4,6 @@ namespace App\Controllers;
 
 use App\Events\BeforeResponse;
 use Hyperf\Event\EventManager;
-use Hyperf\Event\ListenerProvider;
-use Hyperf\Event\MessageNotifier;
-use Hyperf\Event\TaskProcessor;
 use Hyperf\HttpServer\Annotation\AutoController;
 
 /**
