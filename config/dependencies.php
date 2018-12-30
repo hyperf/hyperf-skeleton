@@ -5,7 +5,6 @@
 return [
     'dependencies' => [
         \Hyperf\Contract\ConfigInterface::class => \Hyperf\Config\ConfigFactory::class,
-        \App\HttpServer\HttpServer::class => \App\HttpServer\HttpServerFactory::class,
-        \App\HttpServer\Dispatcher::class => \App\HttpServer\DispatcherFactory::class,
+        \App\HttpServer\HttpServer::class => \Hyperf\HttpServer\ServerFactory::class
     ],
 ];

@@ -1,15 +1,10 @@
 <?php
 
-use FastRoute\RouteCollector;
 use Hyperf\HttpServer\Router\Router;
 
-/**
- * @var RouteCollector $router
- */
-
-$router->addRoute(['GET', 'POST', 'HEAD'], '/index', [\App\Controllers\IndexController::class, 'index']);
-$router->addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controllers\IndexController::class, 'user']);
-$router->addRoute(['GET', 'POST', 'HEAD'], '/int', 'App\Controllers\IndexController@int');
+Router::addRoute(['GET', 'POST', 'HEAD'], '/index', [\App\Controllers\IndexController::class, 'index']);
+Router::addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controllers\IndexController::class, 'user']);
+Router::addRoute(['GET', 'POST', 'HEAD'], '/int', 'App\Controllers\IndexController@int');
 
 Router::get('/', [\App\Controllers\IndexController::class, 'index']);
 Router::get('/index/index', 'App\Controllers\IndexController@index');
@@ -21,3 +16,14 @@ Router::addGroup(
         Router::get('/', [\App\Controllers\IndexController::class, 'index']);
     }
 );
+
+Router::addServer('grpcServer', function () {
+    Router::addGroup('/grpc.hi', function () {
+        Router::post('/sayHello', 'App\Controllers\HiController@sayHello');
+    });
+});
+
+Router::addServer('innerHttpServer', function () {
+    Router::get('/', 'App\Controllers\IndexController@index');
+});
+
