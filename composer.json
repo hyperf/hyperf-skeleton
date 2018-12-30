@@ -21,6 +21,7 @@
         "hyperf/db-connection": "dev-master",
         "hyperf/di": "dev-master",
         "hyperf/dispatcher": "dev-master",
+        "hyperf/event": "dev-master",
         "hyperf/grpc-server": "dev-master",
         "hyperf/http-server": "dev-master",
         "hyperf/framework": "dev-master",
