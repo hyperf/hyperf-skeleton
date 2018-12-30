@@ -28,7 +28,7 @@ $connection = $connector->make($dbConfig);
 $res = $connection->table('user')->where('id', '=', 1)->get();
 
 $resolver = new \Hyperf\Database\ConnectionResolver(['default' => $connection]);
-\Hyperf\Database\Model\Model::setConnectionResolver($resolver);
+\Hyperf\Database\Model\Register::setConnectionResolver($resolver);
 
 $user = User::query()->where('id', '=', 1)->first();
 
