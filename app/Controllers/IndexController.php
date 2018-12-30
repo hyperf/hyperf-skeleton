@@ -11,9 +11,11 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\User;
 use App\Services\UserService;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\DbPool;
+use Hyperf\DbConnection\Pool\PoolFactory;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
@@ -67,7 +69,9 @@ class IndexController extends Controller
 
     public function database(ContainerInterface $container)
     {
-        $pool = $container->get(DbPool::class);
+        $factory = $container->get(PoolFactory::class);
+        $pool = $factory->getDbPool('default');
+
         $conn = $pool->get();
         /** @var Connection $connection */
         $connection = $conn->getConnection();
@@ -75,5 +79,12 @@ class IndexController extends Controller
         $res = $connection->table('user')->where('id', '=', 1)->get();
 
         return $res;
+    }
+
+    public function model()
+    {
+        $user = User::query()->where('id', '=', 1)->first();
+
+        return $user->toArray();
     }
 }
