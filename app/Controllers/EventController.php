@@ -24,8 +24,10 @@ class EventController
 
     public function index()
     {
-        $this->eventManager->trigger((new BeforeResponse())->setData('Hello Task Event.'));
-        return 'Hello EventManager.';
+        $response = 'Hello EventManager';
+        $event = (new BeforeResponse())->setData($response);
+        $this->eventManager->trigger($event);
+        return $event->getData();
     }
 
 }
