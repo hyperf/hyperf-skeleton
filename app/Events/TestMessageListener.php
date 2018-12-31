@@ -3,9 +3,13 @@
 namespace App\Events;
 
 
+use Hyperf\Event\Annotation\MessageListener;
 use Hyperf\Event\Contract\MessageListenerInterface;
 use Psr\EventDispatcher\MessageInterface;
 
+/**
+ * @MessageListener()
+ */
 class TestMessageListener implements MessageListenerInterface
 {
 

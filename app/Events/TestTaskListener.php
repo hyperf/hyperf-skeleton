@@ -3,11 +3,15 @@
 namespace App\Events;
 
 
+use Hyperf\Event\Annotation\TaskListener;
 use Hyperf\Event\Contract\MessageListenerInterface;
 use Hyperf\Event\Contract\TaskListenerInterface;
 use Psr\EventDispatcher\MessageInterface;
 use Psr\EventDispatcher\TaskInterface;
 
+/**
+ * @TaskListener()
+ */
 class TestTaskListener implements TaskListenerInterface
 {
 
