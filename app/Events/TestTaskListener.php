@@ -3,8 +3,10 @@
 namespace App\Events;
 
 
+use Hyperf\Event\Contract\MessageListenerInterface;
 use Hyperf\Event\Contract\TaskListenerInterface;
-use Psr\EventDispatcher\EventInterface;
+use Psr\EventDispatcher\MessageInterface;
+use Psr\EventDispatcher\TaskInterface;
 
 class TestTaskListener implements TaskListenerInterface
 {
@@ -20,12 +22,13 @@ class TestTaskListener implements TaskListenerInterface
     }
 
     /**
-     * Handler the task event when the event triggered.
+     * Handle the Task Event when the event is triggered, all listeners will
+     * complete before the Task event is returned to the EventEmitter.
      */
-    public function process(EventInterface $event): EventInterface
+    public function process(TaskInterface $event)
     {
         /** @var \App\Events\BeforeResponse $event */
         var_dump($event->getData());
-        return $event;
+        $event->setData($event->getData() . ' !!!');
     }
 }
