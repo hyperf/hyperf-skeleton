@@ -2,7 +2,7 @@
 return [
     'servers' => [
         [
-            'name' => 'httpServer',
+            'name' => 'http',
             'server' => \Swoole\Http\Server::class,
             'constructor' => [
                 $host = '0.0.0.0',
