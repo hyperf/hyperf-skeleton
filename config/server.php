@@ -25,7 +25,7 @@ return [
             ],
         ],
         [
-            'name' => 'innerHttpServer',
+            'name' => 'innerHttp',
             'server' => \Swoole\Http\Server::class,
             'constructor' => [
                 $host = '0.0.0.0',
@@ -37,7 +37,7 @@ return [
             ],
         ],
         [
-            'name' => 'grpcServer',
+            'name' => 'grpc',
             'server' => \Swoole\Http\Server::class,
             'constructor' => [
                 $host = '0.0.0.0',

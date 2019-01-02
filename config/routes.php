@@ -18,13 +18,13 @@ Router::addGroup(
     }
 );
 
-Router::addServer('grpcServer', function () {
+Router::addServer('grpc', function () {
     Router::addGroup('/grpc.hi', function () {
         Router::post('/sayHello', 'App\Controllers\HiController@sayHello');
     });
 });
 
-Router::addServer('innerHttpServer', function () {
+Router::addServer('innerHttp', function () {
     Router::get('/', 'App\Controllers\IndexController@index');
 });
 
