@@ -5,7 +5,7 @@ namespace App\Events;
 
 use Psr\EventDispatcher\MessageInterface;
 
-class RequestMessage implements MessageInterface
+class RequestMessage
 {
 
     /**

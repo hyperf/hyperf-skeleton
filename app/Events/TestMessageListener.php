@@ -3,14 +3,15 @@
 namespace App\Events;
 
 
-use Hyperf\Event\Annotation\MessageListener;
+use Hyperf\Event\Annotation\Listener;
+use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Event\Contract\MessageListenerInterface;
 use Psr\EventDispatcher\MessageInterface;
 
 /**
- * @MessageListener()
+ * @Listener()
  */
-class TestMessageListener implements MessageListenerInterface
+class TestMessageListener implements ListenerInterface
 {
 
     /**
@@ -24,10 +25,10 @@ class TestMessageListener implements MessageListenerInterface
     }
 
     /**
-     * Handler the message event when the event triggered.
-     * Notice that this action maybe defered.
+     * Handle the Event when the event is triggered, all listeners will
+     * complete before the event is returned to the EventDispatcher.
      */
-    public function notify(MessageInterface $event)
+    public function process($event)
     {
         /** @var \App\Events\RequestMessage $event */
         defer(function () use ($event) {

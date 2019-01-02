@@ -1,9 +1,9 @@
 <?php
 
 use App\Events\TestMessageListener;
-use App\Events\TestTaskListener;
+use App\Events\TestListener;
 
 return [
-    TestTaskListener::class,
+    TestListener::class,
     TestMessageListener::class,
 ];

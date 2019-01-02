@@ -5,7 +5,7 @@ namespace App\Events;
 
 use Psr\EventDispatcher\TaskInterface;
 
-class BeforeResponse implements TaskInterface
+class BeforeResponse
 {
 
     protected $data;
