@@ -13,6 +13,7 @@ namespace App\Aspects;
 
 use App\Controllers\IndexController;
 use Hyperf\Di\Annotation\Aspect;
+use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Aop\ArroundInterface;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
@@ -27,8 +28,13 @@ class ControllerAspect implements ArroundInterface
             'App\\Services\\*',
         ];
 
-    public $annotations = [];
+    public $annotations = [
+        Debug::class,
+    ];
 
+    /**
+     * @inheritdoc
+     */
     public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {
         $className = $proceedingJoinPoint->className;

@@ -29,7 +29,7 @@ class TestListener implements ListenerInterface
      * Handle the Task Event when the event is triggered, all listeners will
      * complete before the Task event is returned to the EventEmitter.
      */
-    public function process($event)
+    public function process(object $event)
     {
         /** @var \App\Events\BeforeResponse $event */
         var_dump($event->getData());
