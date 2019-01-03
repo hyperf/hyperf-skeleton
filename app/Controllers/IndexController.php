@@ -16,6 +16,7 @@ use App\Services\UserService;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\DbPool;
 use Hyperf\DbConnection\Pool\PoolFactory;
+use Hyperf\Framework\ApplicationContext;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
@@ -86,5 +87,14 @@ class IndexController extends Controller
         $user = User::query()->where('id', '=', 1)->first();
 
         return $user->toArray();
+    }
+
+    public function redis()
+    {
+        $redis = ApplicationContext::getContainer()->get(\Redis::class);
+
+        $res = $redis->keys('*');
+
+        return $res;
     }
 }
