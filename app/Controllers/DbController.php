@@ -34,6 +34,7 @@ class DbController
     public function hasOne()
     {
         $user = User::query()->where('id', '=', 1)->first();
-        return $user->toArray();
+
+        return $user->book->toArray();
     }
 }
