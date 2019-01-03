@@ -13,8 +13,13 @@ class User extends Model
      */
     protected $table = 'user';
 
-    public function book()
+    public function ext()
     {
-        return $this->hasOne(Book::class, 'user_id', 'id');
+        return $this->hasOne(UserExt::class, 'id', 'id');
+    }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'user_id', 'id');
     }
 }

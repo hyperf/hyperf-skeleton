@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.24)
 # Database: hyperf
-# Generation Time: 2019-01-03 11:54:03 +0000
+# Generation Time: 2019-01-03 12:42:39 +0000
 # ************************************************************
 
 
@@ -39,9 +39,34 @@ LOCK TABLES `book` WRITE;
 
 INSERT INTO `book` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'Hyperf开发指南','2018-01-01 00:00:00','2018-01-01 00:00:00');
+	(1,1,'Hyperf开发指南','2018-01-01 00:00:00','2018-01-01 00:00:00'),
+	(2,1,'Hyperf文档','2018-01-02 00:00:00','2018-01-02 00:00:00');
 
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table role
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `role`;
+
+CREATE TABLE `role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL DEFAULT '',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+
+INSERT INTO `role` (`id`, `name`, `created_at`, `updated_at`)
+VALUES
+	(1,'作者','2018-01-01 00:00:00','2018-01-01 00:00:00');
+
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -67,6 +92,55 @@ VALUES
 	(1,'Hyperf',1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table user_ext
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user_ext`;
+
+CREATE TABLE `user_ext` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `count` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `user_ext` WRITE;
+/*!40000 ALTER TABLE `user_ext` DISABLE KEYS */;
+
+INSERT INTO `user_ext` (`id`, `count`, `created_at`, `updated_at`)
+VALUES
+	(1,1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
+
+/*!40000 ALTER TABLE `user_ext` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table user_role
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user_role`;
+
+CREATE TABLE `user_role` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `role_id` bigint(20) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `user_role` WRITE;
+/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+
+INSERT INTO `user_role` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
+VALUES
+	(1,1,1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
+
+/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

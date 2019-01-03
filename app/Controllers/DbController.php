@@ -35,6 +35,13 @@ class DbController
     {
         $user = User::query()->where('id', '=', 1)->first();
 
-        return $user->book->toArray();
+        return $user->ext->toArray();
+    }
+
+    public function hasMany()
+    {
+        $user = User::query()->where('id', '=', 1)->first();
+
+        return $user->books->toArray();
     }
 }
