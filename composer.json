@@ -12,7 +12,7 @@
     "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "ext-swoole": ">=4.2",
         "hyperf/config": "dev-master",
         "hyperf/contract": "dev-master",
@@ -27,6 +27,7 @@
         "hyperf/framework": "dev-master",
         "hyperf/memory": "dev-master",
         "hyperf/pool": "dev-master",
+        "hyperf/redis": "dev-master",
         "hyperf/utils": "dev-master",
         "hyperf/hyperf": "dev-master"
     },
@@ -49,7 +50,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HyperfTest\\Dispatcher\\": "./vendor/hyperf/dispatcher/test/"
+            "HyperfTest\\Dispatcher\\": "./vendor/hyperf/hyperf/src/dispatcher/test/"
         }
     },
     "minimum-stability": "dev",

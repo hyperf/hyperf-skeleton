@@ -4,7 +4,7 @@ return [
     'default' => [
         'driver' => 'mysql',
         'host' => 'localhost',
-        'database' => 'test',
+        'database' => 'hyperf',
         'username' => 'root',
         'password' => '910123',
         'charset' => 'utf8',

@@ -11,6 +11,7 @@ Router::get('/index/index', 'App\Controllers\IndexController@index');
 Router::get('/index/sleep', 'App\Controllers\IndexController@sleep');
 Router::get('/index/database', 'App\Controllers\IndexController@database');
 Router::get('/index/model', 'App\Controllers\IndexController@model');
+Router::get('/index/redis', 'App\Controllers\IndexController@redis');
 
 Router::addGroup(
     '/v2', function () {
