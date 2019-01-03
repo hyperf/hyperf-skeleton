@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 
+use Hyperf\Di\Annotation\Debug;
 use Hyperf\HttpServer\Annotation\GetMapping;
 
 /**
@@ -12,6 +13,7 @@ class AnnotationController
 {
 
     /**
+     * @Debug()
      * @GetMapping(path="/get");
      */
     public function get()

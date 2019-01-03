@@ -16,7 +16,7 @@ use Hyperf\Di\Annotation\Inject;
 class UserService
 {
     /**
-     * @Inject
+     * @Inject()
      * @var \App\Repositories\UserReoisitory
      */
     private $repository;
