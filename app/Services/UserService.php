@@ -11,8 +11,12 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Annotation\Inject;
 
+/**
+ * @Debug()
+ */
 class UserService
 {
     /**
@@ -37,5 +41,14 @@ class UserService
     public function getUsers()
     {
         return $this->repository->fetchAll();
+    }
+
+    public function getUserName(int $id):string
+    {
+        $res = $this->repository->fetchOne($id);
+        if (!empty($res)) {
+            return $res['name'];
+        }
+        return 'Null';
     }
 }

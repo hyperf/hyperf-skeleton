@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use Hyperf\Di\Annotation\Debug;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\GetMapping;
 
 /**
@@ -11,6 +12,12 @@ use Hyperf\HttpServer\Annotation\GetMapping;
  */
 class AnnotationController
 {
+
+    /**
+     * @Inject()
+     * @var \App\Services\UserService
+     */
+    private $userService;
 
     /**
      * @GetMapping(path="/get");
@@ -25,7 +32,7 @@ class AnnotationController
      */
     public function debug()
     {
-        return 'debug';
+        return $this->userService->getUserName(1) . ' debug';
     }
 
 }
