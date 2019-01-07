@@ -13,12 +13,19 @@ class AnnotationController
 {
 
     /**
-     * @Debug()
      * @GetMapping(path="/get");
      */
     public function get()
     {
-        return 'Hello';
+        return $this->debug() . ' Hello';
+    }
+
+    /**
+     * @Debug()
+     */
+    public function debug()
+    {
+        return 'debug';
     }
 
 }
