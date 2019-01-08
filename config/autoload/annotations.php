@@ -2,8 +2,7 @@
 return [
     'scan' => [
         'paths' => [
-            'vendor/hyperf/hyperf',
-            'app',
+            BASE_PATH . '/app',
         ],
         'ignore_annotations' => [
             'mixin',
