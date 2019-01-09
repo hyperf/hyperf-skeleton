@@ -16,6 +16,4 @@ return [
             LogLevel::WARNING,
         ],
     ],
-    'databases' => include __DIR__ . '/databases.php',
-    'redis' => include __DIR__ . '/redis.php',
 ];
