@@ -7,6 +7,7 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controllers\In
 Router::addRoute(['GET', 'POST', 'HEAD'], '/int', 'App\Controllers\IndexController@int');
 
 Router::get('/', [\App\Controllers\IndexController::class, 'index']);
+Router::get('/index/static', 'App\Controllers\IndexController@staticIndex');
 Router::get('/index/index', 'App\Controllers\IndexController@index');
 Router::get('/index/sleep', 'App\Controllers\IndexController@sleep');
 Router::get('/index/database', 'App\Controllers\IndexController@database');
