@@ -48,7 +48,12 @@ class IndexController extends Controller
 
     public function index()
     {
-        return 'Hello Hyperf.' . self::staticMethodCall();
+        return 'Hello Hyperf.';
+    }
+
+    public function staticIndex()
+    {
+        return 'Hello Hyperf ' . static::staticMethodCall() . '.';
     }
 
     public function user(int $id)
