@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Observers\UserObserver;
 use Hyperf\DbConnection\Model\Model;
 
 class User extends Model
@@ -12,6 +13,8 @@ class User extends Model
      * @var string
      */
     protected $table = 'user';
+
+    public static $observer = UserObserver::class;
 
     public function ext()
     {

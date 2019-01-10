@@ -44,4 +44,17 @@ class DbController
 
         return $user->books->toArray();
     }
+
+    public function create()
+    {
+        $user = new User();
+        $user->name = uniqid();
+        $user->sex = 1;
+
+        if ($user->save()) {
+            return 'success';
+        }
+
+        return 'failed';
+    }
 }
