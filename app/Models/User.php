@@ -14,7 +14,10 @@ class User extends Model
      */
     protected $table = 'user';
 
-    public static $listener = UserListener::class;
+    public function saving()
+    {
+        $this->setCreatedAt('2019-01-01');
+    }
 
     public function ext()
     {
