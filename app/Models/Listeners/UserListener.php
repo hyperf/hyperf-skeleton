@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Observers;
+namespace App\Models\Listeners;
 
 use App\Models\User;
-use Hyperf\Database\Model\Observer;
+use Hyperf\Database\Model\Listener;
 
-class UserObserver extends Observer
+class UserListener extends Listener
 {
     public function saving(User $model)
     {

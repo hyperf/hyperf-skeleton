@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Observers\UserObserver;
+use App\Models\Listeners\UserListener;
 use Hyperf\DbConnection\Model\Model;
 
 class User extends Model
@@ -14,7 +14,7 @@ class User extends Model
      */
     protected $table = 'user';
 
-    public static $observer = UserObserver::class;
+    public static $listener = UserListener::class;
 
     public function ext()
     {
