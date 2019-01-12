@@ -15,6 +15,9 @@ return [
                 'start' => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'onStart'],
                 'workerStart' => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
+            'processes' => [
+                \App\Processes\DemoProcess::class
+            ],
             'settings' => [
                 'enable_coroutine' => true,
                 'worker_num' => 1,
