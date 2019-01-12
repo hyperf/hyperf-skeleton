@@ -9,15 +9,11 @@ class DemoProcess extends Process
 {
     protected $num = 1;
 
-    protected $name = 'demo_process';
+    public $name = 'demo_process';
 
     public function handle()
     {
-        $redis = $this->container->get(\Redis::class);
-        while (true) {
-            $res = $redis->keys('*');
-            var_dump($res);
-            sleep(1);
-        }
+        echo 'You can do ...' . PHP_EOL;
+        sleep(1);
     }
 }
