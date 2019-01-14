@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Services\DemoService;
 use App\Services\UserService;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\DbPool;
@@ -101,5 +102,13 @@ class IndexController extends Controller
         $res = $redis->keys('*');
 
         return $res;
+    }
+
+    public function incr()
+    {
+        return [
+            DemoService::instance()->incr(),
+            DemoService::incr2()
+        ];
     }
 }
