@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Models\User;
+use Hyperf\HttpServer\Contract\HttpRequestInterface;
 use Hyperf\Utils\Context;
 use Psr\Container\ContainerInterface;
 use Hyperf\HttpServer\Annotation\AutoController;
@@ -25,9 +26,10 @@ class DbController
         $this->container = $container;
     }
 
-    public function user()
+    public function user(HttpRequestInterface $request)
     {
-        $user = User::query()->where('id', '=', 1)->first();
+        $id = $request->input('id', 1);
+        $user = User::query()->where('id', '=', $id)->first();
         return $user->toArray();
     }
 
