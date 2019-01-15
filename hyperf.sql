@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.24)
 # Database: hyperf
-# Generation Time: 2019-01-03 12:42:39 +0000
+# Generation Time: 2019-01-15 06:00:34 +0000
 # ************************************************************
 
 
@@ -40,7 +40,8 @@ LOCK TABLES `book` WRITE;
 INSERT INTO `book` (`id`, `user_id`, `title`, `created_at`, `updated_at`)
 VALUES
 	(1,1,'Hyperf开发指南','2018-01-01 00:00:00','2018-01-01 00:00:00'),
-	(2,1,'Hyperf文档','2018-01-02 00:00:00','2018-01-02 00:00:00');
+	(2,1,'Hyperf文档','2018-01-02 00:00:00','2018-01-02 00:00:00'),
+	(3,2,'Hyperf组件开发指南','2018-01-02 00:00:00','2018-01-02 00:00:00');
 
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -89,7 +90,8 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`id`, `name`, `sex`, `created_at`, `updated_at`)
 VALUES
-	(1,'Hyperf',1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
+	(1,'Hyperf',1,'2018-01-01 00:00:00','2018-01-01 00:00:00'),
+	(2,'Hyperflex',1,'2019-01-01 00:00:00','2019-01-11 03:44:00');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -138,7 +140,8 @@ LOCK TABLES `user_role` WRITE;
 
 INSERT INTO `user_role` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 VALUES
-	(1,1,1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
+	(1,1,1,'2018-01-01 00:00:00','2018-01-01 00:00:00'),
+	(2,2,1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
 
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;

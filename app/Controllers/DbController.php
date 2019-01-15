@@ -33,6 +33,12 @@ class DbController
         return $user->toArray();
     }
 
+    public function with()
+    {
+        $user = User::query()->with('books')->get();
+        return $user->toArray();
+    }
+
     public function hasOne()
     {
         $user = User::query()->where('id', '=', 1)->first();
