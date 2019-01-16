@@ -14,6 +14,7 @@ namespace App\Controllers;
 use App\Models\User;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\RequestInterface as Request;
+use Hyperf\HttpServer\Contract\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -31,11 +32,11 @@ class DbController
         $this->container = $container;
     }
 
-    public function user(Request $request)
+    public function user(Request $request, Response $response)
     {
         $id = $request->input('id', 1);
         $user = User::query()->where('id', '=', $id)->first();
-        return $user->toArray();
+        return $response->json($user);
     }
 
     public function with()
