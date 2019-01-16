@@ -1,15 +1,20 @@
 <?php
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.org
+ * @document https://wiki.hyperf.org
+ * @contact  group@hyperf.org
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Controllers;
 
-
 use App\Models\User;
-use Hyperf\HttpServer\Contract\HttpRequestInterface;
-use Hyperf\Utils\Context;
-use Psr\Container\ContainerInterface;
 use Hyperf\HttpServer\Annotation\AutoController;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Hyperf\HttpServer\Contract\RequestInterface as Request;
+use Psr\Container\ContainerInterface;
 
 /**
  * @AutoController
@@ -26,7 +31,7 @@ class DbController
         $this->container = $container;
     }
 
-    public function user(HttpRequestInterface $request)
+    public function user(Request $request)
     {
         $id = $request->input('id', 1);
         $user = User::query()->where('id', '=', $id)->first();
