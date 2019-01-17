@@ -14,6 +14,12 @@ class DemoProcess extends Process
     public function handle()
     {
         echo 'You can do ...' . PHP_EOL;
-        sleep(1);
+
+        while (true) {
+            $redis = $this->container->get(\Redis::class);
+            $res = $redis->keys('*');
+
+            sleep(1);
+        }
     }
 }
