@@ -16,7 +16,8 @@ return [
                 'workerStart' => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'processes' => [
-                \App\Processes\DemoProcess::class
+                \App\Processes\DemoProcess::class,
+                \App\Processes\QueueProcess::class,
             ],
             'settings' => [
                 'enable_coroutine' => true,

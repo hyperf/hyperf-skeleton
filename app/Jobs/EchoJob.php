@@ -8,12 +8,12 @@
 
 namespace App\Jobs;
 
-use Hyperf\Queue\JobInterface;
+use Hyperf\Queue\Job;
 
-class EchoJob implements JobInterface
+class EchoJob extends Job
 {
     public function handle()
     {
-        echo 'handle job success.' . PHP_EOL;
+        echo 'handle [EchoJob] success.' . PHP_EOL;
     }
 }

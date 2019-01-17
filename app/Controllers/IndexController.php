@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Jobs\AttemptsJob;
 use App\Jobs\EchoJob;
 use App\Models\User;
 use App\Services\DemoService;
@@ -134,6 +135,7 @@ class IndexController extends Controller
         /** @var DriverInterface $driver */
         $driver = $factory->default;
         $driver->push(new EchoJob());
+        $driver->push(new AttemptsJob());
         return 1;
     }
 }
