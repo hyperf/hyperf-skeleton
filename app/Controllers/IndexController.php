@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Jobs\EchoJob;
 use App\Models\User;
 use App\Services\DemoService;
 use App\Services\UserService;
@@ -21,6 +22,8 @@ use Hyperf\DbConnection\Pool\DbPool;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
 use Hyperf\Guzzle\CoroutineHandler;
+use Hyperf\Queue\Driver\DriverFactory;
+use Hyperf\Queue\Driver\DriverInterface;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
@@ -123,5 +126,14 @@ class IndexController extends Controller
         ]);
 
         return $client->get('/')->getBody()->getContents();
+    }
+
+    public function job()
+    {
+        $factory = ApplicationContext::getContainer()->get(DriverFactory::class);
+        /** @var DriverInterface $driver */
+        $driver = $factory->default;
+        $driver->push(new EchoJob());
+        return 1;
     }
 }

@@ -15,6 +15,7 @@ Router::get('/index/model', 'App\Controllers\IndexController@model');
 Router::get('/index/redis', 'App\Controllers\IndexController@redis');
 Router::get('/index/incr', 'App\Controllers\IndexController@incr');
 Router::get('/index/guzzle_handler', 'App\Controllers\IndexController@guzzleHandler');
+Router::get('/index/job', 'App\Controllers\IndexController@job');
 
 Router::addGroup(
     '/v2', function () {
