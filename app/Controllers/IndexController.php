@@ -11,12 +11,20 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Jobs\AttemptsJob;
+use App\Jobs\EchoJob;
 use App\Models\User;
+use App\Services\DemoService;
 use App\Services\UserService;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\DbPool;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
+use Hyperf\Guzzle\CoroutineHandler;
+use Hyperf\Queue\Driver\DriverFactory;
+use Hyperf\Queue\Driver\DriverInterface;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
@@ -101,5 +109,33 @@ class IndexController extends Controller
         $res = $redis->keys('*');
 
         return $res;
+    }
+
+    public function incr()
+    {
+        return [
+            DemoService::instance()->incr(),
+            DemoService::incr2()
+        ];
+    }
+
+    public function guzzleHandler()
+    {
+        $client = new Client([
+            'handler' => HandlerStack::create(new CoroutineHandler()),
+            'base_uri' => 'http://127.0.0.1:9501'
+        ]);
+
+        return $client->get('/')->getBody()->getContents();
+    }
+
+    public function job()
+    {
+        $factory = ApplicationContext::getContainer()->get(DriverFactory::class);
+        /** @var DriverInterface $driver */
+        $driver = $factory->default;
+        $driver->push(new EchoJob());
+        $driver->push(new AttemptsJob());
+        return 1;
     }
 }

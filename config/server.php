@@ -18,6 +18,10 @@ return [
                 SwooleEvent::ON_BEFORE_START => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'beforeStart'],
                 SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
+            'processes' => [
+                \App\Processes\DemoProcess::class,
+                \App\Processes\QueueProcess::class,
+            ],
             'settings' => [
                 'enable_coroutine' => true,
                 'worker_num' => 1,

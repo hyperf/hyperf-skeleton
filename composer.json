@@ -23,10 +23,13 @@
         "hyperf/dispatcher": "dev-master",
         "hyperf/event": "dev-master",
         "hyperf/grpc-server": "dev-master",
+        "hyperf/guzzle": "dev-master",
         "hyperf/http-server": "dev-master",
         "hyperf/framework": "dev-master",
         "hyperf/memory": "dev-master",
         "hyperf/pool": "dev-master",
+        "hyperf/process": "dev-master",
+        "hyperf/queue": "dev-master",
         "hyperf/redis": "dev-master",
         "hyperf/utils": "dev-master",
         "hyperf/hyperf": "dev-master"
