@@ -19,10 +19,12 @@ use App\Services\UserService;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Hyperf\Database\Connection;
-use Hyperf\DbConnection\Pool\DbPool;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
+use Hyperf\Guzzle\ClientFactory;
 use Hyperf\Guzzle\CoroutineHandler;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Queue\Driver\DriverFactory;
 use Hyperf\Queue\Driver\DriverInterface;
 use Psr\Container\ContainerInterface;
@@ -54,9 +56,9 @@ class IndexController extends Controller
         return parent::$staticValue . self::$staticValue . static::$staticValue;
     }
 
-    public function index()
+    public function index(RequestInterface $request,  ResponseInterface $response)
     {
-        return 'Hello Hyperf.';
+        return $response->raw('Hello Hyperf.');
     }
 
     public function staticIndex()
@@ -121,10 +123,7 @@ class IndexController extends Controller
 
     public function guzzleHandler()
     {
-        $client = new Client([
-            'handler' => HandlerStack::create(new CoroutineHandler()),
-            'base_uri' => 'http://127.0.0.1:9501'
-        ]);
+        $client = ClientFactory::createClient(['base_uri' => 'http://127.0.0.1:9501']);
 
         return $client->get('/')->getBody()->getContents();
     }
