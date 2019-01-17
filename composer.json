@@ -23,6 +23,7 @@
         "hyperf/dispatcher": "dev-master",
         "hyperf/event": "dev-master",
         "hyperf/grpc-server": "dev-master",
+        "hyperf/guzzle": "dev-master",
         "hyperf/http-server": "dev-master",
         "hyperf/framework": "dev-master",
         "hyperf/memory": "dev-master",

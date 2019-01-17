@@ -14,10 +14,13 @@ namespace App\Controllers;
 use App\Models\User;
 use App\Services\DemoService;
 use App\Services\UserService;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\DbPool;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
+use Hyperf\Guzzle\CoroutineHandler;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
@@ -110,5 +113,15 @@ class IndexController extends Controller
             DemoService::instance()->incr(),
             DemoService::incr2()
         ];
+    }
+
+    public function guzzleHandler()
+    {
+        $client = new Client([
+            'handler' => HandlerStack::create(new CoroutineHandler()),
+            'base_uri' => 'http://127.0.0.1:9501'
+        ]);
+
+        return $client->get('/')->getBody()->getContents();
     }
 }
