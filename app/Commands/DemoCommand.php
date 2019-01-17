@@ -2,6 +2,8 @@
 
 namespace App\Commands;
 
+use App\Models\User;
+use Hyperf\Utils\Coroutine;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\LogicException;
@@ -20,6 +22,16 @@ class DemoCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $user = User::query()->where('id', 1)->first();
+        print_r($user->toArray());
+
+        // TODO: Redis release after any action, so it throw PHP Fatal error:  Swoole\Coroutine\Channel::push(): must be called in the coroutine.
+        go(function () {
+            $redis = $this->container->get(\Redis::class);
+            $res = $redis->keys('*');
+            print_r($res);
+        });
+
         $output->writeln('You can do something...');
     }
 }
