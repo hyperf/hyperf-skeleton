@@ -1,4 +1,7 @@
 <?php
+
+use Hyperf\Framework\Constants\SwooleEvent;
+
 return [
     'servers' => [
         [
@@ -11,17 +14,18 @@ return [
                 $sockType = SWOOLE_SOCK_TCP,
             ],
             'callbacks' => [
-                'request' => [\Hyperf\HttpServer\Server::class, 'onRequest'],
-                'start' => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'onStart'],
-                'workerStart' => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
+                SwooleEvent::ON_REQUEST => [\Hyperf\HttpServer\Server::class, 'onRequest'],
+                SwooleEvent::ON_BEFORE_START => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'beforeStart'],
+                SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'settings' => [
                 'enable_coroutine' => true,
                 'worker_num' => 1,
                 'pid_file' => 'runtime/hyperf.pid',
                 'open_tcp_nodelay' => false,
-                'max_coroutine' => 10000,
-                'open_http2_protocol' => true
+                'max_coroutine' => 100000,
+                'open_http2_protocol' => true,
+                'msx_rewurdt' => 10000,
             ],
         ],
         [
