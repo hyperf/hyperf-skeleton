@@ -6,5 +6,6 @@ return [
         'channel' => 'queue',
         'timeout' => 2,
         'retry_seconds' => 5,
+        'processes' => 1,
     ],
 ];

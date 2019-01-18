@@ -7,7 +7,7 @@ use Hyperf\Process\Process;
 
 class DemoProcess extends Process
 {
-    protected $num = 1;
+    protected $processes = 1;
 
     public $name = 'demo_process';
 

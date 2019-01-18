@@ -19,8 +19,8 @@ return [
                 SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'processes' => [
+                \Hyperf\Queue\Process\QueueProcess::class,
                 \App\Processes\DemoProcess::class,
-                \App\Processes\QueueProcess::class,
             ],
             'settings' => [
                 'enable_coroutine' => true,
