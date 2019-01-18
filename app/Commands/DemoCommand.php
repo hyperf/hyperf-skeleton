@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use App\Models\User;
+use Hyperf\Framework\Contract\StdoutLoggerInterface;
 use Hyperf\Utils\Coroutine;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
