@@ -19,7 +19,7 @@ return [
                 SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
             ],
             'processes' => [
-                \Hyperf\Queue\Process\QueueProcess::class,
+                \Hyperf\Queue\Process\ConsumerProcess::class,
                 \App\Processes\DemoProcess::class,
             ],
             'settings' => [
