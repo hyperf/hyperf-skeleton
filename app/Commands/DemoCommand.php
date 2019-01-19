@@ -3,8 +3,11 @@
 namespace App\Commands;
 
 use App\Models\User;
+use Hyperf\Amqp\Pool\AmqpPool;
+use Hyperf\Amqp\Pool\PoolFactory;
 use Hyperf\Framework\Contract\StdoutLoggerInterface;
 use Hyperf\Utils\Coroutine;
+use PhpAmqpLib\Connection\AbstractConnection;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\LogicException;
@@ -29,6 +32,12 @@ class DemoCommand extends Command
         $redis = $this->container->get(\Redis::class);
         $res = $redis->keys('*');
         print_r($res);
+
+        $factory = $this->container->get(PoolFactory::class);
+        $pool = $factory->getAmqpPool('default');
+        /** @var AbstractConnection $conn */
+        $conn = $pool->get()->getConnection();
+        print_r($conn->channel());
 
         $output->writeln('You can do something...');
     }

@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Amqp\DemoPublisher;
 use App\Jobs\AttemptsJob;
 use App\Jobs\EchoJob;
 use App\Models\User;
@@ -56,7 +57,7 @@ class IndexController extends Controller
         return parent::$staticValue . self::$staticValue . static::$staticValue;
     }
 
-    public function index(RequestInterface $request,  ResponseInterface $response)
+    public function index(RequestInterface $request, ResponseInterface $response)
     {
         return $response->raw('Hello Hyperf.');
     }
@@ -135,6 +136,14 @@ class IndexController extends Controller
         $driver = $factory->default;
         $driver->push(new EchoJob());
         $driver->push(new AttemptsJob());
+        return 1;
+    }
+
+    public function amqp()
+    {
+        $publisher = new DemoPublisher();
+        $publisher->setData(['id' => uniqid(), 'message' => 'Hi Hyperf.'])->publish();
+
         return 1;
     }
 }
