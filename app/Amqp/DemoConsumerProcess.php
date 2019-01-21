@@ -9,14 +9,14 @@
 namespace App\Amqp;
 
 
+use Hyperf\Amqp\Consumer;
 use Hyperf\Process\Process;
 
 class DemoConsumerProcess extends Process
 {
     public function handle()
     {
-        $consumer = new DemoConsumer();
-
-        $consumer->consume();
+        $consumer = $this->container->get(Consumer::class);
+        $consumer->consume(new DemoConsumer());
     }
 }

@@ -12,7 +12,7 @@ class DemoConsumer extends Consumer
 
     protected $queue = 'demo.queue';
 
-    public function handle($data): bool
+    public function consume($data): bool
     {
         print_r($data);
         return true;
