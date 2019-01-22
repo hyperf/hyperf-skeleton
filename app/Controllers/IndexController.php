@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Amqp\DemoPublisher;
+use App\Amqp\DemoProducer;
 use App\Jobs\AttemptsJob;
 use App\Jobs\EchoJob;
 use App\Models\User;
@@ -19,6 +19,7 @@ use App\Services\DemoService;
 use App\Services\UserService;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use Hyperf\Amqp\Producer;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
@@ -141,8 +142,9 @@ class IndexController extends Controller
 
     public function amqp()
     {
-        $publisher = new DemoPublisher();
-        $publisher->setData(['id' => uniqid(), 'message' => 'Hi Hyperf.'])->publish();
+        $message = new DemoProducer(['id' => uniqid(), 'message' => 'Hi Hyperf.']);
+        $producer = ApplicationContext::getContainer()->get(Producer::class);
+        $producer->produce($message);
 
         return 1;
     }

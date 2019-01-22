@@ -1,6 +1,6 @@
 <?php
 
-use Hyperf\Framework\Constants\SwooleEvent;
+use Hyperf\Framework\SwooleEvent;
 
 return [
     'servers' => [
@@ -21,7 +21,7 @@ return [
             'processes' => [
                 \Hyperf\Queue\Process\ConsumerProcess::class,
                 \App\Processes\DemoProcess::class,
-                // \App\Amqp\DemoConsumerProcess::class,
+                \App\Amqp\DemoConsumerProcess::class,
             ],
             'settings' => [
                 'enable_coroutine' => true,
