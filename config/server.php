@@ -1,6 +1,6 @@
 <?php
 
-use Hyperf\Framework\Constants\SwooleEvent;
+use Hyperf\Framework\SwooleEvent;
 
 return [
     'servers' => [
