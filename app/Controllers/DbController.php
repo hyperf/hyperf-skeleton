@@ -48,7 +48,7 @@ class DbController
 
     public function usersCache(Request $request, Response $response)
     {
-        $user = User::findManyFromCache([1,2,3,4,5]);
+        $user = User::findManyFromCache([5, 4, 3, 1, 2]);
         return $response->json($user);
     }
 
@@ -83,5 +83,15 @@ class DbController
         }
 
         return 'failed';
+    }
+
+    public function update()
+    {
+        $user = User::findFromCache(2);
+        sleep(2);
+
+        $user->update();
+
+        return $user->toArray();
     }
 }
