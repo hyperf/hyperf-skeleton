@@ -23,5 +23,10 @@ class UserExt extends Model
      */
     protected $table = 'user_ext';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['id', 'count', 'created_at', 'updated_at'];
 }

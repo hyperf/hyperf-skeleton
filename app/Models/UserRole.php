@@ -23,5 +23,10 @@ class UserRole extends Model
      */
     protected $table = 'user_role';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['id', 'user_id', 'role_id', 'created_at', 'updated_at'];
 }

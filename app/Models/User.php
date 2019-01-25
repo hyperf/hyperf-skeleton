@@ -18,7 +18,7 @@ use Hyperf\DbConnection\Model\Model;
 class User extends Model
 {
     use Cacheable;
-
+    
     /**
      * The table associated with the model.
      *
@@ -26,6 +26,11 @@ class User extends Model
      */
     protected $table = 'user';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['id', 'name', 'sex', 'created_at', 'updated_at'];
 
     public function saving()
