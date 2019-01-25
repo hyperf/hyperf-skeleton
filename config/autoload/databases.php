@@ -18,5 +18,12 @@ return [
             'wait_timeout' => 3.0,
             'heartbeat' => -1,
         ],
+        'cache' => [
+            'handler' => \Hyperf\DbConnection\Cache\Handler\RedisHandler::class,
+            'cache_key' => 'mc:%s:m:%s:%s:%s',
+            'prefix' => 'default',
+            'ttl' => 3600 * 24,
+            'load_script' => true,
+        ]
     ],
 ];

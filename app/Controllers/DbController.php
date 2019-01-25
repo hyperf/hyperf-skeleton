@@ -39,6 +39,19 @@ class DbController
         return $response->json($user);
     }
 
+    public function userCache(Request $request, Response $response)
+    {
+        $id = $request->input('id', 1);
+        $user = User::findFromCache($id);
+        return $response->json($user);
+    }
+
+    public function usersCache(Request $request, Response $response)
+    {
+        $user = User::findManyFromCache([1,2,3,4,5]);
+        return $response->json($user);
+    }
+
     public function with()
     {
         $user = User::query()->with('books')->get();
