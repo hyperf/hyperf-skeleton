@@ -14,6 +14,13 @@ namespace App\Models;
 
 use Hyperf\DbConnection\Model\Model;
 
+/**
+ * @property $id
+ * @property $user_id
+ * @property $title
+ * @property $created_at
+ * @property $updated_at
+ */
 class Book extends Model
 {
     /**

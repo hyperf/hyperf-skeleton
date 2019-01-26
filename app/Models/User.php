@@ -15,6 +15,13 @@ namespace App\Models;
 use Hyperf\DbConnection\Cache\Cacheable;
 use Hyperf\DbConnection\Model\Model;
 
+/**
+ * @property $id
+ * @property $name
+ * @property $sex
+ * @property $created_at
+ * @property $updated_at
+ */
 class User extends Model
 {
     use Cacheable;

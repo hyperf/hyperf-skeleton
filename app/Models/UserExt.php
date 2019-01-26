@@ -14,6 +14,12 @@ namespace App\Models;
 
 use Hyperf\DbConnection\Model\Model;
 
+/**
+ * @property $id
+ * @property $count
+ * @property $created_at
+ * @property $updated_at
+ */
 class UserExt extends Model
 {
     /**
