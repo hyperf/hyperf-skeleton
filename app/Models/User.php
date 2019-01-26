@@ -18,7 +18,7 @@ use Hyperf\DbConnection\Model\Model;
 class User extends Model
 {
     use Cacheable;
-    
+
     /**
      * The table associated with the model.
      *

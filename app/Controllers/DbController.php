@@ -88,9 +88,10 @@ class DbController
     public function update()
     {
         $user = User::findFromCache(2);
-        sleep(2);
-
-        $user->update();
+        go(function () use ($user) {
+            sleep(2);
+            $user->update();
+        });
 
         return $user->toArray();
     }
