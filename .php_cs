@@ -52,6 +52,9 @@ return PhpCsFixer\Config::create()
             'equal' => false,
             'identical' => false,
         ],
+        'phpdoc_align' => [
+            'align' => 'left',
+        ],
         'class_attributes_separation' => true,
         'combine_consecutive_unsets' => true,
         'declare_strict_types' => true,
@@ -65,7 +68,6 @@ return PhpCsFixer\Config::create()
         'ordered_class_elements' => true,
         'ordered_imports' => true,
         'php_unit_strict' => false,
-        'phpdoc_trim_consecutive_blank_line_separation' => false,
         'phpdoc_separation' => false,
         'single_quote' => true,
         'standardize_not_equals' => true,
