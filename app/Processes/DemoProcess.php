@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Processes;
 
+use Hyperf\Framework\Contract\StdoutLoggerInterface;
 use Hyperf\Process\Process;
 
 class DemoProcess extends Process
@@ -22,7 +23,8 @@ class DemoProcess extends Process
 
     public function handle()
     {
-        echo 'You can do ...' . PHP_EOL;
+        $logger = $this->container->get(StdoutLoggerInterface::class);
+        $logger->debug('You can do ...' );
 
         while (true) {
             $redis = $this->container->get(\Redis::class);
