@@ -15,6 +15,7 @@ return PhpCsFixer\Config::create()
         '@PSR2' => true,
         '@Symfony' => true,
         '@DoctrineAnnotation' => true,
+        '@PhpCsFixer' => true,
         'header_comment' => [
             'commentType' => 'PHPDoc',
             'header' => $header,
@@ -45,6 +46,11 @@ return PhpCsFixer\Config::create()
         ],
         'list_syntax' => [
             'syntax' => 'short',
+        ],
+        'yoda_style' => [
+            'always_move_variable' => false,
+            'equal' => false,
+            'identical' => false,
         ],
         'class_attributes_separation' => true,
         'combine_consecutive_unsets' => true,
