@@ -21,10 +21,10 @@ class DemoProcess extends Process
 
     protected $nums = 1;
 
-    public function handle()
+    public function handle(): void
     {
         $logger = $this->container->get(StdoutLoggerInterface::class);
-        $logger->debug('You can do ...' );
+        $logger->debug('You can do ...');
 
         while (true) {
             $redis = $this->container->get(\Redis::class);
