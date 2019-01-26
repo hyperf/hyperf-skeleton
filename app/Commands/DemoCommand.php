@@ -1,20 +1,24 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.org
+ * @document https://wiki.hyperf.org
+ * @contact  group@hyperf.org
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
+
 namespace App\Commands;
 
 use App\Models\User;
-use Hyperf\Amqp\Pool\AmqpPool;
 use Hyperf\Amqp\Pool\PoolFactory;
-use Hyperf\Framework\Contract\StdoutLoggerInterface;
-use Hyperf\Utils\Coroutine;
 use PhpAmqpLib\Connection\AbstractConnection;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 
 class DemoCommand extends Command
 {

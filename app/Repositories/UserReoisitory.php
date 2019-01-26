@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * This file is part of Hyperf.
@@ -22,7 +23,7 @@ class UserReoisitory
             [
                 'id' => 2,
                 'name' => 'Sam',
-            ]
+            ],
         ];
 
     public function fetchAll(): array

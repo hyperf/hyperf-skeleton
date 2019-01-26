@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * This file is part of Hyperf.
@@ -17,14 +18,11 @@ use App\Jobs\EchoJob;
 use App\Models\User;
 use App\Services\DemoService;
 use App\Services\UserService;
-use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
 use Hyperf\Amqp\Producer;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Framework\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
-use Hyperf\Guzzle\CoroutineHandler;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Queue\Driver\DriverFactory;
@@ -45,8 +43,6 @@ class IndexController extends Controller
 
     /**
      * IndexController constructor.
-     *
-     * @param UserService $userService
      */
     public function __construct(UserService $userService)
     {
@@ -119,7 +115,7 @@ class IndexController extends Controller
     {
         return [
             DemoService::instance()->incr(),
-            DemoService::incr2()
+            DemoService::incr2(),
         ];
     }
 

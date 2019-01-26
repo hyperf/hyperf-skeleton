@@ -2,7 +2,8 @@
 return [
     'handler' => [
         'http' => [
-            \Hyperf\HttpServer\Exception\Handler\HttpExceptionHandler::class,
+            \App\Exception\Handlers\BusinessExceptionHandler::class,
+            // \Hyperf\HttpServer\Exception\Handler\HttpExceptionHandler::class,
         ],
     ],
 ];

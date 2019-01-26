@@ -1,15 +1,24 @@
 <?php
 
-namespace App\Processes;
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.org
+ * @document https://wiki.hyperf.org
+ * @contact  group@hyperf.org
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
 
+namespace App\Processes;
 
 use Hyperf\Process\Process;
 
 class DemoProcess extends Process
 {
-    protected $nums = 1;
-
     public $name = 'demo_process';
+
+    protected $nums = 1;
 
     public function handle()
     {

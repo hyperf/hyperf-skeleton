@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * This file is part of Hyperf.
@@ -15,12 +16,12 @@ use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Annotation\Inject;
 
 /**
- * @Debug()
+ * @Debug
  */
 class UserService
 {
     /**
-     * @Inject()
+     * @Inject
      * @var \App\Repositories\UserReoisitory
      */
     private $repository;
@@ -31,7 +32,7 @@ class UserService
         if (empty($res)) {
             return [
                 'id' => $id,
-                'name' => $defaultName
+                'name' => $defaultName,
             ];
         }
 
@@ -43,10 +44,10 @@ class UserService
         return $this->repository->fetchAll();
     }
 
-    public function getUserName(int $id):string
+    public function getUserName(int $id): string
     {
         $res = $this->repository->fetchOne($id);
-        if (!empty($res)) {
+        if (! empty($res)) {
             return $res['name'];
         }
         return 'Null';
