@@ -55,6 +55,9 @@ return PhpCsFixer\Config::create()
         'phpdoc_align' => [
             'align' => 'left',
         ],
+        'multiline_whitespace_before_semicolons' => [
+            'strategy' => 'no_multi_line',
+        ],
         'class_attributes_separation' => true,
         'combine_consecutive_unsets' => true,
         'declare_strict_types' => true,
