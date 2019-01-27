@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace App\Constants;
 
-use Hyperf\Constants\Constants;
-use Hyperf\Constants\Annotation\Constant;
+use Hyperf\Constants\AbstractConstants;
+use Hyperf\Constants\Annotation\Constants;
 
 /**
- * @Constant
+ * @Constants
  */
-class ErrorCode extends Constants
+class ErrorCode extends AbstractConstants
 {
     /**
      * @Message("服务器内部错误！")
