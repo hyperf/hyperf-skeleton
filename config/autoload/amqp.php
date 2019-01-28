@@ -10,6 +10,8 @@ return [
         'pool' => [
             'min_connections' => 1,
             'max_connections' => 10,
+            'min_channels' => 1,
+            'max_channels' => 1000,
             'connect_timeout' => 10.0,
             'wait_timeout' => 3.0,
             'heartbeat' => -1,
