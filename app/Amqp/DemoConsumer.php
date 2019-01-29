@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace App\Amqp;
 
-use Hyperf\Amqp\Message\Consumer;
+use Hyperf\Amqp\Message\ConsumerMessage;
 
-class DemoConsumer extends Consumer
+class DemoConsumer extends ConsumerMessage
 {
     protected $exchange = 'demo';
 
