@@ -18,6 +18,8 @@ use Hyperf\Utils\Str;
 
 class DemoConsumerProcess extends Process
 {
+    public $name = 'amqp_demo_process';
+
     public function handle(): void
     {
         $try = 5;
