@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Amqp\DemoProducer;
+use App\Amqp\DemoProducerMessage;
 use App\Jobs\AttemptsJob;
 use App\Jobs\EchoJob;
 use App\Models\User;
@@ -138,10 +138,10 @@ class IndexController extends Controller
 
     public function amqp()
     {
-        $message = new DemoProducer(['id' => uniqid(), 'message' => 'Hi Hyperf.']);
+        $message = new DemoProducerMessage(['id' => uniqid(), 'message' => 'Hi Hyperf.']);
         $producer = ApplicationContext::getContainer()->get(Producer::class);
-        $producer->produce($message);
+        $result = $producer->produce($message);
 
-        return 1;
+        return (int) $result;
     }
 }

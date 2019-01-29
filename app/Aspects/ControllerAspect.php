@@ -41,9 +41,9 @@ class ControllerAspect implements ArroundInterface
         $className = $proceedingJoinPoint->className;
         $method = $proceedingJoinPoint->method;
 
-        echo "before $className::$method" . PHP_EOL;
+        // echo "before $className::$method" . PHP_EOL;
         $result = $proceedingJoinPoint->process();
-        echo "after $className::$method" . PHP_EOL;
+        // echo "after $className::$method" . PHP_EOL;
         return $result;
     }
 }

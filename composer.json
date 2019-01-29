@@ -57,7 +57,8 @@
     "autoload-dev": {
         "psr-4": {
             "HyperfTest\\": "./test/",
-            "HyperfTest\\Dispatcher\\": "./vendor/hyperf/hyperf/src/dispatcher/test/"
+            "HyperfTest\\Dispatcher\\": "./vendor/hyperf/hyperf/src/dispatcher/test/",
+            "HyperfTest\\Database\\": "./vendor/hyperf/hyperf/src/database/tests/"
         }
     },
     "minimum-stability": "dev",

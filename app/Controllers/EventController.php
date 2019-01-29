@@ -15,9 +15,9 @@ namespace App\Controllers;
 use App\Events\BeforeResponse;
 use App\Events\RequestMessage;
 use Hyperf\Di\Annotation\Debug;
-use Hyperf\Event\EventDispatcher;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\Utils\Context;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
@@ -26,13 +26,13 @@ use Psr\Http\Message\ServerRequestInterface;
 class EventController
 {
     /**
-     * @var EventDispatcher
+     * @var EventDispatcherInterface
      */
     private $dispatcher;
 
-    public function __construct(EventDispatcher $eventManager)
+    public function __construct(EventDispatcherInterface $eventDispatcher)
     {
-        $this->dispatcher = $eventManager;
+        $this->dispatcher = $eventDispatcher;
     }
 
     /**

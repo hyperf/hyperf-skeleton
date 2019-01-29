@@ -28,10 +28,17 @@ class AnnotationController
     private $userService;
 
     /**
+     * @Inject()
+     * @var \Hyperf\Contract\ConfigInterface
+     */
+    private $config;
+
+    /**
      * @GetMapping(path="/get");
      */
     public function get()
     {
+        return $this->config->get('databases', []);
         return $this->debug() . ' Hello';
     }
 

@@ -15,7 +15,6 @@ namespace App\Listeners;
 use Hyperf\Database\Events\StatementPrepared;
 use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
-use Hyperf\Framework\ApplicationContext;
 use Hyperf\Framework\Contract\StdoutLoggerInterface;
 
 /**
