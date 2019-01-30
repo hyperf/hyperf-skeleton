@@ -12,16 +12,18 @@ declare(strict_types=1);
 
 namespace App\Amqp;
 
-use Hyperf\Amqp\Message\ProducerMessageMessage;
+use Hyperf\Amqp\Annotation\Producer;
+use Hyperf\Amqp\Message\ProducerMessage;
 
-class DemoProducer extends ProducerMessageMessage
+/**
+ * @Producer(exchange="demo", routingKey="test")
+ */
+class DemoProducerMessage extends ProducerMessage
 {
-    protected $exchange = 'demo';
-
-    protected $routingKey = 'test';
 
     public function __construct($data)
     {
         $this->payload = $data;
     }
+
 }

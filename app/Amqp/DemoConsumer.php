@@ -12,19 +12,19 @@ declare(strict_types=1);
 
 namespace App\Amqp;
 
+use Hyperf\Amqp\Annotation\Consumer;
 use Hyperf\Amqp\Message\ConsumerMessage;
 
+/**
+ * @Consumer(exchange="demo", routingKey="test", queue="demo.queue", nums=2)
+ */
 class DemoConsumer extends ConsumerMessage
 {
-    protected $exchange = 'demo';
-
-    protected $routingKey = 'test';
-
-    protected $queue = 'demo.queue';
 
     public function consume($data): bool
     {
         print_r($data);
         return true;
     }
+
 }
