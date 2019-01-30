@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\User;
+use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\RequestInterface as Request;
 use Hyperf\HttpServer\Contract\ResponseInterface as Response;
@@ -95,5 +96,24 @@ class DbController
         });
 
         return $user->toArray();
+    }
+
+    public function trans()
+    {
+        Db::beginTransaction();
+        $user = new User();
+        $user->name = uniqid();
+        $user->sex = 2;
+        $user->save();
+        Db::rollback();
+
+        Db::beginTransaction();
+        $user = new User();
+        $user->name = uniqid();
+        $user->sex = 2;
+        $res = $user->save();
+        Db::commit();
+
+        return 'success';
     }
 }
