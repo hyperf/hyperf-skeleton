@@ -23,6 +23,17 @@ use Hyperf\Framework\Contract\StdoutLoggerInterface;
  */
 class DbStatementPreparedListener implements ListenerInterface
 {
+
+    /**
+     * @var StdoutLoggerInterface
+     */
+    private $logger;
+
+    public function __construct(StdoutLoggerInterface $stdoutLogger)
+    {
+        $this->logger = $stdoutLogger;
+    }
+
     public function listen(): array
     {
         return [
@@ -34,8 +45,7 @@ class DbStatementPreparedListener implements ListenerInterface
     {
         if ($event instanceof StatementPrepared) {
             $sql = $event->statement->queryString;
-            $logger = ApplicationContext::getContainer()->get(StdoutLoggerInterface::class);
-            $logger->debug($sql);
+            $this->logger->debug($sql);
         }
     }
 }
