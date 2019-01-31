@@ -14,17 +14,18 @@ namespace App\Amqp;
 
 use Hyperf\Amqp\Annotation\Consumer;
 use Hyperf\Amqp\Message\ConsumerMessage;
+use Hyperf\Amqp\Result;
 
 /**
- * @Consumer(exchange="demo", routingKey="test", queue="demo.queue", nums=2)
+ * @Consumer(exchange="demo", routingKey="test", queue="demo.queue", nums=1)
  */
 class DemoConsumer extends ConsumerMessage
 {
 
-    public function consume($data): bool
+    public function consume($data): string
     {
         print_r($data);
-        return true;
+        return Result::ACK;
     }
 
 }
