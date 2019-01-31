@@ -13,11 +13,16 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Services\CacheService;
+use Hyperf\Cache\CacheManager;
+use Hyperf\Cache\Driver\DriverInterface;
+use Hyperf\Cache\Listener\DeleteListenerEvent;
 use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\RequestInterface as Request;
 use Hyperf\HttpServer\Contract\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @AutoController
@@ -115,5 +120,21 @@ class DbController
         Db::commit();
 
         return 'success';
+    }
+
+    public function aopCache()
+    {
+        $service = $this->container->get(CacheService::class);
+
+        $dispatcher = $this->container->get(EventDispatcherInterface::class);
+
+        $dispatcher->dispatch(new DeleteListenerEvent('cache-delete', [4]));
+
+        return [
+            $service->get(1),
+            $service->getKey(2),
+            $service->getTtl(3),
+            $service->getThenDelete(4)
+        ];
     }
 }
