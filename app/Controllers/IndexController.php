@@ -142,6 +142,11 @@ class IndexController extends Controller
         $producer = ApplicationContext::getContainer()->get(Producer::class);
         $result = $producer->produce($message);
 
-        return (int) $result;
+        return (int)$result;
+    }
+
+    public function cache()
+    {
+        return $this->userService->getUserCache();
     }
 }

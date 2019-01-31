@@ -17,6 +17,7 @@ Router::get('/index/incr', 'App\Controllers\IndexController@incr');
 Router::get('/index/guzzle_handler', 'App\Controllers\IndexController@guzzleHandler');
 Router::get('/index/job', 'App\Controllers\IndexController@job');
 Router::get('/index/amqp', 'App\Controllers\IndexController@amqp');
+Router::get('/index/cache', 'App\Controllers\IndexController@cache');
 
 Router::addGroup(
     '/v2', function () {

@@ -19,7 +19,7 @@ class DemoProcess extends Process
 {
     public $name = 'demo_process';
 
-    protected $nums = 1;
+    public $nums = 1;
 
     public function handle(): void
     {

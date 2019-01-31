@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Hyperf\Cache\Annotation\Cacheable;
 use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Annotation\Inject;
 
@@ -39,6 +40,14 @@ class UserService
         return $res;
     }
 
+    /**
+     * @Cacheable(key="xxx", ttl=99999)
+     */
+    public function getUserCache($id = 2, $name = 'limx')
+    {
+        return $this->repository->fetchAll();
+    }
+
     public function getUsers()
     {
         return $this->repository->fetchAll();
@@ -47,7 +56,7 @@ class UserService
     public function getUserName(int $id): string
     {
         $res = $this->repository->fetchOne($id);
-        if (! empty($res)) {
+        if (!empty($res)) {
             return $res['name'];
         }
         return 'Null';
