@@ -12,17 +12,17 @@ declare(strict_types=1);
 
 namespace App\Listeners;
 
-use Hyperf\Database\Events\StatementPrepared;
+use Hyperf\Database\Events\QueryExecuted;
 use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Framework\Contract\StdoutLoggerInterface;
+use Hyperf\Utils\Arr;
 
 /**
  * @Listener
  */
-class DbStatementPreparedListener implements ListenerInterface
+class DbQueryExecutedListener implements ListenerInterface
 {
-
     /**
      * @var StdoutLoggerInterface
      */
@@ -36,15 +36,26 @@ class DbStatementPreparedListener implements ListenerInterface
     public function listen(): array
     {
         return [
-            StatementPrepared::class,
+            QueryExecuted::class,
         ];
     }
 
+    /**
+     * @param QueryExecuted $event
+     */
     public function process(object $event)
     {
-        if ($event instanceof StatementPrepared) {
-            $sql = $event->statement->queryString;
-            $this->logger->debug($sql);
+        if ($event instanceof QueryExecuted) {
+            $sql = $event->sql;
+            if (! Arr::isAssoc($event->bindings)) {
+                foreach ($event->bindings as $key => $value) {
+                    $sql = str_replace('?', '"%s"', $sql);
+                }
+
+                $sql = sprintf($sql, ...$event->bindings);
+            }
+
+            $this->logger->debug(sprintf('[%s] %s', $event->time, $sql));
         }
     }
 }
