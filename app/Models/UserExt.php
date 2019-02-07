@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Hyperf\DbConnection\Cache\Cacheable;
 use Hyperf\DbConnection\Model\Model;
 
 /**
@@ -22,6 +23,8 @@ use Hyperf\DbConnection\Model\Model;
  */
 class UserExt extends Model
 {
+    use Cacheable;
+
     /**
      * The table associated with the model.
      *

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Models\UserExt;
 use App\Services\CacheService;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Cache\Driver\DriverInterface;
@@ -34,9 +35,15 @@ class DbController
      */
     private $container;
 
+    /**
+     * @var \Redis
+     */
+    private $redis;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->redis = $container->get(\Redis::class);
     }
 
     public function user(Request $request, Response $response)
@@ -136,5 +143,47 @@ class DbController
             $service->getTtl(3),
             $service->getThenDelete(4)
         ];
+    }
+
+    public function incr()
+    {
+        $model = UserExt::findFromCache(1);
+
+        $result = [true, ''];
+        $res = $model->decrement('count', 1);
+        if ($res !== 1) {
+            $result = [true, 'DB 累减失败'];
+        }
+
+        $count = $this->redis->hGet("mc:default:m:user_ext:id:1", 'count');
+        if ($count != $model->count) {
+            $result = [true, '缓存累减失败'];
+        }
+
+
+        $res = $model->increment('count', 1);
+        if ($res !== 1) {
+            $result = [true, 'DB 累加失败'];
+        }
+
+        $count = $this->redis->hGet("mc:default:m:user_ext:id:1", 'count');
+        if ($count != $model->count) {
+            $result = [true, '缓存累加失败'];
+        }
+
+        $res = $model->increment('count', 1, [
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        if ($res !== 1) {
+            $result = [true, 'DB 累加失败'];
+        }
+
+        $exist = $this->redis->exists("mc:default:m:user_ext:id:1");
+        if ($exist != false) {
+            $result = [true, '缓存其他数据更新失败'];
+        }
+
+        return $result;
     }
 }
