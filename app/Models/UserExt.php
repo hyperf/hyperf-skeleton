@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Hyperf\DbConnection\Cache\Cacheable;
+use Hyperf\ModelCache\Cacheable;
 use Hyperf\DbConnection\Model\Model;
 
 /**

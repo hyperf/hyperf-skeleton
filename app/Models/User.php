@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Hyperf\DbConnection\Cache\Cacheable;
 use Hyperf\DbConnection\Model\Model;
+use Hyperf\ModelCache\Cacheable;
 
 /**
  * @property $id
