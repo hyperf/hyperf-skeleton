@@ -11,11 +11,13 @@
     <testsuites>
         <testsuite name="Tests">
             <directory suffix="Test.php">./tests</directory>
+            <directory suffix="Test.php">./vendor/hyperf/hyperf/src/event/tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./vendor/hyperf/hyperf/src/event</directory>
         </whitelist>
     </filter>
 </phpunit>
