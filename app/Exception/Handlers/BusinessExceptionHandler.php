@@ -14,7 +14,7 @@ namespace App\Exception\Handlers;
 
 use App\Exception\BusinessException;
 use Hyperf\Framework\ApplicationContext;
-use Hyperf\Framework\Contract\StdoutLoggerInterface;
+use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Framework\ExceptionHandler;
 use Psr\Http\Message\ResponseInterface;
 use Swoft\Http\Message\Stream\SwooleStream;

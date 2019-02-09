@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Processes;
 
-use Hyperf\Framework\Contract\StdoutLoggerInterface;
+use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Process\Process;
 
 class DemoProcess extends Process

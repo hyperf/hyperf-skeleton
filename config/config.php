@@ -1,6 +1,6 @@
 <?php
 // The configurations that placed in this file will loaded after worker started.
-use Hyperf\Framework\Contract\StdoutLoggerInterface;
+use Hyperf\Contract\StdoutLoggerInterface;
 use Psr\Log\LogLevel;
 
 return [
