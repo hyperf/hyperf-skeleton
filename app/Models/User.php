@@ -40,9 +40,24 @@ class User extends Model
      */
     protected $fillable = ['id', 'name', 'sex', 'created_at', 'updated_at'];
 
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->addEvents([
+            'customEvent' => CustomEvent::class,
+            'customEvent1' => CustomEvent1::class,
+        ]);
+    }
+
     public function saving()
     {
+        $this->fireModelEvent('customEvent');
         $this->setCreatedAt('2019-01-01');
+    }
+
+    public function customEvent()
+    {
+        echo __FUNCTION__ . PHP_EOL;
     }
 
     public function ext()
