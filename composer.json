@@ -43,7 +43,8 @@
         "phpmd/phpmd": "^2.6",
         "friendsofphp/php-cs-fixer": "^2.9",
         "guzzlehttp/guzzle": "^6.3",
-        "mockery/mockery": "^1.0"
+        "mockery/mockery": "^1.0",
+        "doctrine/common": "^2.9"
     },
     "autoload": {
         "psr-4": {
@@ -58,7 +59,8 @@
         "psr-4": {
             "HyperfTest\\": "./test/",
             "HyperfTest\\Dispatcher\\": "./vendor/hyperf/hyperf/src/dispatcher/test/",
-            "HyperfTest\\Database\\": "./vendor/hyperf/hyperf/src/database/tests/"
+            "HyperfTest\\Database\\": "./vendor/hyperf/hyperf/src/database/tests/",
+            "HyperfTest\\Event\\": "./vendor/hyperf/hyperf/src/event/tests/"
         }
     },
     "minimum-stability": "dev",
