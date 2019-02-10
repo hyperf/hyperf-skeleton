@@ -21,12 +21,20 @@ use Hyperf\Queue\Event\BeforeHandle;
 use Hyperf\Queue\Event\Event;
 use Hyperf\Queue\Event\FailedHandle;
 use Hyperf\Queue\Event\RetryHandle;
+use Throwable;
 
 /**
  * @Listener
  */
 class QueueHandleListener implements ListenerInterface
 {
+    protected $logger;
+
+    public function __construct(StdoutLoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
     public function listen(): array
     {
         return [
@@ -40,26 +48,41 @@ class QueueHandleListener implements ListenerInterface
     public function process(object $event)
     {
         if ($event instanceof Event && $event->message->job()) {
-            $logger = ApplicationContext::getContainer()->get(StdoutLoggerInterface::class);
             $job = $event->message->job();
             $eventClass = get_class($event);
             $jobClass = get_class($job);
             $date = date('Y-m-d H:i:s');
 
-            switch ($eventClass) {
-                case BeforeHandle::class:
-                    $logger->info(sprintf('[%s] Processing %s.', $date, $jobClass));
+            switch (true) {
+                case $event instanceof BeforeHandle:
+                    $this->logger->info(sprintf('[%s] Processing %s.', $date, $jobClass));
                     break;
-                case AfterHandle::class:
-                    $logger->info(sprintf('[%s] Processed %s.', $date, $jobClass));
+                case $event instanceof AfterHandle:
+                    $this->logger->info(sprintf('[%s] Processed %s.', $date, $jobClass));
                     break;
-                case FailedHandle::class:
-                    $logger->error(sprintf('[%s] Failed %s.', $date, $jobClass));
+                case $event instanceof FailedHandle:
+                    $this->logger->error(sprintf('[%s] Failed %s.', $date, $jobClass));
+                    $this->error($event->getThrowable());
                     break;
-                case RetryHandle::class:
-                    $logger->warning(sprintf('[%s] Retried %s.', $date, $jobClass));
+                case $event instanceof RetryHandle:
+                    $this->logger->warning(sprintf('[%s] Retried %s.', $date, $jobClass));
                     break;
             }
         }
+    }
+
+    protected function error(Throwable $throwable)
+    {
+        $errMsg = sprintf(
+            "%s:%s(%s) in %s:%s\nStack trace:\n%s",
+            get_class($throwable),
+            $throwable->getMessage(),
+            $throwable->getCode(),
+            $throwable->getFile(),
+            $throwable->getLine(),
+            $throwable->getTraceAsString()
+        );
+
+        $this->logger->error($errMsg);
     }
 }
