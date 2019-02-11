@@ -4,6 +4,7 @@ use Hyperf\Contract\StdoutLoggerInterface;
 use Psr\Log\LogLevel;
 
 return [
+    'app_name' => env('APP_NAME', 'skeleton'),
     StdoutLoggerInterface::class => [
         'log_level' => [
             LogLevel::ALERT,
