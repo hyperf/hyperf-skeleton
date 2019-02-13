@@ -84,7 +84,7 @@ class IndexController extends Controller
     public function database(ContainerInterface $container)
     {
         $factory = $container->get(PoolFactory::class);
-        $pool = $factory->getDbPool('default');
+        $pool = $factory->getPool('default');
 
         $conn = $pool->get();
         /** @var Connection $connection */
