@@ -41,6 +41,12 @@ return PhpCsFixer\Config::create()
                 'author'
             ],
         ],
+        'ordered_imports' => [
+            'imports_order' => [
+                'class', 'function', 'const',
+            ],
+            'sort_algorithm' => 'length',
+        ],
         'list_syntax' => [
             'syntax' => 'short',
         ],
@@ -55,12 +61,6 @@ return PhpCsFixer\Config::create()
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
         ],
-        'ordered_imports' => [
-            'imports_order' => [
-                'class', 'function', 'const',
-            ],
-            'sort_algorithm' => 'alpha',
-        ],
         'class_attributes_separation' => true,
         'combine_consecutive_unsets' => true,
         'declare_strict_types' => true,
@@ -72,7 +72,6 @@ return PhpCsFixer\Config::create()
         'not_operator_with_successor_space' => true,
         'not_operator_with_space' => false,
         'ordered_class_elements' => true,
-        'ordered_imports' => true,
         'php_unit_strict' => false,
         'phpdoc_separation' => false,
         'single_quote' => true,
