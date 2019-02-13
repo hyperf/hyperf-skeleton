@@ -31,9 +31,6 @@ return PhpCsFixer\Config::create()
         'concat_space' => [
             'spacing' => 'one'
         ],
-        'no_superfluous_phpdoc_tags' => [
-            'allow_mixed' => false,
-        ],
         'blank_line_before_statement' => [
             'statements' => [
                 'declare',
@@ -57,6 +54,12 @@ return PhpCsFixer\Config::create()
         ],
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
+        ],
+        'ordered_imports' => [
+            'imports_order' => [
+                'class', 'function', 'const',
+            ],
+            'sort_algorithm' => 'alpha',
         ],
         'class_attributes_separation' => true,
         'combine_consecutive_unsets' => true,
