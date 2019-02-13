@@ -38,7 +38,7 @@ class DemoCommand extends Command
         print_r($res);
 
         $factory = $this->container->get(PoolFactory::class);
-        $pool = $factory->getConnectionPool('default');
+        $pool = $factory->getPool('default');
         /** @var AbstractConnection $conn */
         $conn = $pool->get()->getConnection();
         print_r($conn->channel());
