@@ -3,6 +3,11 @@
 use Zipkin\Samplers\BinarySampler;
 
 return [
+    'switch' => [
+        'guzzle' => true,
+        'redis' => true,
+        'db' => true,
+    ],
     'zipkin' => [
         'app' => [
             'name' => env('APP_NAME', 'skeleton'),
