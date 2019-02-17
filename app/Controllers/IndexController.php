@@ -21,15 +21,20 @@ use App\Services\UserService;
 use Hyperf\Amqp\Producer;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
-use Hyperf\Framework\ApplicationContext;
+use Hyperf\Utils\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
+use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Queue\Driver\DriverFactory;
 use Hyperf\Queue\Driver\DriverInterface;
+use Hyperf\Tracer\Tracing;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
+/**
+ * @\Hyperf\HttpServer\Annotation\Controller()
+ */
 class IndexController extends Controller
 {
     use TestTrait;
@@ -136,9 +141,12 @@ class IndexController extends Controller
         return 1;
     }
 
+    /**
+     * @GetMapping(path="/index/amqp1")
+     */
     public function amqp()
     {
-        $message = new DemoProducerMessage(['id' => uniqid(), 'message' => 'Hi Hyperf.']);
+        $message = new DemoProducerMessage(['id' => \Hyperf\Utils\Coroutine::id(), 'message' => 'Hi Hyperf.']);
         $producer = ApplicationContext::getContainer()->get(Producer::class);
         $result = $producer->produce($message);
 
@@ -149,4 +157,5 @@ class IndexController extends Controller
     {
         return $this->userService->getUserCache();
     }
+
 }

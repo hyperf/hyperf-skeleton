@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace App\Exception\Handlers;
 
 use App\Exception\BusinessException;
-use Hyperf\Framework\ApplicationContext;
+use Hyperf\Utils\ApplicationContext;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Framework\ExceptionHandler;
 use Psr\Http\Message\ResponseInterface;

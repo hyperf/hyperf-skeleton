@@ -9,7 +9,7 @@ use Hyperf\Config\ProviderConfig;
 use Hyperf\Di\Annotation\Scanner;
 use Hyperf\Di\Container;
 use Hyperf\Di\Definition\DefinitionSource;
-use Hyperf\Framework\ApplicationContext;
+use Hyperf\Utils\ApplicationContext;
 
 $configFromProviders = ProviderConfig::load();
 $definitions = include __DIR__ . '/dependencies.php';

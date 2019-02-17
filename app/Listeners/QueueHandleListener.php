@@ -14,7 +14,7 @@ namespace App\Listeners;
 
 use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
-use Hyperf\Framework\ApplicationContext;
+use Hyperf\Utils\ApplicationContext;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Queue\Event\AfterHandle;
 use Hyperf\Queue\Event\BeforeHandle;
