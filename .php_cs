@@ -47,6 +47,10 @@ return PhpCsFixer\Config::create()
             ],
             'sort_algorithm' => 'length',
         ],
+        'single_line_comment_style' => [
+            'comment_types' => [
+            ],
+        ],
         'list_syntax' => [
             'syntax' => 'short',
         ],
@@ -76,6 +80,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_separation' => false,
         'single_quote' => true,
         'standardize_not_equals' => true,
+        'multiline_comment_opening_closing' => true,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
