@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.24)
 # Database: hyperf
-# Generation Time: 2019-01-15 06:00:34 +0000
+# Generation Time: 2019-02-17 04:41:37 +0000
 # ************************************************************
 
 
@@ -91,7 +91,7 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` (`id`, `name`, `sex`, `created_at`, `updated_at`)
 VALUES
 	(1,'Hyperf',1,'2018-01-01 00:00:00','2018-01-01 00:00:00'),
-	(2,'Hyperflex',1,'2019-01-01 00:00:00','2019-01-11 03:44:00');
+	(2,'Hyperflex',1,'2019-01-01 00:00:00','2019-02-16 09:59:36');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -115,7 +115,8 @@ LOCK TABLES `user_ext` WRITE;
 
 INSERT INTO `user_ext` (`id`, `count`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'2018-01-01 00:00:00','2018-01-01 00:00:00');
+	(1,24,'2019-02-07 16:24:02','2019-02-07 16:24:02'),
+	(2,0,'2019-02-07 16:24:02','2019-02-07 16:24:02');
 
 /*!40000 ALTER TABLE `user_ext` ENABLE KEYS */;
 UNLOCK TABLES;
