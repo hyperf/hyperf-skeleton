@@ -186,4 +186,24 @@ class DbController
 
         return $result;
     }
+
+    public function compare()
+    {
+        $model = UserExt::query()->where('id', 2)->first();
+        file_put_contents(BASE_PATH . '/runtime/db.log', var_export($model, true));
+        $model = UserExt::findFromCache(2);
+        $model = UserExt::findFromCache(2);
+        file_put_contents(BASE_PATH . '/runtime/cache.log', var_export($model, true));
+        return 'success';
+    }
+
+    public function compareMany()
+    {
+        $model = UserExt::query()->whereIn('id', [1, 2])->get();
+        file_put_contents(BASE_PATH . '/runtime/db.log', var_export($model, true));
+        $model = UserExt::findManyFromCache([1, 2]);
+        $model = UserExt::findManyFromCache([1, 2]);
+        file_put_contents(BASE_PATH . '/runtime/cache.log', var_export($model, true));
+        return 'success';
+    }
 }
