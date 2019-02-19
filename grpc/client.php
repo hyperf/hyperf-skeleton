@@ -4,9 +4,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 \Swoole\Runtime::enableCoroutine(true);
 $begin1 = microtime(true);
 
-go(function () use ($begin1) {
-    $client = new App\Grpc\GrpcClient('127.0.0.1:9503', [
-        'credentials' => Grpc\ChannelCredentials::createInsecure()
+\Swoole\Coroutine::create(function () use ($begin1) {
+    $client = new \App\Grpc\GrpcClient('127.0.0.1:9503', [
+        'credentials' => \Grpc\ChannelCredentials::createInsecure()
     ]);
 
     $request = new \Grpc\HiUser();
@@ -25,10 +25,10 @@ go(function () use ($begin1) {
     // var_dump($message, $user->getName(), $status);
 });
 
-go(function () use ($begin1) {
+\Swoole\Coroutine::create(function () use ($begin1) {
     // \Swoole\Coroutine::sleep(0.5);
-    $client = new App\Grpc\GrpcClient('127.0.0.1:9503', [
-        'credentials' => Grpc\ChannelCredentials::createInsecure()
+    $client = new \App\Grpc\GrpcClient('127.0.0.1:9503', [
+        'credentials' => \Grpc\ChannelCredentials::createInsecure()
     ]);
 
     $request = new \Grpc\HiUser();
