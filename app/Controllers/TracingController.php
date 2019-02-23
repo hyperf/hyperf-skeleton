@@ -14,12 +14,12 @@ namespace App\Controllers;
 
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Guzzle\ClientFactory;
-use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\Tracer\Annotation\Trace;
+use Hyperf\HttpServer\Annotation\AutoController;
 
 /**
  * @AutoController
- * @Trace()
+ * @Trace
  */
 class TracingController
 {
@@ -28,6 +28,12 @@ class TracingController
      * @var \Hyperf\Tracer\Tracing
      */
     private $tracing;
+
+    /**
+     * @Inject
+     * @var ClientFactory
+     */
+    private $clientFactory;
 
     public function index()
     {
@@ -45,17 +51,16 @@ class TracingController
 
     public function sendRequest()
     {
-        $client = ClientFactory::createClient();
+        $client = $this->clientFactory->create();
         $response = $client->get('http://127.0.0.1:9501/tracing/index');
         return $response->getBody()->getContents();
     }
 
     /**
-     * @Trace()
+     * @Trace
      */
     public function annotation()
     {
         return 'Hello Open-Tracing.';
     }
-
 }

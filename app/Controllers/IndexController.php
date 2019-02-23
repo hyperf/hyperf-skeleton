@@ -21,6 +21,7 @@ use App\Services\UserService;
 use Hyperf\Amqp\Producer;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
 use Hyperf\HttpServer\Annotation\GetMapping;
@@ -43,6 +44,12 @@ class IndexController extends Controller
      * @var UserService
      */
     public $userService;
+
+    /**
+     * @Inject()
+     * @var ClientFactory
+     */
+    private $clientFactory;
 
     protected static $staticValue = 2;
 
@@ -126,7 +133,7 @@ class IndexController extends Controller
 
     public function guzzleHandler()
     {
-        $client = ClientFactory::createClient(['base_uri' => 'http://127.0.0.1:9501']);
+        $client = $this->clientFactory->create(['base_uri' => 'http://127.0.0.1:9501']);
 
         return $client->get('/')->getBody()->getContents();
     }
