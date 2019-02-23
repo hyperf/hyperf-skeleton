@@ -12,11 +12,12 @@ declare(strict_types=1);
 
 namespace App\Listeners;
 
-use Hyperf\Database\Events\QueryExecuted;
-use Hyperf\Event\Annotation\Listener;
-use Hyperf\Event\Contract\ListenerInterface;
-use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Utils\Arr;
+use Hyperf\Utils\Str;
+use Hyperf\Event\Annotation\Listener;
+use Hyperf\Database\Events\QueryExecuted;
+use Hyperf\Contract\StdoutLoggerInterface;
+use Hyperf\Event\Contract\ListenerInterface;
 
 /**
  * @Listener
@@ -49,10 +50,8 @@ class DbQueryExecutedListener implements ListenerInterface
             $sql = $event->sql;
             if (! Arr::isAssoc($event->bindings)) {
                 foreach ($event->bindings as $key => $value) {
-                    $sql = str_replace('?', '"%s"', $sql);
+                    $sql = Str::replaceFirst('?', "'{$value}'", $sql);
                 }
-
-                $sql = sprintf($sql, ...$event->bindings);
             }
 
             $this->logger->debug(sprintf('[%s] %s', $event->time, $sql));
