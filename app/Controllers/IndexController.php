@@ -21,6 +21,7 @@ use App\Services\UserService;
 use Hyperf\Amqp\Producer;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
+use Hyperf\Elasticsearch\ClientBuilder;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
 use Hyperf\HttpServer\Annotation\GetMapping;
@@ -156,6 +157,16 @@ class IndexController extends Controller
     public function cache()
     {
         return $this->userService->getUserCache();
+    }
+
+    /**
+     * @GetMapping(path="/index/es")
+     */
+    public function es()
+    {
+        $client = ClientBuilder::create()->build();
+
+        return $client->info();
     }
 
 }

@@ -14,6 +14,7 @@ namespace App\Commands;
 
 use App\Models\User;
 use Hyperf\Amqp\Pool\PoolFactory;
+use Hyperf\Elasticsearch\ClientBuilder;
 use Hyperf\Guzzle\ClientFactory;
 use PhpAmqpLib\Connection\AbstractConnection;
 use Psr\Container\ContainerInterface;
@@ -32,28 +33,6 @@ class DemoCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // $user = User::query()->where('id', 1)->first();
-        // print_r($user->toArray());
-        //
-        // $redis = $this->container->get(\Redis::class);
-        // $res = $redis->keys('*');
-        // print_r($res);
-        //
-        // $factory = $this->container->get(PoolFactory::class);
-        // $pool = $factory->getPool('default');
-        // /** @var AbstractConnection $conn */
-        // $conn = $pool->get()->getConnection();
-        // print_r($conn->channel());
-
-        $client = ClientFactory::createClient(['timeout' => 5]);
-        $res = $client->get('https://api.github.com')->getBody()->getContents();
-        var_dump(Coroutine::getCid(), $res);
-        go(function () {
-            $client = ClientFactory::createClient(['timeout' => 5]);
-            $res = $client->get('https://api.github.com')->getBody()->getContents();
-            var_dump(Coroutine::getCid(), $res);
-        });
-
         $output->writeln('You can do something...');
     }
 }
