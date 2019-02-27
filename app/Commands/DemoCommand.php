@@ -14,8 +14,11 @@ namespace App\Commands;
 
 use App\Models\User;
 use Hyperf\Amqp\Pool\PoolFactory;
+use Hyperf\Elasticsearch\ClientBuilder;
+use Hyperf\Guzzle\ClientFactory;
 use PhpAmqpLib\Connection\AbstractConnection;
 use Psr\Container\ContainerInterface;
+use Swoole\Coroutine;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -30,19 +33,6 @@ class DemoCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $user = User::query()->where('id', 1)->first();
-        print_r($user->toArray());
-
-        $redis = $this->container->get(\Redis::class);
-        $res = $redis->keys('*');
-        print_r($res);
-
-        $factory = $this->container->get(PoolFactory::class);
-        $pool = $factory->getPool('default');
-        /** @var AbstractConnection $conn */
-        $conn = $pool->get()->getConnection();
-        print_r($conn->channel());
-
         $output->writeln('You can do something...');
     }
 }

@@ -43,6 +43,14 @@ class AnnotationController
     }
 
     /**
+     * @GetMapping(path="/annotation/id/{id:\d+}[/{name}]");
+     */
+    public function id(int $id, string $name)
+    {
+        return $id . '|' . $name;
+    }
+
+    /**
      * @Debug
      */
     public function debug()
