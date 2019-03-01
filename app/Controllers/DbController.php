@@ -57,7 +57,10 @@ class DbController
     {
         $id = $request->input('id', 1);
         $user = User::findFromCache($id);
-        return $response->json($user);
+
+        $result = $user->toArray();
+        $result['ext'] = UserExt::findFromCache(1);
+        return $response->json($result);
     }
 
     public function usersCache(Request $request, Response $response)

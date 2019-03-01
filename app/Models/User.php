@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Hyperf\DbConnection\Model\Model;
 use Hyperf\ModelCache\Cacheable;
+use Hyperf\DbConnection\Model\Model;
 
 /**
  * @property $id
@@ -40,13 +40,12 @@ class User extends Model
      */
     protected $fillable = ['id', 'name', 'sex', 'created_at', 'updated_at'];
 
+    protected $casts = ['id' => 'integer', 'sex' => 'integer'];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->addEvents([
-            'customEvent' => CustomEvent::class,
-            'customEvent1' => CustomEvent1::class,
-        ]);
+        $this->addEvents(['customEvent' => CustomEvent::class, 'customEvent1' => CustomEvent1::class]);
     }
 
     public function saving()

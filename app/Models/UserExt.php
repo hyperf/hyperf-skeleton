@@ -18,6 +18,7 @@ use Hyperf\DbConnection\Model\Model;
 /**
  * @property $id
  * @property $count
+ * @property $float_num
  * @property $created_at
  * @property $updated_at
  */
@@ -37,5 +38,12 @@ class UserExt extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'count', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'count', 'float_num', 'created_at', 'updated_at'];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = ['id' => 'integer', 'count' => 'integer', 'float_num' => 'float'];
 }
