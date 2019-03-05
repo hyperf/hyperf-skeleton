@@ -105,6 +105,7 @@ DROP TABLE IF EXISTS `user_ext`;
 CREATE TABLE `user_ext` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `count` int(10) unsigned NOT NULL DEFAULT '0',
+  `float_num` decimal(10,2) NOT NULL DEFAULT '0.00',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -113,10 +114,10 @@ CREATE TABLE `user_ext` (
 LOCK TABLES `user_ext` WRITE;
 /*!40000 ALTER TABLE `user_ext` DISABLE KEYS */;
 
-INSERT INTO `user_ext` (`id`, `count`, `created_at`, `updated_at`)
+INSERT INTO `user_ext` (`id`, `count`, `float_num`, `created_at`, `updated_at`)
 VALUES
-	(1,24,'2019-02-07 16:24:02','2019-02-07 16:24:02'),
-	(2,0,'2019-02-07 16:24:02','2019-02-07 16:24:02');
+	(1,24,1.20,'2019-02-07 16:24:02','2019-02-07 16:24:02'),
+	(2,0,0.00,'2019-02-07 16:24:02','2019-02-07 16:24:02');
 
 /*!40000 ALTER TABLE `user_ext` ENABLE KEYS */;
 UNLOCK TABLES;

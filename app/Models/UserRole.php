@@ -36,4 +36,6 @@ class UserRole extends Model
      * @var array
      */
     protected $fillable = ['id', 'user_id', 'role_id', 'created_at', 'updated_at'];
+
+    protected $casts = ['id' => 'integer', 'user_id' => 'integer', 'role_id' => 'integer'];
 }
