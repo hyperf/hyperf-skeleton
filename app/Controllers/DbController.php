@@ -22,6 +22,7 @@ use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\RequestInterface as Request;
 use Hyperf\HttpServer\Contract\ResponseInterface as Response;
+use Hyperf\Logger\LoggerFactory;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -207,6 +208,17 @@ class DbController
         $model = UserExt::findManyFromCache([1, 2]);
         $model = UserExt::findManyFromCache([1, 2]);
         file_put_contents(BASE_PATH . '/runtime/cache.log', var_export($model, true));
+        return 'success';
+    }
+
+    public function logger()
+    {
+        $factory = $this->container->get(LoggerFactory::class);
+
+        $logger = $factory->get();
+
+        $logger->debug('xxx');
+
         return 'success';
     }
 }
