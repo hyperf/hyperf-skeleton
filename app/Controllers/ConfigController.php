@@ -28,4 +28,9 @@ class ConfigController
          return $this->config->get('config-center');
     }
 
+    public function get()
+    {
+        return $this->config->get('config-center');
+    }
+
 }

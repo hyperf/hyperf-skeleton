@@ -8,5 +8,6 @@ return [
         'namespaces' => [
             'application',
         ],
+        'interval' => 5,
     ],
 ];
