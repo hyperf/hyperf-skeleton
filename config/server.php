@@ -17,6 +17,7 @@ return [
                 SwooleEvent::ON_REQUEST => [\Hyperf\HttpServer\Server::class, 'onRequest'],
                 SwooleEvent::ON_BEFORE_START => [\Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'beforeStart'],
                 SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
+                SwooleEvent::ON_PIPE_MESSAGE => [\Hyperf\Framework\Bootstrap\PipeMessageCallback::class, 'onPipeMessage'],
             ],
             'processes' => [
                 \Hyperf\Queue\Process\ConsumerProcess::class,
