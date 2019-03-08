@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Hyperf\DbConnection\Model\Model;
-
 /**
  * @property $id
  * @property $name
