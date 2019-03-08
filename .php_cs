@@ -45,7 +45,7 @@ return PhpCsFixer\Config::create()
             'imports_order' => [
                 'class', 'function', 'const',
             ],
-            'sort_algorithm' => 'length',
+            'sort_algorithm' => 'alpha',
         ],
         'single_line_comment_style' => [
             'comment_types' => [
