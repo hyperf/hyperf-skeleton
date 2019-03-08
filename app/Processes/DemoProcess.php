@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace App\Processes;
 
+use Hyperf\Process\AbstractProcess;
 use Hyperf\Contract\StdoutLoggerInterface;
-use Hyperf\Process\Process;
 
-class DemoProcess extends Process
+class DemoProcess extends AbstractProcess
 {
     public $name = 'demo_process';
 
