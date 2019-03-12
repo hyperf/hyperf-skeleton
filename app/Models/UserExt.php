@@ -12,9 +12,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Hyperf\ModelCache\Cacheable;
-use Hyperf\DbConnection\Model\Model;
-
 /**
  * @property $id
  * @property $count
@@ -24,8 +21,6 @@ use Hyperf\DbConnection\Model\Model;
  */
 class UserExt extends Model
 {
-    use Cacheable;
-
     /**
      * The table associated with the model.
      *
