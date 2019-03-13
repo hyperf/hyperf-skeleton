@@ -12,8 +12,10 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Clients\Redis2;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Context;
+use Psr\Container\ContainerInterface;
 
 /**
  * @\Hyperf\HttpServer\Annotation\AutoController
@@ -25,6 +27,12 @@ class RedisController
      * @var \Redis
      */
     private $redis;
+
+    /**
+     * @Inject
+     * @var ContainerInterface
+     */
+    private $container;
 
     public function index()
     {
@@ -40,7 +48,35 @@ class RedisController
             $this->redis->get('test');
         }
         $result = $this->redis->exec();
-        var_dump(spl_object_id(Context::get('redis.connection')));
+
+        /** @var \Redis $redis */
+        $redis = $this->container->get(Redis2::class);
+        $redis->multi();
+        for ($n = 5; --$n;) {
+            $redis->set('test', time());
+            $redis->get('test');
+        }
+        $result = $redis->exec();
+
+        var_dump(spl_object_id(Context::get('redis.connection.default')));
+        var_dump(spl_object_id(Context::get('redis.connection.config2')));
+
         return $result;
+    }
+
+    public function config2()
+    {
+        $this->redis->set('test', 'default');
+
+        /** @var \Redis $redis */
+        $redis = $this->container->get(Redis2::class);
+
+        $redis->set('test', 'config2');
+        $this->redis->set('test', 'default');
+
+        return [
+            $redis->get('test'),
+            $this->redis->get('test')
+        ];
     }
 }

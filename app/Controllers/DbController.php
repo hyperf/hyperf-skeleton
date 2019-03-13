@@ -15,6 +15,7 @@ namespace App\Controllers;
 use App\Models\User;
 use App\Models\UserExt;
 use App\Services\CacheService;
+use App\Services\UserService;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Cache\Driver\DriverInterface;
 use Hyperf\Cache\Listener\DeleteListenerEvent;
@@ -58,6 +59,10 @@ class DbController
     {
         $id = $request->input('id', 1);
         $user = User::findFromCache($id);
+
+        if(empty($user)){
+            return [];
+        }
 
         $result = $user->toArray();
         $result['ext'] = UserExt::findFromCache(1);
@@ -220,5 +225,16 @@ class DbController
         $logger->debug('xxx');
 
         return 'success';
+    }
+
+    public function breaker()
+    {
+        $service = $this->container->get(UserService::class);
+
+        $res = $service->find(1);
+        if (empty($res)) {
+            return 'Null';
+        }
+        return $res;
     }
 }

@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\User;
+use Hyperf\CircuitBreaker\Annotation\Breaker;
 use Hyperf\Cache\Annotation\Cacheable;
 use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Annotation\Inject;
@@ -60,5 +62,15 @@ class UserService
             return $res['name'];
         }
         return 'Null';
+    }
+
+    /**
+     * @Breaker(timeout=0.5, failCounter=1)
+     */
+    public function find($id)
+    {
+        sleep(1);
+
+        return $id;
     }
 }
