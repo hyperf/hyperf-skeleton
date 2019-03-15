@@ -65,7 +65,7 @@ class UserService
     }
 
     /**
-     * @CircuitBreaker(timeout=0.5, failCounter=1,successCounter=1)
+     * @CircuitBreaker(timeout=0.5, failCounter=1, successCounter=1, fallback="App\Services\UserService@findFallback")
      */
     public function find($id)
     {
@@ -73,5 +73,10 @@ class UserService
         usleep($time);
 
         return $id;
+    }
+
+    public function findFallback($id)
+    {
+        return $id + 1;
     }
 }
