@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\User;
-use Hyperf\CircuitBreaker\Annotation\Breaker;
+use Hyperf\CircuitBreaker\Annotation\CircuitBreaker;
 use Hyperf\Cache\Annotation\Cacheable;
 use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Annotation\Inject;
@@ -65,11 +65,12 @@ class UserService
     }
 
     /**
-     * @Breaker(timeout=0.5, failCounter=1)
+     * @CircuitBreaker(timeout=0.5, failCounter=1,successCounter=1)
      */
     public function find($id)
     {
-        sleep(1);
+        $time = rand(0, 1000000);
+        usleep($time);
 
         return $id;
     }

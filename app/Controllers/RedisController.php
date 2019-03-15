@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Clients\Redis2;
+use Hyperf\Cache\CacheManager;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Context;
 use Psr\Container\ContainerInterface;
@@ -78,5 +79,13 @@ class RedisController
             $redis->get('test'),
             $this->redis->get('test')
         ];
+    }
+
+    public function cache()
+    {
+        $manager = $this->container->get(CacheManager::class);
+        return $manager->call(function () {
+            return uniqid();
+        }, 'c:uniqid');
     }
 }
