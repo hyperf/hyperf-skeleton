@@ -10,13 +10,13 @@ return [
         'charset' => env('DB_CHARSET', 'utf8'),
         'collation' => env('DB_COLLATION', 'utf8_unicode_ci'),
         'prefix' => env('DB_PREFIX', ''),
-        'max_idle_time' => (float)env('DB_MAX_IDLE_TIME', 60),
         'pool' => [
             'min_connections' => 1,
             'max_connections' => 10,
             'connect_timeout' => 10.0,
             'wait_timeout' => 3.0,
             'heartbeat' => -1,
+            'max_idle_time' => (float)env('DB_MAX_IDLE_TIME', 60),
         ],
         'cache' => [
             'handler' => \Hyperf\DbConnection\Cache\Handler\RedisHandler::class,
