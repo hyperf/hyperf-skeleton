@@ -9,6 +9,7 @@ use Hyperf\Cache\Listener\DeleteListenerEvent;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Psr\SimpleCache\CacheInterface;
 
 /**
  * @AutoController()
@@ -64,12 +65,13 @@ class CacheController extends Controller
             $result = [false, 'Cache::deleteMultiple is not work expected.'];
         }
 
-        if (Cache::get('c5') !== 'xxx') {
-            $result = [false, 'CacheHelper::get is not work expected.'];
+        $cache = $this->container->get(CacheInterface::class);
+        if ($cache->get('c5') !== 'xxx') {
+            $result = [false, 'CacheInterface::get is not work expected.'];
         }
 
         if (true !== $cache->clear() && null !== $cache->get('c5')) {
-            $result = [false, 'Cache::clear is not work expected.'];
+            $result = [false, 'CacheInterface::clear is not work expected.'];
         }
 
         return $result;
