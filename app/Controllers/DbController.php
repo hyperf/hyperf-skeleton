@@ -138,22 +138,6 @@ class DbController
         return 'success';
     }
 
-    public function aopCache()
-    {
-        $service = $this->container->get(CacheService::class);
-
-        $dispatcher = $this->container->get(EventDispatcherInterface::class);
-
-        $dispatcher->dispatch(new DeleteListenerEvent('cache-delete', [4]));
-
-        return [
-            $service->get(1),
-            $service->getKey(2),
-            $service->getTtl(3),
-            $service->getThenDelete(4)
-        ];
-    }
-
     public function incr()
     {
         $model = UserExt::findFromCache(1);

@@ -12,7 +12,19 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use Psr\Container\ContainerInterface;
+
 class Controller
 {
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
     protected static $staticValue = 1;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 }
