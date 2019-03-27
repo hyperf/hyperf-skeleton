@@ -16,7 +16,7 @@ return [
             'connect_timeout' => 10.0,
             'wait_timeout' => 3.0,
             'heartbeat' => -1,
-            'max_idle_time' => (float)env('DB_MAX_IDLE_TIME', 60),
+            'max_idle_time' => (float) env('DB_MAX_IDLE_TIME', 60),
         ],
         'cache' => [
             'handler' => \Hyperf\DbConnection\Cache\Handler\RedisHandler::class,
@@ -24,6 +24,6 @@ return [
             'prefix' => 'default',
             'ttl' => 3600 * 24,
             'load_script' => true,
-        ]
+        ],
     ],
 ];
