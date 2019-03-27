@@ -15,7 +15,7 @@ namespace App\Models;
 /**
  * @property $id
  * @property $name
- * @property $sex
+ * @property $gender
  * @property $created_at
  * @property $updated_at
  */
@@ -33,9 +33,9 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'name', 'sex', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'name', 'gender', 'created_at', 'updated_at'];
 
-    protected $casts = ['id' => 'integer', 'sex' => 'integer'];
+    protected $casts = ['id' => 'integer', 'sex' => 'integer', 'gender' => 'integer'];
 
     public function __construct(array $attributes = [])
     {
