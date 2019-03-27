@@ -32,7 +32,7 @@ return [
                 'open_tcp_nodelay' => false,
                 'max_coroutine' => 100000,
                 'open_http2_protocol' => true,
-                'msx_rewurdt' => 10000,
+                'max_request' => 500000,
             ],
         ],
         [
