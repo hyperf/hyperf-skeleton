@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 5.7.24)
+# Host: 127.0.0.1 (MySQL 5.7.25)
 # Database: hyperf
-# Generation Time: 2019-02-17 04:41:37 +0000
+# Generation Time: 2019-03-27 08:34:56 +0000
 # ************************************************************
 
 
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL DEFAULT '' COMMENT '姓名',
-  `sex` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '性别 1未知1男2女',
+  `gender` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '性别 1未知1男2女',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -88,7 +88,7 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `name`, `sex`, `created_at`, `updated_at`)
+INSERT INTO `user` (`id`, `name`, `gender`, `created_at`, `updated_at`)
 VALUES
 	(1,'Hyperf',1,'2018-01-01 00:00:00','2018-01-01 00:00:00'),
 	(2,'Hyperflex',1,'2019-01-01 00:00:00','2019-02-16 09:59:36');
@@ -116,8 +116,8 @@ LOCK TABLES `user_ext` WRITE;
 
 INSERT INTO `user_ext` (`id`, `count`, `float_num`, `created_at`, `updated_at`)
 VALUES
-	(1,24,1.20,'2019-02-07 16:24:02','2019-02-07 16:24:02'),
-	(2,0,0.00,'2019-02-07 16:24:02','2019-02-07 16:24:02');
+	(1,0,1.20,'2019-03-13 02:38:04','2019-03-13 02:38:04'),
+	(2,0,0.00,'2019-02-07 16:24:02','2019-02-17 04:44:41');
 
 /*!40000 ALTER TABLE `user_ext` ENABLE KEYS */;
 UNLOCK TABLES;

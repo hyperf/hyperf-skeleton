@@ -99,7 +99,7 @@ class DbController
     {
         $user = new User();
         $user->name = uniqid();
-        $user->sex = 1;
+        $user->gender = 1;
 
         if ($user->save()) {
             return 'success';
@@ -124,14 +124,14 @@ class DbController
         Db::beginTransaction();
         $user = new User();
         $user->name = uniqid();
-        $user->sex = 2;
+        $user->gender = 2;
         $user->save();
         Db::rollback();
 
         Db::beginTransaction();
         $user = new User();
         $user->name = uniqid();
-        $user->sex = 2;
+        $user->gender = 2;
         $res = $user->save();
         Db::commit();
 
