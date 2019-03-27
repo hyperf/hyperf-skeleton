@@ -19,20 +19,15 @@ return [
                 SwooleEvent::ON_WORKER_START => [\Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
                 SwooleEvent::ON_PIPE_MESSAGE => [\Hyperf\Framework\Bootstrap\PipeMessageCallback::class, 'onPipeMessage'],
             ],
-            'processes' => [
-                \Hyperf\Queue\Process\ConsumerProcess::class,
-                \App\Processes\DemoProcess::class,
-                // \App\Amqp\DemoConsumerProcess::class,
-                \Hyperf\ConfigApollo\Process\ConfigFetcherProcess::class,
-            ],
             'settings' => [
                 'enable_coroutine' => true,
                 'worker_num' => 1,
                 'pid_file' => 'runtime/hyperf.pid',
-                'open_tcp_nodelay' => false,
+                'open_tcp_nodelay' => true,
                 'max_coroutine' => 100000,
                 'open_http2_protocol' => true,
-                'max_request' => 500000,
+                'max_request' => 10000,
+                'socket_buffer_size' => 2 * 1024 * 1024,
             ],
         ],
         [
