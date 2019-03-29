@@ -14,27 +14,37 @@
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.2",
+        "hyperf/amqp": "dev-master",
+        "hyperf/cache": "dev-master",
+        "hyperf/circuit-breaker": "dev-master",
         "hyperf/config": "dev-master",
+        "hyperf/config-apollo": "dev-master",
+        "hyperf/constants": "dev-master",
         "hyperf/consul": "dev-master",
         "hyperf/contract": "dev-master",
-        "hyperf/devtool": "dev-master",
         "hyperf/database": "dev-master",
         "hyperf/db-connection": "dev-master",
+        "hyperf/devtool": "dev-master",
         "hyperf/di": "dev-master",
         "hyperf/dispatcher": "dev-master",
+        "hyperf/elasticsearch": "dev-master",
         "hyperf/event": "dev-master",
+        "hyperf/framework": "dev-master",
+        "hyperf/grpc-client": "dev-master",
         "hyperf/grpc-server": "dev-master",
         "hyperf/guzzle": "dev-master",
         "hyperf/http-server": "dev-master",
-        "hyperf/framework": "dev-master",
+        "hyperf/logger": "dev-master",
         "hyperf/memory": "dev-master",
+        "hyperf/model-cache": "dev-master",
         "hyperf/paginator": "dev-master",
         "hyperf/pool": "dev-master",
         "hyperf/process": "dev-master",
         "hyperf/queue": "dev-master",
+        "hyperf/rate-limit": "dev-master",
         "hyperf/redis": "dev-master",
-        "hyperf/utils": "dev-master",
-        "hyperf/hyperf": "dev-master"
+        "hyperf/tracer": "dev-master",
+        "hyperf/utils": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0.0",
@@ -77,9 +87,9 @@
         "start": "php ./bin/hyperf.php start"
     },
     "repositories": {
-        "0": {
+        "hyperf": {
             "type": "path",
-            "url": "../hyperf-components"
+            "url": "../hyperf-components/src/*"
         },
         "packagist": {
             "type": "composer",
