@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use Hyperf\Queue\Driver\DriverFactory;
-use Hyperf\Queue\Driver\DriverInterface;
+use Hyperf\AsyncQueue\Driver\DriverFactory;
+use Hyperf\AsyncQueue\Driver\DriverInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

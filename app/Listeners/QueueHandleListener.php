@@ -16,11 +16,11 @@ use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Contract\StdoutLoggerInterface;
-use Hyperf\Queue\Event\AfterHandle;
-use Hyperf\Queue\Event\BeforeHandle;
-use Hyperf\Queue\Event\Event;
-use Hyperf\Queue\Event\FailedHandle;
-use Hyperf\Queue\Event\RetryHandle;
+use Hyperf\AsyncQueue\Event\AfterHandle;
+use Hyperf\AsyncQueue\Event\BeforeHandle;
+use Hyperf\AsyncQueue\Event\Event;
+use Hyperf\AsyncQueue\Event\FailedHandle;
+use Hyperf\AsyncQueue\Event\RetryHandle;
 use Throwable;
 
 /**

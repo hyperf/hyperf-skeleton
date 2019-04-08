@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
-use Hyperf\Queue\Job;
+use Hyperf\AsyncQueue\Job;
 
 class AttemptsJob extends Job
 {
