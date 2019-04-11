@@ -143,7 +143,7 @@ class IndexController extends Controller
     {
         $factory = ApplicationContext::getContainer()->get(DriverFactory::class);
         /** @var DriverInterface $driver */
-        $driver = $factory->default;
+        $driver = $factory->get('default');
         $driver->push(new EchoJob());
         $driver->push(new AttemptsJob());
         return 1;

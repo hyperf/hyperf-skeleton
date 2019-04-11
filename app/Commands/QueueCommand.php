@@ -31,7 +31,7 @@ class QueueCommand extends Command
     {
         $factory = $this->container->get(DriverFactory::class);
         /** @var DriverInterface $driver */
-        $driver = $factory->default;
+        $driver = $factory->get('default');
 
         $driver->consume();
     }
