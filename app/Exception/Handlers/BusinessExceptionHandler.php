@@ -17,7 +17,7 @@ use Hyperf\Utils\ApplicationContext;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Framework\ExceptionHandler;
 use Psr\Http\Message\ResponseInterface;
-use Hyperf\Http\Message\Stream\SwooleStream;
+use Hyperf\HttpMessage\Stream\SwooleStream;
 use Throwable;
 
 class BusinessExceptionHandler extends ExceptionHandler
