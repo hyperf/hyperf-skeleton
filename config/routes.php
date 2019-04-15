@@ -2,11 +2,11 @@
 
 use Hyperf\HttpServer\Router\Router;
 
-Router::addRoute(['GET', 'POST', 'HEAD'], '/index', [\App\Controllers\IndexController::class, 'index']);
-Router::addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controllers\IndexController::class, 'user']);
+Router::addRoute(['GET', 'POST', 'HEAD'], '/index', [\App\Controller\IndexController::class, 'index']);
+Router::addRoute(['GET', 'POST', 'HEAD'], '/user/{id:\d+}', [\App\Controller\IndexController::class, 'user']);
 Router::addRoute(['GET', 'POST', 'HEAD'], '/int', 'App\Controllers\IndexController@int');
 
-Router::get('/', [\App\Controllers\IndexController::class, 'index']);
+Router::get('/', [\App\Controller\IndexController::class, 'index']);
 Router::get('/index/static', 'App\Controllers\IndexController@staticIndex');
 Router::get('/index/index', 'App\Controllers\IndexController@index');
 Router::get('/index/sleep', 'App\Controllers\IndexController@sleep');
@@ -21,7 +21,7 @@ Router::get('/index/cache', 'App\Controllers\IndexController@cache');
 
 Router::addGroup(
     '/v2', function () {
-        Router::get('/', [\App\Controllers\IndexController::class, 'index']);
+        Router::get('/', [\App\Controller\IndexController::class, 'index']);
     }
 );
 

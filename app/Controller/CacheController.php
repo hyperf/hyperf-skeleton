@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use App\Services\CacheService;
 use Hyperf\Cache\Cache;

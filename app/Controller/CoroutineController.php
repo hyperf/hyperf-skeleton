@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;

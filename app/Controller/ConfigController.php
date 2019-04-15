@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use Hyperf\HttpServer\Annotation\AutoController;
 

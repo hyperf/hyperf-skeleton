@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Aspects;
 
-use App\Controllers\IndexController;
+use App\Controller\IndexController;
 use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Annotation\Debug;
 use Hyperf\Di\Aop\ArroundInterface;
