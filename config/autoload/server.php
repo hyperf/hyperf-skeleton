@@ -1,14 +1,14 @@
 <?php
 
-use Hyperf\Server\ServerFactory;
 use Hyperf\Framework\SwooleEvent;
+use Hyperf\Server\Server;
 
 return [
     'mode' => SWOOLE_BASE,
     'servers' => [
         [
             'name' => 'http',
-            'type' => ServerFactory::SERVER_HTTP,
+            'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',
             'port' => 9501,
             'sock_type' => SWOOLE_SOCK_TCP,
@@ -18,7 +18,7 @@ return [
         ],
         [
             'name' => 'innerHttp',
-            'type' => ServerFactory::SERVER_HTTP,
+            'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',
             'port' => 9502,
             'sock_type' => SWOOLE_SOCK_TCP,
@@ -28,7 +28,7 @@ return [
         ],
         [
             'name' => 'grpc',
-            'type' => ServerFactory::SERVER_HTTP,
+            'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',
             'port' => 9503,
             'sock_type' => SWOOLE_SOCK_TCP,
