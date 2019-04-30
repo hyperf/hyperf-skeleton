@@ -25,7 +25,7 @@ class UserService
 {
     /**
      * @Inject
-     * @var \App\Repositories\UserReoisitory
+     * @var \App\Repositories\UserRepository
      */
     private $repository;
 

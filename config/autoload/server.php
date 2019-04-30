@@ -28,7 +28,7 @@ return [
         ],
         [
             'name' => 'grpc',
-            'type' => Server::SERVER_HTTP,
+            'type' => Server::SERVER_TCP,
             'host' => '0.0.0.0',
             'port' => 9503,
             'sock_type' => SWOOLE_SOCK_TCP,

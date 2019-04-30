@@ -57,6 +57,7 @@ class IndexController extends Controller
 
     /**
      * IndexController constructor.
+     * @param UserService $userService
      */
     public function __construct(UserService $userService)
     {
