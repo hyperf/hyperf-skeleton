@@ -23,6 +23,7 @@ use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Elasticsearch\ClientBuilder;
+use Hyperf\Elasticsearch\ClientBuilderFactory;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
 use Hyperf\HttpServer\Annotation\GetMapping;
@@ -172,7 +173,8 @@ class IndexController extends Controller
      */
     public function es()
     {
-        $client = ClientBuilder::create()->build();
+        $builder = $this->container->get(ClientBuilderFactory::class);
+        $client = $builder->create()->build();
 
         return $client->info();
     }
