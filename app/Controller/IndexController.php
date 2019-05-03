@@ -4,9 +4,9 @@ declare(strict_types=1);
 /**
  * This file is part of Hyperf.
  *
- * @link     https://hyperf.org
- * @document https://wiki.hyperf.org
- * @contact  group@hyperf.org
+ * @link     https://hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
  * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
  */
 
@@ -18,25 +18,26 @@ use App\Jobs\EchoJob;
 use App\Models\User;
 use App\Services\DemoService;
 use App\Services\UserService;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Hyperf\Amqp\Producer;
+use Hyperf\AsyncQueue\Driver\DriverFactory;
+use Hyperf\AsyncQueue\Driver\DriverInterface;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Di\Annotation\Inject;
-use Hyperf\Elasticsearch\ClientBuilder;
 use Hyperf\Elasticsearch\ClientBuilderFactory;
-use Hyperf\Utils\ApplicationContext;
 use Hyperf\Guzzle\ClientFactory;
+use Hyperf\Guzzle\PoolHandler;
 use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\AsyncQueue\Driver\DriverFactory;
-use Hyperf\AsyncQueue\Driver\DriverInterface;
-use Hyperf\Tracer\Tracing;
+use Hyperf\Utils\ApplicationContext;
 use Psr\Container\ContainerInterface;
 use Swoole\Coroutine;
 
 /**
- * @\Hyperf\HttpServer\Annotation\Controller()
+ * @\Hyperf\HttpServer\Annotation\Controller
  */
 class IndexController extends Controller
 {
@@ -47,16 +48,17 @@ class IndexController extends Controller
      */
     public $userService;
 
+    protected static $staticValue = 2;
+
     /**
-     * @Inject()
+     * @Inject
      * @var ClientFactory
      */
     private $clientFactory;
 
-    protected static $staticValue = 2;
-
     /**
      * IndexController constructor.
+     * @param UserService $userService
      */
     public function __construct(UserService $userService)
     {
@@ -104,9 +106,7 @@ class IndexController extends Controller
         /** @var Connection $connection */
         $connection = $conn->getConnection();
 
-        $res = $connection->table('user')->where('id', '=', 1)->get();
-
-        return $res;
+        return $connection->table('user')->where('id', '=', 1)->get();
     }
 
     public function model()
@@ -120,9 +120,7 @@ class IndexController extends Controller
     {
         $redis = ApplicationContext::getContainer()->get(\Redis::class);
 
-        $res = $redis->keys('*');
-
-        return $res;
+        return $redis->keys('*');
     }
 
     public function incr()
@@ -135,7 +133,15 @@ class IndexController extends Controller
 
     public function guzzleHandler()
     {
+        // Not maintain connection.
         $client = $this->clientFactory->create(['base_uri' => 'http://127.0.0.1:9501']);
+        return $client->get('/')->getBody()->getContents();
+        // Maintain connection.
+        $handler = HandlerStack::create(make(PoolHandler::class));
+        $client = new Client([
+            'base_uri' => 'http://127.0.0.1:9501',
+            'handler' => $handler,
+        ]);
 
         return $client->get('/')->getBody()->getContents();
     }
@@ -159,7 +165,7 @@ class IndexController extends Controller
         $producer = ApplicationContext::getContainer()->get(Producer::class);
         $result = $producer->produce($message);
 
-        return (int)$result;
+        return (int) $result;
     }
 
     public function cache()
@@ -177,5 +183,4 @@ class IndexController extends Controller
 
         return $client->info();
     }
-
 }

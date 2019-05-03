@@ -14,6 +14,12 @@
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.2",
+        "ext-openssl": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-redis": "*",
+        "ext-protobuf": "*",
         "hyperf/amqp": "dev-master",
         "hyperf/async-queue": "dev-master",
         "hyperf/cache": "dev-master",
