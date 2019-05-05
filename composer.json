@@ -41,6 +41,7 @@
         "hyperf/grpc-server": "dev-master",
         "hyperf/guzzle": "dev-master",
         "hyperf/http-server": "dev-master",
+        "hyperf/json-rpc": "dev-master",
         "hyperf/load-balancer": "dev-master",
         "hyperf/logger": "dev-master",
         "hyperf/memory": "dev-master",
