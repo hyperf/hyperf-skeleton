@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace App\Exception;
 
 use App\Constants\ErrorCode;
-use Hyperf\HttpServer\Exception\HttpException;
+use Hyperf\Consul\Exception\ServerException;
 use Throwable;
 
-class BusinessException extends HttpException
+class BusinessException extends ServerException
 {
     public function __construct(int $code = 0, string $message = null, Throwable $previous = null)
     {
