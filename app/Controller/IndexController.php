@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Amqp\DemoProducerMessage;
-use App\Jobs\AttemptsJob;
-use App\Jobs\EchoJob;
-use App\Models\User;
-use App\Services\DemoService;
-use App\Services\UserService;
+use App\Job\AttemptsJob;
+use App\Job\EchoJob;
+use App\Model\User;
+use App\Service\DemoService;
+use App\Service\UserService;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Hyperf\Amqp\Producer;

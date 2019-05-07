@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Services\CacheService;
+use App\Service\CacheService;
 use Hyperf\Cache\Cache;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Cache\Listener\DeleteListenerEvent;

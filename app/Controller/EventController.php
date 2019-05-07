@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Events\BeforeResponse;
-use App\Events\RequestMessage;
+use App\Event\BeforeResponse;
+use App\Event\RequestMessage;
 use Hyperf\Di\Annotation\Debug;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\Utils\Context;

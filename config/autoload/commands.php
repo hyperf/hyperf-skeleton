@@ -1,5 +1,5 @@
 <?php
 return [
-    \App\Commands\DemoCommand::class,
-    \App\Commands\QueueCommand::class,
+    \App\Command\DemoCommand::class,
+    \App\Command\QueueCommand::class,
 ];

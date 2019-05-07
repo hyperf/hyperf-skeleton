@@ -4,7 +4,7 @@ use Hyperf\Tracer\Middleware\TraceMiddeware;
 
 return [
     'http' => [
-        \App\Middlewares\TestMiddleware::class,
+        \App\Middleware\TestMiddleware::class,
         TraceMiddeware::class,
     ],
 ];

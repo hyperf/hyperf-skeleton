@@ -1,7 +1,7 @@
 <?php
 
-use App\Events\TestMessageListener;
-use App\Events\TestListener;
+use App\Event\TestMessageListener;
+use App\Event\TestListener;
 
 return [
     TestListener::class,

@@ -23,7 +23,7 @@ class AnnotationController
 {
     /**
      * @Inject
-     * @var \App\Services\UserService
+     * @var \App\Service\UserService
      */
     private $userService;
 

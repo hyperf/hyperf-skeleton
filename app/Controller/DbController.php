@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Models\User;
-use App\Models\UserExt;
-use App\Services\CacheService;
-use App\Services\UserService;
+use App\Model\User;
+use App\Model\UserExt;
+use App\Service\CacheService;
+use App\Service\UserService;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Cache\Driver\DriverInterface;
 use Hyperf\Cache\Listener\DeleteListenerEvent;
