@@ -4,6 +4,8 @@ namespace App\Service;
 
 
 use Hyperf\Cache\Annotation\Cacheable;
+use Hyperf\Cache\Annotation\CacheEvict;
+use Hyperf\Cache\Annotation\CachePut;
 
 class CacheService
 {
@@ -16,7 +18,7 @@ class CacheService
     }
 
     /**
-     * @Cacheable("cache-get-key")
+     * @Cacheable(key="cache-get-key")
      */
     public function getKey($id)
     {
@@ -28,7 +30,7 @@ class CacheService
      */
     public function getTtl($id)
     {
-        return uniqid() . $id;
+        return 'ttl' . $id . uniqid();
     }
 
     /**
@@ -37,5 +39,29 @@ class CacheService
     public function getThenDelete($id)
     {
         return uniqid() . $id;
+    }
+
+    /**
+     * @CachePut(key="cache-get-ttl", ttl=3600)
+     */
+    public function cachePut($id)
+    {
+        return 'cache_put_success' . $id . uniqid();
+    }
+
+    /**
+     * @CacheEvict(key="cache-get-ttl")
+     */
+    public function cacheEvict($id)
+    {
+        return 'cache_evict_success' . $id . uniqid();
+    }
+
+    /**
+     * @CacheEvict(key="cache", all=true)
+     */
+    public function cacheEvictAll($id)
+    {
+        return 'cache_evict_all_success' . $id . uniqid();
     }
 }
