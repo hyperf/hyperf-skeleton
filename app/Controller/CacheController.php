@@ -34,7 +34,14 @@ class CacheController extends Controller
             $service->get(1),
             $service->getKey(2),
             $service->getTtl(3),
-            $service->getThenDelete(4)
+            $service->getThenDelete(4),
+            $service->cachePut(3),
+            $service->getTtl(3),
+            $service->cacheEvict(3),
+            $service->getTtl(3),
+            $service->getKey(2),
+            $service->cacheEvictAll(999),
+            $service->getKey(2),
         ];
     }
 
