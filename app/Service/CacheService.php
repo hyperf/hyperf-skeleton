@@ -10,23 +10,15 @@ use Hyperf\Cache\Annotation\CachePut;
 class CacheService
 {
     /**
-     * @Cacheable()
+     * @Cacheable(prefix="get", value="__#{id}_#{id2}")
      */
-    public function get($id)
+    public function get($id, $id2 = null)
     {
         return uniqid() . $id;
     }
 
     /**
-     * @Cacheable(key="cache-get-key")
-     */
-    public function getKey($id)
-    {
-        return uniqid() . $id;
-    }
-
-    /**
-     * @Cacheable(key="cache-get-ttl", ttl=9000)
+     * @Cacheable(prefix="cache-get-ttl", ttl=9000)
      */
     public function getTtl($id)
     {
@@ -34,7 +26,7 @@ class CacheService
     }
 
     /**
-     * @Cacheable(key="cache-delete", ttl=9000, listener="cache-delete")
+     * @Cacheable(prefix="cache-delete", ttl=9000, listener="cache-delete")
      */
     public function getThenDelete($id)
     {
@@ -42,7 +34,7 @@ class CacheService
     }
 
     /**
-     * @CachePut(key="cache-get-ttl", ttl=3600)
+     * @CachePut(prefix="cache-get-ttl", ttl=3600)
      */
     public function cachePut($id)
     {
@@ -50,7 +42,7 @@ class CacheService
     }
 
     /**
-     * @CacheEvict(key="cache-get-ttl")
+     * @CacheEvict(prefix="cache-get-ttl")
      */
     public function cacheEvict($id)
     {
@@ -58,7 +50,7 @@ class CacheService
     }
 
     /**
-     * @CacheEvict(key="cache", all=true)
+     * @CacheEvict(prefix="cache-get-ttl", all=true)
      */
     public function cacheEvictAll($id)
     {
