@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Clients\Redis2;
+use App\Client\Redis2;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Context;

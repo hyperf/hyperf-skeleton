@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Services\CacheService;
+use App\Service\CacheService;
 use Hyperf\Cache\Cache;
 use Hyperf\Cache\CacheManager;
 use Hyperf\Cache\Listener\DeleteListenerEvent;
@@ -25,17 +25,51 @@ class CacheController extends Controller
     public function aop()
     {
         $service = $this->container->get(CacheService::class);
-
         $dispatcher = $this->container->get(EventDispatcherInterface::class);
+        $redis = $this->container->get(\Redis::class);
 
+        $result = [true, ''];
+
+        $res = $service->get(10);
+        if ($res !== $service->get(10)) {
+            $result = [false, 'AopCache::get is not work expected.'];
+        }
+
+        $res = $service->getTtl(1);
+        if ($redis->ttl('c:cache-get-ttl:1') != 9000) {
+            $result = [false, 'AopCache::ttl is not work expected.'];
+        }
+
+        $res = $service->getThenDelete(4);
         $dispatcher->dispatch(new DeleteListenerEvent('cache-delete', [4]));
+        if ($res == $service->getThenDelete(4)) {
+            $result = [false, 'AopCache::listener is not work expected.'];
+        }
 
-        return [
-            $service->get(1),
-            $service->getKey(2),
-            $service->getTtl(3),
-            $service->getThenDelete(4)
-        ];
+        $res = $service->cachePut(1);
+        if ($res == $service->cachePut(1)) {
+            $result = [false, 'AopCache::cachePut is not work expected.'];
+        }
+        if ($redis->ttl('c:cache-get-ttl:1') != 3600) {
+            $result = [false, 'AopCache::cachePut is not work expected.'];
+        }
+
+        $res = $service->cacheEvict(1);
+        if ($redis->exists('c:cache-get-ttl:1')) {
+            $result = [false, 'AopCache::cachePut is not work expected.'];
+        }
+
+        $res = $service->getTtl(1);
+        $res = $service->getTtl(2);
+        $res = $service->cacheEvictAll(99);
+        if ($redis->exists('c:cache-get-ttl:1')) {
+            $result = [false, 'AopCache::cachePut is not work expected.'];
+        }
+        if ($redis->exists('c:cache-get-ttl:2')) {
+            $result = [false, 'AopCache::cachePut is not work expected.'];
+        }
+
+        return $result;
     }
 
     public function cache()

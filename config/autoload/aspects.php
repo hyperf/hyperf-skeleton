@@ -1,6 +1,6 @@
 <?php
 
-use App\Aspects\ControllerAspect;
+use App\Aspect\ControllerAspect;
 
 return [
     ControllerAspect::class,
