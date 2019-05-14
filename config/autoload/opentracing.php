@@ -3,10 +3,10 @@
 use Zipkin\Samplers\BinarySampler;
 
 return [
-    'switch' => [
-        'guzzle' => true,
-        'redis' => true,
-        'db' => true,
+    'enable' => [
+        'guzzle' => false,
+        'redis' => false,
+        'db' => false,
     ],
     'zipkin' => [
         'app' => [
