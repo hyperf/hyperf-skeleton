@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
  */
 
-namespace App\Exception\Handlers;
+namespace App\Exception\Handler;
 
 use App\Exception\BusinessException;
 use Hyperf\Utils\ApplicationContext;
