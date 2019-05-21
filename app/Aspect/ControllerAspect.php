@@ -15,13 +15,13 @@ namespace App\Aspect;
 use App\Controller\IndexController;
 use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Annotation\Debug;
-use Hyperf\Di\Aop\ArroundInterface;
+use Hyperf\Di\Aop\AroundInterface;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
 /**
  * @Aspect
  */
-class ControllerAspect implements ArroundInterface
+class ControllerAspect implements AroundInterface
 {
     public $classes
         = [
