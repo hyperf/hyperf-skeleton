@@ -12,14 +12,14 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Hyperf\Command\AbstractCommand;
+use Hyperf\Command\Command as HyperfCommand;
 use Hyperf\Framework\Annotation\Command;
 use Psr\Container\ContainerInterface;
 
 /**
  * @Command
  */
-class DemoCommand extends AbstractCommand
+class DemoCommand extends HyperfCommand
 {
     /**
      * @var ContainerInterface
@@ -40,6 +40,6 @@ class DemoCommand extends AbstractCommand
 
     public function handle()
     {
-        $this->output->writeln('You can do something...');
+        $this->line('Hello Hyperf!', 'info');
     }
 }
