@@ -9,7 +9,9 @@ use Hyperf\Config\ProviderConfig;
 use Hyperf\Di\Annotation\Scanner;
 use Hyperf\Di\Container;
 use Hyperf\Di\Definition\DefinitionSource;
+use Hyperf\Di\Event\AfterScan;
 use Hyperf\Utils\ApplicationContext;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 $configFromProviders = ProviderConfig::load();
 $definitions = include __DIR__ . '/dependencies.php';
@@ -24,4 +26,10 @@ $container = new Container(new DefinitionSource($serverDependencies, $scanDirs, 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new RuntimeException('The dependency injection container is invalid.');
 }
+
+if ($container->has(EventDispatcherInterface::class)) {
+    $eventDispatcher = $container->get(EventDispatcherInterface::class);
+    $eventDispatcher->dispatch(new AfterScan());
+}
+
 return ApplicationContext::setContainer($container);
