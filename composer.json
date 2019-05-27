@@ -23,6 +23,7 @@
         "hyperf/async-queue": "dev-master",
         "hyperf/cache": "dev-master",
         "hyperf/circuit-breaker": "dev-master",
+        "hyperf/command": "dev-master",
         "hyperf/config": "dev-master",
         "hyperf/config-apollo": "dev-master",
         "hyperf/constants": "dev-master",
