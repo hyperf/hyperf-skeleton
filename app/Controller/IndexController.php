@@ -23,6 +23,7 @@ use GuzzleHttp\HandlerStack;
 use Hyperf\Amqp\Producer;
 use Hyperf\AsyncQueue\Driver\DriverFactory;
 use Hyperf\AsyncQueue\Driver\DriverInterface;
+use Hyperf\Config\Annotation\Value;
 use Hyperf\Database\Connection;
 use Hyperf\DbConnection\Pool\PoolFactory;
 use Hyperf\Di\Annotation\Inject;
@@ -51,6 +52,12 @@ class IndexController extends Controller
     protected static $staticValue = 2;
 
     /**
+     * @Value("app_name")
+     * @var string
+     */
+    protected $name;
+
+    /**
      * @Inject
      * @var ClientFactory
      */
@@ -72,7 +79,7 @@ class IndexController extends Controller
 
     public function index(RequestInterface $request, ResponseInterface $response)
     {
-        return $response->raw('Hello Hyperf.');
+        return $response->raw(sprintf('Hello Hyperf %s.', $this->name));
     }
 
     public function staticIndex()

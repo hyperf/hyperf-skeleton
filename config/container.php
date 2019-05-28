@@ -26,11 +26,5 @@ $container = new Container(new DefinitionSource($serverDependencies, $scanDirs, 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new RuntimeException('The dependency injection container is invalid.');
 }
-ApplicationContext::setContainer($container);
 
-if ($container->has(EventDispatcherInterface::class)) {
-    $eventDispatcher = $container->get(EventDispatcherInterface::class);
-    $eventDispatcher->dispatch(new AfterScan());
-}
-
-return $container;
+return ApplicationContext::setContainer($container);
