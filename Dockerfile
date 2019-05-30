@@ -12,6 +12,7 @@ LABEL maintainer="hyperf <group@hyperf.org>" version="1.0"
 # ---------- env settings ----------
 ##
 ENV SWOOLE_VERSION=4.3.3 \
+    PROTOBUF_VERSION=3.7.1 \
     #  install and remove building packages
     PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make php7-dev php7-pear pkgconf re2c pcre-dev zlib-dev libtool automake"
 
@@ -40,20 +41,12 @@ RUN set -ex \
     && echo "extension=swoole.so" > /etc/php7/conf.d/swoole.ini \
     && echo "swoole.use_shortname = 'Off'" >> /etc/php7/conf.d/swoole.ini \
 
-    # php extension:grpc
+    # php extension: protobuf
+    && apk add --no-cache protobuf \
     && cd /tmp \
-    && git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc \
-    && ( \
-        cd grpc \
-        && git submodule update --init \
-        && make && make install \
-        && cd src/php/ext/grpc \
-        && phpize \
-        && ./configure \
-        && make && make install \
-        && echo "extension=grpc.so" > /etc/php7/conf.d/grpc.ini \
-    ) \
-    && rm -rf /usr/local/bin/grpc* \
+    && wget http://pecl.php.net/get/protobuf-${PROTOBUF_VERSION}.tgz -O protobuf.tgz \
+    && pecl install protobuf.tgz \
+    && echo "extension=protobuf.so" > /etc/php7/conf.d/protobuf.ini \
 
     # install composer
     && cd /tmp \
