@@ -26,6 +26,7 @@
         "hyperf/command": "dev-master",
         "hyperf/config": "dev-master",
         "hyperf/config-apollo": "dev-master",
+        "hyperf/config-aliyun-acm": "dev-master",
         "hyperf/constants": "dev-master",
         "hyperf/consul": "dev-master",
         "hyperf/contract": "dev-master",

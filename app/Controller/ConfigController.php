@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use Hyperf\ConfigApollo\ClientInterface;
+use Hyperf\Contract\ConfigInterface;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
 
 /**
@@ -9,28 +12,38 @@ use Hyperf\HttpServer\Annotation\AutoController;
  */
 class ConfigController
 {
-
     /**
-     * @\Hyperf\Di\Annotation\Inject()
-     * @var \Hyperf\ConfigApollo\ClientInterface
-     */
-    private $client;
-
-    /**
-     * @\Hyperf\Di\Annotation\Inject()
-     * @var \Hyperf\Contract\ConfigInterface
+     * @Inject()
+     * @var ConfigInterface
      */
     private $config;
 
-    public function pull()
-    {
-         $this->client->pull(['application', 'test-namespace']);
-         return $this->config->get('config-center');
-    }
+    /**
+     * @Inject()
+     * @var ClientInterface
+     */
+    private $apollo;
+
+    /**
+     * @Inject()
+     * @var \Hyperf\ConfigAliyunAcm\ClientInterface
+     */
+    private $aliyunAcm;
 
     public function get()
     {
-        return $this->config->get('config-center');
+        return $this->config->get('config-center', 'test');
+    }
+
+    public function apolloPull()
+    {
+        $this->apollo->pull(['application', 'test-namespace']);
+        return $this->config->get('config-center', 'test');
+    }
+
+    public function aliyunAcmPull()
+    {
+        return $this->aliyunAcm->pull();
     }
 
 }
