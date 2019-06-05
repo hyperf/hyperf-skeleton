@@ -14,7 +14,7 @@ namespace App\Command;
 
 use Hyperf\Command\Command as HyperfCommand;
 use Hyperf\Config\Annotation\Value;
-use Hyperf\Framework\Annotation\Command;
+use Hyperf\Command\Annotation\Command;
 use Psr\Container\ContainerInterface;
 
 /**
