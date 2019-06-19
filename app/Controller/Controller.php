@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Kernel\Http\Response;
 use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Psr\Container\ContainerInterface;
 
 abstract class Controller
@@ -24,19 +24,19 @@ abstract class Controller
     protected $container;
 
     /**
-     * @var Response
-     */
-    protected $response;
-
-    /**
      * @var RequestInterface
      */
     protected $request;
 
+    /**
+     * @var ResponseInterface
+     */
+    protected $response;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->response = $container->get(Response::class);
         $this->request = $container->get(RequestInterface::class);
+        $this->response = $container->get(ResponseInterface::class);
     }
 }

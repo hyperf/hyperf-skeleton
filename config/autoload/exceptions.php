@@ -13,7 +13,7 @@ declare(strict_types=1);
 return [
     'handler' => [
         'http' => [
-            App\Exception\Handler\BusinessExceptionHandler::class,
+            App\Exception\Handler\AppExceptionHandler::class,
         ],
     ],
 ];
