@@ -1,7 +1,17 @@
 <?php
 
-use Hyperf\Server\SwooleEvent;
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
+
 use Hyperf\Server\Server;
+use Hyperf\Server\SwooleEvent;
 
 return [
     'mode' => SWOOLE_BASE,
@@ -16,26 +26,6 @@ return [
                 SwooleEvent::ON_REQUEST => [Hyperf\HttpServer\Server::class, 'onRequest'],
             ],
         ],
-        [
-            'name' => 'innerHttp',
-            'type' => Server::SERVER_HTTP,
-            'host' => '0.0.0.0',
-            'port' => 9502,
-            'sock_type' => SWOOLE_SOCK_TCP,
-            'callbacks' => [
-                SwooleEvent::ON_REQUEST => [\App\HttpServer\HttpServer::class, 'onRequest'],
-            ],
-        ],
-        [
-            'name' => 'grpc',
-            'type' => Server::SERVER_HTTP,
-            'host' => '0.0.0.0',
-            'port' => 9503,
-            'sock_type' => SWOOLE_SOCK_TCP,
-            'callbacks' => [
-                SwooleEvent::ON_REQUEST => [\Hyperf\GrpcServer\Server::class, 'onRequest'],
-            ],
-        ],
     ],
     'settings' => [
         'enable_coroutine' => true,
@@ -44,7 +34,7 @@ return [
         'open_tcp_nodelay' => true,
         'max_coroutine' => 100000,
         'open_http2_protocol' => true,
-        'max_request' => 10000,
+        'max_request' => 100000,
         'socket_buffer_size' => 2 * 1024 * 1024,
     ],
     'callbacks' => [

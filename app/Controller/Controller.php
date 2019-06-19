@@ -4,27 +4,39 @@ declare(strict_types=1);
 /**
  * This file is part of Hyperf.
  *
- * @link     https://hyperf.org
- * @document https://wiki.hyperf.org
- * @contact  group@hyperf.org
+ * @link     https://www.hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
  * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
  */
 
 namespace App\Controller;
 
+use App\Kernel\Http\Response;
+use Hyperf\HttpServer\Contract\RequestInterface;
 use Psr\Container\ContainerInterface;
 
-class Controller
+abstract class Controller
 {
     /**
      * @var ContainerInterface
      */
     protected $container;
 
-    protected static $staticValue = 1;
+    /**
+     * @var Response
+     */
+    protected $response;
+
+    /**
+     * @var RequestInterface
+     */
+    protected $request;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->response = $container->get(Response::class);
+        $this->request = $container->get(RequestInterface::class);
     }
 }

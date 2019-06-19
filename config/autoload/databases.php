@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
+
 return [
     'default' => [
         'driver' => env('DB_DRIVER', 'mysql'),
@@ -18,20 +28,12 @@ return [
             'heartbeat' => -1,
             'max_idle_time' => (float) env('DB_MAX_IDLE_TIME', 60),
         ],
-        'cache' => [
-            'handler' => \Hyperf\ModelCache\Handler\RedisHandler::class,
-            'cache_key' => 'mc:%s:m:%s:%s:%s',
-            'prefix' => 'default',
-            'ttl' => 3600 * 24,
-            'load_script' => true,
-        ],
-        'options' => [
-            // default
-            PDO::ATTR_CASE => PDO::CASE_NATURAL,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
-            PDO::ATTR_STRINGIFY_FETCHES => false,
-            PDO::ATTR_EMULATE_PREPARES => false,
+        'commands' => [
+            'db:model' => [
+                'path' => 'app/Models',
+                'force_casts' => true,
+                'inheritance' => 'Model',
+            ],
         ],
     ],
 ];

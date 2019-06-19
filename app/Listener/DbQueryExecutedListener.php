@@ -4,20 +4,22 @@ declare(strict_types=1);
 /**
  * This file is part of Hyperf.
  *
- * @link     https://hyperf.org
- * @document https://wiki.hyperf.org
- * @contact  group@hyperf.org
+ * @link     https://www.hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
  * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
  */
 
 namespace App\Listener;
 
+use Hyperf\Database\Events\QueryExecuted;
+use Hyperf\Event\Annotation\Listener;
+use Hyperf\Event\Contract\ListenerInterface;
+use Hyperf\Logger\LoggerFactory;
 use Hyperf\Utils\Arr;
 use Hyperf\Utils\Str;
-use Hyperf\Event\Annotation\Listener;
-use Hyperf\Database\Events\QueryExecuted;
-use Hyperf\Contract\StdoutLoggerInterface;
-use Hyperf\Event\Contract\ListenerInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * @Listener
@@ -25,13 +27,13 @@ use Hyperf\Event\Contract\ListenerInterface;
 class DbQueryExecutedListener implements ListenerInterface
 {
     /**
-     * @var StdoutLoggerInterface
+     * @var LoggerInterface
      */
     private $logger;
 
-    public function __construct(StdoutLoggerInterface $stdoutLogger)
+    public function __construct(ContainerInterface $container)
     {
-        $this->logger = $stdoutLogger;
+        $this->logger = $container->get(LoggerFactory::class)->get('sql');
     }
 
     public function listen(): array
@@ -54,7 +56,7 @@ class DbQueryExecutedListener implements ListenerInterface
                 }
             }
 
-            $this->logger->debug(sprintf('[%s] %s', $event->time, $sql));
+            $this->logger->info(sprintf('[%s] %s', $event->time, $sql));
         }
     }
 }

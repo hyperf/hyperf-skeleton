@@ -11,8 +11,8 @@ LABEL maintainer="hyperf <group@hyperf.org>" version="1.0"
 ##
 # ---------- env settings ----------
 ##
-ENV SWOOLE_VERSION=4.3.3 \
-    PROTOBUF_VERSION=3.7.1 \
+ENV SWOOLE_VERSION=4.3.5 \
+    COMPOSER_VERSION=1.8.5 \
     #  install and remove building packages
     PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make php7-dev php7-pear pkgconf re2c pcre-dev zlib-dev libtool automake"
 
@@ -41,16 +41,11 @@ RUN set -ex \
     && echo "extension=swoole.so" > /etc/php7/conf.d/swoole.ini \
     && echo "swoole.use_shortname = 'Off'" >> /etc/php7/conf.d/swoole.ini \
 
-    # php extension: protobuf
-    && apk add --no-cache protobuf \
-    && cd /tmp \
-    && wget http://pecl.php.net/get/protobuf-${PROTOBUF_VERSION}.tgz -O protobuf.tgz \
-    && pecl install protobuf.tgz \
-    && echo "extension=protobuf.so" > /etc/php7/conf.d/protobuf.ini \
-
     # install composer
     && cd /tmp \
-    && curl -sS https://getcomposer.org/installer | php \
+    ## && curl -sS https://getcomposer.org/installer | php \
+    && wget https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
+    && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
     && composer self-update --clean-backups \
 

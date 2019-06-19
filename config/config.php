@@ -1,5 +1,15 @@
 <?php
-// The configurations that placed in this file will loaded after worker started.
+
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://hyperf.io
+ * @document https://doc.hyperf.io
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ */
+
 use Hyperf\Contract\StdoutLoggerInterface;
 use Psr\Log\LogLevel;
 

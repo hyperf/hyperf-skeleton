@@ -10,10 +10,12 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
  */
 
-namespace App\Exception;
+error_reporting(E_ALL);
 
-use Hyperf\Server\Exception\ServerException;
+! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 
-class BusinessException extends ServerException
-{
-}
+\Swoole\Runtime::enableCoroutine(true);
+
+require BASE_PATH . '/vendor/autoload.php';
+
+require BASE_PATH . '/config/container.php';
