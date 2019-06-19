@@ -52,11 +52,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Installer\\": "installer/"
+            "App\\": "app/"
         },
         "files": [
-            "app/Kernel/Functions.php"
         ]
     },
     "autoload-dev": {
@@ -66,11 +64,8 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "extra": {
-    },
+    "extra": [],
     "scripts": {
-        "pre-install-cmd": "Installer\\Script::install",
-        "pre-update-cmd": "Installer\\Script::install",
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
