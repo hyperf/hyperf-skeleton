@@ -56,7 +56,6 @@
             "Installer\\": "installer/"
         },
         "files": [
-            "app/Kernel/Functions.php"
         ]
     },
     "autoload-dev": {
