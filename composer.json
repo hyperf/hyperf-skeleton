@@ -80,10 +80,6 @@
         "start": "php ./bin/hyperf.php start"
     },
     "repositories": {
-        "hyperf": {
-            "type": "path",
-            "url": "../hyperf-components/src/*"
-        },
         "packagist": {
             "type": "composer",
             "url": "https://packagist.laravel-china.org"
