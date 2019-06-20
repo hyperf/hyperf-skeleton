@@ -13,46 +13,46 @@ declare(strict_types=1);
 return [
     'packages' => [
         'hyperf/amqp' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/async-queue' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/model-cache' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/constants' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/json-rpc' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/rpc' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/rpc-client' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/rpc-server' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/grpc-client' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/grpc-server' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/elasticsearch' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/config-apollo' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/config-aliyun-acm' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
         'hyperf/tracer' => [
-            'version' => '~v1.0.0',
+            'version' => '~1.0.0',
         ],
     ],
     'require-dev' => [
