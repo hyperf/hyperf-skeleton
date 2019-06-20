@@ -14,11 +14,6 @@
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.2",
-        "ext-openssl": "*",
-        "ext-json": "*",
-        "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
-        "ext-redis": "*",
         "hyperf/cache": "~1.0.0",
         "hyperf/command": "~1.0.0",
         "hyperf/config": "~1.0.0",
@@ -39,7 +34,6 @@
         "hyperf/pool": "~1.0.0",
         "hyperf/process": "~1.0.0",
         "hyperf/redis": "~1.0.0",
-        "hyperf/testing": "~1.0.0",
         "hyperf/utils": "~1.0.0"
     },
     "require-dev": {
@@ -50,6 +44,13 @@
         "doctrine/common": "^2.9",
         "phpstan/phpstan": "^0.11.2",
         "hyperf/testing": "~1.0.0"
+    },
+    "suggest": {
+        "ext-openssl": "Required to use HTTPS.",
+        "ext-json": "Required to use JSON.",
+        "ext-pdo": "Required to use MySQL Client.",
+        "ext-pdo_mysql": "Required to use MySQL Client.",
+        "ext-redis": "Required to use Redis Client."
     },
     "autoload": {
         "psr-4": {
