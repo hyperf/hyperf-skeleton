@@ -83,7 +83,7 @@
     "repositories": {
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.laravel-china.org"
+            "url": "https://repo.huaweicloud.com/repository/php/"
         }
     }
 }
