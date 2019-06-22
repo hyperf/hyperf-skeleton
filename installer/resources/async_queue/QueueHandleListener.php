@@ -19,6 +19,7 @@ use Hyperf\AsyncQueue\Event\FailedHandle;
 use Hyperf\AsyncQueue\Event\RetryHandle;
 use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
+use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
 use Hyperf\Logger\LoggerFactory;
 
 /**
@@ -26,11 +27,20 @@ use Hyperf\Logger\LoggerFactory;
  */
 class QueueHandleListener implements ListenerInterface
 {
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
     protected $logger;
 
-    public function __construct(LoggerFactory $loggerFactory)
+    /**
+     * @var FormatterInterface
+     */
+    protected $formatter;
+
+    public function __construct(LoggerFactory $loggerFactory, FormatterInterface $formatter)
     {
         $this->logger = $loggerFactory->get('queue');
+        $this->formatter = $formatter;
     }
 
     public function listen(): array
@@ -59,7 +69,7 @@ class QueueHandleListener implements ListenerInterface
                     break;
                 case $event instanceof FailedHandle:
                     $this->logger->error(sprintf('[%s] Failed %s.', $date, $jobClass));
-                    $this->logger->error(format_throwable($event->getThrowable()));
+                    $this->logger->error($this->formatter->format($event->getThrowable()));
                     break;
                 case $event instanceof RetryHandle:
                     $this->logger->warning(sprintf('[%s] Retried %s.', $date, $jobClass));
