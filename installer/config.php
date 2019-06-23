@@ -88,6 +88,7 @@ return [
                         'hyperf/rpc-server',
                     ],
                     'resources' => [
+                        'resources/jsonrpc/services.php' => 'config/autoload/services.php',
                     ],
                 ],
                 3 => [
