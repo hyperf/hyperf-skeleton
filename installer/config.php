@@ -54,6 +54,9 @@ return [
         'hyperf/tracer' => [
             'version' => '~1.0.0',
         ],
+        'hyperf/service-governance' => [
+            'version' => '~1.0.0',
+        ],
     ],
     'require-dev' => [
     ],
@@ -65,6 +68,18 @@ return [
             'custom-package' => true,
             'options' => [
                 1 => [
+                    'name' => 'JSON-RPC with Service Governance',
+                    'packages' => [
+                        'hyperf/json-rpc',
+                        'hyperf/rpc',
+                        'hyperf/rpc-client',
+                        'hyperf/rpc-server',
+                        'hyperf/service-governance',
+                    ],
+                    'resources' => [
+                    ],
+                ],
+                2 => [
                     'name' => 'JSON-RPC',
                     'packages' => [
                         'hyperf/json-rpc',
@@ -75,7 +90,7 @@ return [
                     'resources' => [
                     ],
                 ],
-                2 => [
+                3 => [
                     'name' => 'gRPC',
                     'packages' => [
                         'hyperf/grpc-client',
