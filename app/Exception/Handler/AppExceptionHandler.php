@@ -32,7 +32,7 @@ class AppExceptionHandler extends ExceptionHandler
 
     public function handle(Throwable $throwable, ResponseInterface $response)
     {
-        $this->logger->error($throwable->getMessage());
+        $this->logger->error(sprintf('%s[%s] in %s', $throwable->getMessage(), $throwable->getLine(), $throwable->getFile()));
         $this->logger->error($throwable->getTraceAsString());
         return $response->withStatus(500)->withBody(new SwooleStream('Internal Server Error.'));
     }
