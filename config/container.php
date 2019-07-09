@@ -27,7 +27,8 @@ $annotations = include __DIR__ . '/autoload/annotations.php';
 $scanDirs = $configFromProviders['scan']['paths'];
 $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
 
-$container = new Container(new DefinitionSource($serverDependencies, $scanDirs, new Scanner()));
+$ignoreAnnotations = $annotations['scan']['ignore_annotations'] ?? ['mixin'];
+$container = new Container(new DefinitionSource($serverDependencies, $scanDirs, new Scanner($ignoreAnnotations)));
 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new RuntimeException('The dependency injection container is invalid.');
