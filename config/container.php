@@ -28,7 +28,7 @@ $scanDirs = $configFromProviders['scan']['paths'];
 $scanDirs = array_merge($scanDirs, $annotations['scan']['paths'] ?? []);
 
 $ignoreAnnotations = $annotations['scan']['ignore_annotations'] ?? ['mixin'];
-$container = new Container(new DefinitionSource($serverDependencies, $scanDirs, new Scanner($ignoreAnnotations)));
+$container = new Container(new DefinitionSource($serverDependencies, $scanDirs, new Scanner($ignoreAnnotations), env('APP_ENV', 'env') == 'dev'));
 
 if (! $container instanceof \Psr\Container\ContainerInterface) {
     throw new RuntimeException('The dependency injection container is invalid.');
