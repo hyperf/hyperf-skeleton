@@ -23,37 +23,6 @@ class ExampleTest extends HttpTestCase
     public function testExample()
     {
         $this->assertTrue(true);
-
-        $res = $this->get('/');
-
-        $this->assertSame(0, $res['code']);
-        $this->assertSame('Hello Hyperf.', $res['data']['message']);
-        $this->assertSame('GET', $res['data']['method']);
-        $this->assertSame('Hyperf', $res['data']['user']);
-
-        $res = $this->get('/', ['user' => 'developer']);
-
-        $this->assertSame(0, $res['code']);
-        $this->assertSame('developer', $res['data']['user']);
-
-        $res = $this->post('/', [
-            'user' => 'developer',
-        ]);
-        $this->assertSame('Hello Hyperf.', $res['data']['message']);
-        $this->assertSame('POST', $res['data']['method']);
-        $this->assertSame('developer', $res['data']['user']);
-
-        $res = $this->json('/', [
-            'user' => 'developer',
-        ]);
-        $this->assertSame('Hello Hyperf.', $res['data']['message']);
-        $this->assertSame('POST', $res['data']['method']);
-        $this->assertSame('developer', $res['data']['user']);
-
-        $res = $this->file('/', ['name' => 'file', 'file' => BASE_PATH . '/README.md']);
-
-        $this->assertSame('Hello Hyperf.', $res['data']['message']);
-        $this->assertSame('POST', $res['data']['method']);
-        $this->assertSame('README.md', $res['data']['file']);
+        $this->assertTrue(is_array($this->get('/')));
     }
 }
