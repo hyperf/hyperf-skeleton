@@ -21,8 +21,6 @@ date_default_timezone_set('Asia/Shanghai');
 
 !defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 
-Runtime::enableCoroutine(true);
-
 require BASE_PATH.'/vendor/autoload.php';
 
 $container = require BASE_PATH.'/config/container.php';
