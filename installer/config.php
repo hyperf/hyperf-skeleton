@@ -18,6 +18,9 @@ return [
         'hyperf/async-queue' => [
             'version' => '~1.0.0',
         ],
+        'hyperf/database' => [
+            'version' => '~1.0.0',
+        ],
         'hyperf/model-cache' => [
             'version' => '~1.0.0',
         ],
@@ -25,6 +28,9 @@ return [
             'version' => '~1.0.0',
         ],
         'hyperf/json-rpc' => [
+            'version' => '~1.0.0',
+        ],
+        'hyperf/redis' => [
             'version' => '~1.0.0',
         ],
         'hyperf/rpc' => [
@@ -61,6 +67,41 @@ return [
     'require-dev' => [
     ],
     'questions' => [
+        'database' => [
+            'question' => 'Do you want to use Database (MySQL Client) ?',
+            'default' => 'y',
+            'required' => false,
+            'custom-package' => true,
+            'options' => [
+                'y' => [
+                    'name' => 'yes',
+                    'packages' => [
+                        'hyperf/database',
+                        'hyperf/db-connection',
+                    ],
+                    'resources' => [
+                        'resources/database/databases.php' => 'config/autoload/databases.php',
+                    ],
+                ],
+            ],
+        ],
+        'redis' => [
+            'question' => 'Do you want to use Redis Client ?',
+            'default' => 'y',
+            'required' => false,
+            'custom-package' => true,
+            'options' => [
+                'y' => [
+                    'name' => 'yes',
+                    'packages' => [
+                        'hyperf/redis',
+                    ],
+                    'resources' => [
+                        'resources/database/redis.php' => 'config/autoload/redis.php',
+                    ],
+                ],
+            ],
+        ],
         'rpc' => [
             'question' => 'Which RPC protocol do you want to use ?',
             'default' => 'n',
@@ -68,7 +109,7 @@ return [
             'custom-package' => true,
             'options' => [
                 1 => [
-                    'name' => 'JSON-RPC with Service Governance',
+                    'name' => 'JSON RPC with Service Governance',
                     'packages' => [
                         'hyperf/json-rpc',
                         'hyperf/rpc',
@@ -80,7 +121,7 @@ return [
                     ],
                 ],
                 2 => [
-                    'name' => 'JSON-RPC',
+                    'name' => 'JSON RPC',
                     'packages' => [
                         'hyperf/json-rpc',
                         'hyperf/rpc',
@@ -124,6 +165,15 @@ return [
                     ],
                     'resources' => [
                         'resources/config_center/aliyun_acm.php' => 'config/autoload/aliyun_acm.php',
+                    ],
+                ],
+                3 => [
+                    'name' => 'ETCD',
+                    'packages' => [
+                        'hyperf/config-etcd',
+                    ],
+                    'resources' => [
+                        'resources/config_center/etcd.php' => 'config/autoload/etcd.php',
                     ],
                 ],
             ],
