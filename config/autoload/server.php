@@ -31,6 +31,8 @@ return [
         'enable_coroutine' => true,
         'worker_num' => swoole_cpu_num(),
         'pid_file' => BASE_PATH . '/runtime/hyperf.pid',
+        'log_level' => 0,
+        'log_file' => BASE_PATH . 'runtime/logs/hyperf.log',
         'open_tcp_nodelay' => true,
         'max_coroutine' => 100000,
         'open_http2_protocol' => true,
