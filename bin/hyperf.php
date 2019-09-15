@@ -43,7 +43,9 @@ set_error_handler('error_handle', E_ALL);
 function SwooleErrorHandle()
 {
     $error = error_get_last();
-    var_dump("SwooleProcessOcurredError：", $error);
+    if ($error) {
+        var_dump("SwooleProcessOcurredError：", $error);
+    }
 }
 
 register_shutdown_function('SwooleErrorHandle');
