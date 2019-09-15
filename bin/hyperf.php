@@ -4,7 +4,6 @@
 error_reporting(0);
 function error_handle($error_level, $error_message, $error_file, $error_line)
 {
-    var_dump("错误级别：", $error_level);
     switch ($error_level) {
         # 提醒级别
         case E_NOTICE:
