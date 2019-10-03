@@ -1,6 +1,6 @@
 <?php
 /**
- * Initial a dependency injection container that implemented PSR-11 and return the container.
+ * Initialize a dependency injection container that implemented PSR-11 and return the container.
  */
 
 declare(strict_types=1);
