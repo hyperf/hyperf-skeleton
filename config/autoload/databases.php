@@ -30,7 +30,7 @@ return [
             'max_idle_time' => (float) env('DB_MAX_IDLE_TIME', 60),
         ],
         'commands' => [
-            'db:model' => [
+            'gen:model' => [
                 'path' => 'app/Model',
                 'force_casts' => true,
                 'inheritance' => 'Model',
