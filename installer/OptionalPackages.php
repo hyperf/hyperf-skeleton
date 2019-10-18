@@ -120,6 +120,13 @@ class OptionalPackages
         $this->installerSource = realpath(__DIR__) . '/';
     }
 
+    public function installHyperfScript()
+    {
+        $answer = $this->io->ask('', (string)'');
+
+        var_dump($answer);
+    }
+
     /**
      * Create data and cache directories, if not present.
      *
@@ -130,7 +137,7 @@ class OptionalPackages
         $this->io->write('<info>Setup data and cache dir</info>');
         $runtimeDir = $this->projectRoot . '/runtime';
 
-        if (! is_dir($runtimeDir)) {
+        if (!is_dir($runtimeDir)) {
             mkdir($runtimeDir, 0775, true);
             chmod($runtimeDir, 0775);
         }
@@ -249,14 +256,14 @@ class OptionalPackages
             }
             // Copy files
             if (isset($question['options'][$answer])) {
-                $force = ! empty($question['force']);
+                $force = !empty($question['force']);
                 foreach ($question['options'][$answer]['resources'] as $resource => $target) {
                     $this->copyResource($resource, $target, $force);
                 }
             }
             return true;
         }
-        if ($question['custom-package'] === true && preg_match(self::PACKAGE_REGEX, (string) $answer, $match)) {
+        if ($question['custom-package'] === true && preg_match(self::PACKAGE_REGEX, (string)$answer, $match)) {
             $this->addPackage($match['name'], $match['version'], []);
             if (isset($question['custom-package-warning'])) {
                 $this->io->write(sprintf('  <warning>%s</warning>', $question['custom-package-warning']));
@@ -310,7 +317,7 @@ class OptionalPackages
         }
         // Whitelist packages for the component installer
         foreach ($whitelist as $package) {
-            if (! in_array($package, $this->composerDefinition['extra']['zf']['component-whitelist'], true)) {
+            if (!in_array($package, $this->composerDefinition['extra']['zf']['component-whitelist'], true)) {
                 $this->composerDefinition['extra']['zf']['component-whitelist'][] = $package;
                 $this->io->write(sprintf('  - Whitelist package <info>%s</info>', $package));
             }
@@ -331,7 +338,7 @@ class OptionalPackages
             return;
         }
         $destinationPath = dirname($this->projectRoot . $target);
-        if (! is_dir($destinationPath)) {
+        if (!is_dir($destinationPath)) {
             mkdir($destinationPath, 0775, true);
         }
         $this->io->write(sprintf('  - Copying <info>%s</info>', $target));
@@ -398,20 +405,20 @@ class OptionalPackages
             : sprintf('  Make your selection <comment>(%s)</comment>: ', $defaultText);
         while (true) {
             // Ask for user input
-            $answer = $this->io->ask(implode($ask), (string) $defaultOption);
+            $answer = $this->io->ask(implode($ask), (string)$defaultOption);
             // Handle none of the options
             if ($answer === 'n' && $question['required'] !== true) {
                 return 'n';
             }
             // Handle numeric options
-            if (is_numeric($answer) && isset($question['options'][(int) $answer])) {
-                return (int) $answer;
+            if (is_numeric($answer) && isset($question['options'][(int)$answer])) {
+                return (int)$answer;
             }
             // Search for package
             if ($question['custom-package'] === true && preg_match(self::PACKAGE_REGEX, $answer, $match)) {
                 $packageName = $match['name'];
                 $packageVersion = $match['version'];
-                if (! $packageVersion) {
+                if (!$packageVersion) {
                     $this->io->write('<error>No package version specified</error>');
                     continue;
                 }
@@ -435,7 +442,7 @@ class OptionalPackages
      */
     private function recursiveRmdir(string $directory): void
     {
-        if (! is_dir($directory)) {
+        if (!is_dir($directory)) {
             return;
         }
         $rdi = new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS);
