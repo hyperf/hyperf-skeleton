@@ -15,7 +15,7 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    COMPOSER_VERSION=1.8.6 \
+    COMPOSER_VERSION=1.9.0 \
     APP_ENV=prod
 
 # update
@@ -45,13 +45,16 @@ RUN set -ex \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
-COPY . /opt/www
-
 WORKDIR /opt/www
 
+# Composer Cache
+# COPY ./composer.* /opt/www/
+# RUN composer install --no-dev
+
+COPY . /opt/www
 RUN composer install --no-dev \
     && composer dump-autoload -o \
-    && php /opt/www/bin/hyperf.php di:init-proxy
+    && composer init-proxy
 
 EXPOSE 9501
 
