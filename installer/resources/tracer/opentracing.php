@@ -22,7 +22,7 @@ return [
     ],
     'tracer' => [
         'zipkin' => [
-            'driver' => Hyperf\Tracer\Adapter\ZipkinTracerFactory::class,
+            'driver' => \Hyperf\Tracer\Adapter\ZipkinTracerFactory::class,
             'app' => [
                 'name' => env('APP_NAME', 'skeleton'),
                 // Hyperf will detect the system info automatically as the value if ipv4, ipv6, port is null
@@ -37,19 +37,9 @@ return [
             'sampler' => BinarySampler::createAsAlwaysSample(),
         ],
         'jaeger' => [
-            'driver' => Hyperf\Tracer\Adapter\JaegerTracerFactory::class,
+            'driver' => \Hyperf\Tracer\Adapter\JaegerTracerFactory::class,
             'name' => env('APP_NAME', 'skeleton'),
             'options' => [
-                /*
-                 * You can uncomment the sampler lines to use custom strategy.
-                 *
-                 * For more available configurations,
-                 * @see https://github.com/jonahgeorge/jaeger-client-php
-                 */
-                // 'sampler' => [
-                //     'type' => \Jaeger\SAMPLER_TYPE_CONST,
-                //     'param' => true,
-                // ],,
                 'local_agent' => [
                     'reporting_host' => env('JAEGER_REPORTING_HOST', 'localhost'),
                     'reporting_port' => env('JAEGER_REPORTING_PORT', 5775),
