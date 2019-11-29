@@ -49,12 +49,10 @@ WORKDIR /opt/www
 
 # Composer Cache
 # COPY ./composer.* /opt/www/
-# RUN composer install --no-dev
+# RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN composer install --no-dev \
-    && composer dump-autoload -o \
-    && composer init-proxy
+RUN composer install --no-dev -o
 
 EXPOSE 9501
 
