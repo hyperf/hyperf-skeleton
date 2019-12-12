@@ -122,7 +122,7 @@ class OptionalPackages
 
     public function installHyperfScript()
     {
-        $ask[] = "\n  <question>Your time zone is ?</question>\n";
+        $ask[] = "\n  <question>What time zone do you want to setup ?</question>\n";
         $ask[] = "  [<comment>n</comment>] Default time zone for php.ini\n";
         $ask[] = "Make your selection or type a time zone name, like Asia/Shanghai (n):\n";
         $answer = $this->io->ask(implode('', $ask), 'n');
