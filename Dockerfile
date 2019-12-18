@@ -15,7 +15,7 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    COMPOSER_VERSION=1.9.0 \
+    COMPOSER_VERSION=1.9.1 \
     APP_ENV=prod
 
 # update
