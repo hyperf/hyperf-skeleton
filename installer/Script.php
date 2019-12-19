@@ -24,6 +24,7 @@ class Script
 
         $installer->setupRuntimeDir();
         $installer->removeDevDependencies();
+        $installer->installHyperfScript();
         $installer->promptForOptionalPackages();
         $installer->updateRootPackage();
         $installer->removeInstallerFromDefinition();
