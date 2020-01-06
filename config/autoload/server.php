@@ -36,6 +36,7 @@ return [
         'open_http2_protocol' => true,
         'max_request' => 100000,
         'socket_buffer_size' => 2 * 1024 * 1024,
+        'buffer_output_size' => 2 * 1024 * 1024,
     ],
     'callbacks' => [
         SwooleEvent::ON_BEFORE_START => [Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'beforeStart'],
