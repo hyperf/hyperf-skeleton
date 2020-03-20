@@ -128,7 +128,7 @@ class OptionalPackages
         $answer = $this->io->ask(implode('', $ask), 'n');
 
         $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.php');
-        if (!empty($answer) && $answer != 'n') {
+        if ($answer != 'n') {
             $content = str_replace('%TIME_ZONE%', $answer, $content);
         }else{
             $content = str_replace("date_default_timezone_set('%TIME_ZONE%');", '', $content);
