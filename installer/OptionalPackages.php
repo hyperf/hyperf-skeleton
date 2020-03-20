@@ -127,7 +127,7 @@ class OptionalPackages
         $ask[] = "Make your selection or type a time zone name, like Asia/Shanghai (n):\n";
         $answer = $this->io->ask(implode('', $ask), 'n');
 
-        if (! empty($answer) || $answer != 'n') {
+        if (! empty($answer) && $answer != 'n') {
             $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.php');
             $content = str_replace('%TIME_ZONE%', $answer, $content);
             file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
