@@ -127,13 +127,11 @@ class OptionalPackages
         $ask[] = "Make your selection or type a time zone name, like Asia/Shanghai (n):\n";
         $answer = $this->io->ask(implode('', $ask), 'n');
 
-        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.php');
+        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
         if ($answer != 'n') {
             $content = str_replace('%TIME_ZONE%', $answer, $content);
-        }else{
-            $content = str_replace("date_default_timezone_set('%TIME_ZONE%');", '', $content);
+            file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
         }
-        file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
     }
 
     /**
