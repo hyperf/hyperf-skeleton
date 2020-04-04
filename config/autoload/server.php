@@ -41,6 +41,6 @@ return [
     'callbacks' => [
         SwooleEvent::ON_WORKER_START => [Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
         SwooleEvent::ON_PIPE_MESSAGE => [Hyperf\Framework\Bootstrap\PipeMessageCallback::class, 'onPipeMessage'],
-        SwooleEvent::ON_WORKER_STOP => [Hyperf\Framework\Bootstrap\WorkerStopCallback::class, 'onWorkerStop'],
+        SwooleEvent::ON_WORKER_EXIT => [Hyperf\Framework\Bootstrap\WorkerStopCallback::class, 'onWorkerExit'],
     ],
 ];
