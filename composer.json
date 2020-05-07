@@ -34,7 +34,8 @@
         "doctrine/common": "^2.9",
         "phpstan/phpstan": "^0.11.2",
         "hyperf/devtool": "~1.1.0",
-        "hyperf/testing": "~1.1.0"
+        "hyperf/testing": "~1.1.0",
+        "fzaninotto/faker": "^1.9"
     },
     "suggest": {
         "ext-openssl": "Required to use HTTPS.",
