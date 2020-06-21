@@ -6,7 +6,7 @@
 # @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
 
 FROM hyperf/hyperf:7.2-alpine-v3.9-cli
-LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT"
+LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
 # ---------- env settings ----------
@@ -16,7 +16,8 @@ ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
     COMPOSER_VERSION=1.9.1 \
-    APP_ENV=prod
+    APP_ENV=prod \
+    SCAN_CACHEABLE=(true)
 
 # update
 RUN set -ex \
@@ -29,6 +30,7 @@ RUN set -ex \
     # show php version and extensions
     && php -v \
     && php -m \
+    && php --ri swoole \
     #  ---------- some config ----------
     && cd /etc/php7 \
     # - config PHP
@@ -37,7 +39,7 @@ RUN set -ex \
         echo "post_max_size=108M"; \
         echo "memory_limit=1024M"; \
         echo "date.timezone=${TIMEZONE}"; \
-    } | tee conf.d/99-overrides.ini \
+    } | tee conf.d/99_overrides.ini \
     # - config timezone
     && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone \
@@ -52,7 +54,7 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN composer install --no-dev -o
+RUN composer install --no-dev -o && php bin/hyperf.php
 
 EXPOSE 9501
 
