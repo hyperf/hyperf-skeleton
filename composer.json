@@ -27,8 +27,7 @@
         "hyperf/redis": "~2.0.0"
     },
     "require-dev": {
-        "swoole/ide-helper": "^4.4",
-        "phpmd/phpmd": "^2.6",
+        "swoole/ide-helper": "^4.5",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mockery/mockery": "^1.0",
         "doctrine/common": "^2.9",
@@ -72,7 +71,6 @@
         "test": "co-phpunit -c phpunit.xml --colors=always",
         "cs-fix": "php-cs-fixer fix $1",
         "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config",
-        "start": "php ./bin/hyperf.php start",
-        "init-proxy": "init-proxy.sh"
+        "start": "php ./bin/hyperf.php start"
     }
 }
