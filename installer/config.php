@@ -222,7 +222,7 @@ return [
             ],
         ],
         'opentracing' => [
-            'question' => 'Do you want to use hyperf/tracer component ? (A open tracing protocol component, adapte with Zipkin etc.)',
+            'question' => 'Do you want to use hyperf/tracer component ? (An open tracing protocol component, adapte with Zipkin etc.)',
             'default' => 'n',
             'required' => false,
             'force' => true,
