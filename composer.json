@@ -30,7 +30,7 @@
         "swoole/ide-helper": "^4.5",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mockery/mockery": "^1.0",
-        "doctrine/common": "^2.9",
+        "doctrine/common": "^3.0",
         "phpstan/phpstan": "^0.12",
         "hyperf/devtool": "~2.0.0",
         "hyperf/testing": "~2.0.0"
