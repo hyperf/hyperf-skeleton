@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 abstract class HttpTestCase extends TestCase
 {
     /**
-     * @var Client
+     * @var HttpClient
      */
     protected $client;
 
