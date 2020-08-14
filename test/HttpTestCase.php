@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace HyperfTest;
 
-use Hyperf\Testing\Client;
+use Hyperf\Testing\HttpClient;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,14 +24,14 @@ use PHPUnit\Framework\TestCase;
 abstract class HttpTestCase extends TestCase
 {
     /**
-     * @var Client
+     * @var HttpClient
      */
     protected $client;
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->client = make(Client::class);
+        $this->client = make(HttpClient::class);
     }
 
     public function __call($name, $arguments)
