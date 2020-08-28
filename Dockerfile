@@ -5,7 +5,7 @@
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
 
-FROM hyperf/hyperf:7.2-alpine-v3.9-cli
+FROM hyperf/hyperf:7.4-alpine-v3.11-cli
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
@@ -15,13 +15,12 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    COMPOSER_VERSION=1.9.1 \
+    COMPOSER_VERSION=1.10.10 \
     APP_ENV=prod \
     SCAN_CACHEABLE=(true)
 
 # update
 RUN set -ex \
-    && apk update \
     # install composer
     && cd /tmp \
     && wget https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
@@ -35,9 +34,9 @@ RUN set -ex \
     && cd /etc/php7 \
     # - config PHP
     && { \
-        echo "upload_max_filesize=100M"; \
-        echo "post_max_size=108M"; \
-        echo "memory_limit=1024M"; \
+        echo "upload_max_filesize=128M"; \
+        echo "post_max_size=128M"; \
+        echo "memory_limit=1G"; \
         echo "date.timezone=${TIMEZONE}"; \
     } | tee conf.d/99_overrides.ini \
     # - config timezone
