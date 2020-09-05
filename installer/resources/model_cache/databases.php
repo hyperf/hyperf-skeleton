@@ -17,8 +17,8 @@ return [
         'database' => env('DB_DATABASE', 'hyperf'),
         'username' => env('DB_USERNAME', 'root'),
         'password' => env('DB_PASSWORD', ''),
-        'charset' => env('DB_CHARSET', 'utf8'),
-        'collation' => env('DB_COLLATION', 'utf8_unicode_ci'),
+        'charset' => env('DB_CHARSET', 'utf8mb4'),
+        'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
         'prefix' => env('DB_PREFIX', ''),
         'pool' => [
             'min_connections' => 1,
@@ -30,7 +30,7 @@ return [
         ],
         'cache' => [
             'handler' => Hyperf\ModelCache\Handler\RedisHandler::class,
-            'cache_key' => 'mc:%s:m:%s:%s:%s',
+            'cache_key' => '{mc:%s:m:%s}:%s:%s',
             'prefix' => 'default',
             'ttl' => 3600 * 24,
             'empty_model_ttl' => 600,
@@ -41,6 +41,8 @@ return [
                 'path' => 'app/Model',
                 'force_casts' => true,
                 'inheritance' => 'Model',
+                'uses' => '',
+                'table_mapping' => [],
             ],
         ],
     ],

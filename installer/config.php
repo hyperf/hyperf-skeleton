@@ -173,6 +173,7 @@ return [
                     ],
                     'resources' => [
                         'resources/config_center/etcd.php' => 'config/autoload/etcd.php',
+                        'resources/config_center/config_etcd.php' => 'config/autoload/config_etcd.php',
                     ],
                 ],
             ],
