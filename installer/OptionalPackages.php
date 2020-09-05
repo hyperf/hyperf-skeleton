@@ -420,6 +420,10 @@ class OptionalPackages
             if (is_numeric($answer) && isset($question['options'][(int) $answer])) {
                 return (int) $answer;
             }
+            // Handle numeric options
+            if (isset($question['options'][$answer])) {
+                return $answer;
+            }
             // Search for package
             if ($question['custom-package'] === true && preg_match(self::PACKAGE_REGEX, $answer, $match)) {
                 $packageName = $match['name'];
