@@ -20,6 +20,9 @@ return [
         'hyperf/database' => [
             'version' => '~2.0.0',
         ],
+        'hyperf/db-connection' => [
+            'version' => '~2.0.0',
+        ],
         'hyperf/model-cache' => [
             'version' => '~2.0.0',
         ],

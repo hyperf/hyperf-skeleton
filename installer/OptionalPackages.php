@@ -398,7 +398,7 @@ class OptionalPackages
         $defaultText = $defaultOption;
         foreach ($question['options'] as $key => $option) {
             $defaultText = ($key === $defaultOption) ? $option['name'] : $defaultText;
-            $ask[] = sprintf("  [<comment>%d</comment>] %s\n", $key, $option['name']);
+            $ask[] = sprintf("  [<comment>%s</comment>] %s\n", $key, $option['name']);
         }
         if ($question['required'] !== true) {
             $ask[] = "  [<comment>n</comment>] None of the above\n";
