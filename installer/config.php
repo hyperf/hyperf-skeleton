@@ -59,6 +59,9 @@ return [
         'hyperf/config-aliyun-acm' => [
             'version' => '~2.0.0',
         ],
+        'hyperf/config-etcd' => [
+            'version' => '~2.0.0',
+        ],
         'hyperf/tracer' => [
             'version' => '~2.0.0',
         ],
