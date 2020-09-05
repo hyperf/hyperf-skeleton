@@ -17,6 +17,12 @@ return [
         'hyperf/async-queue' => [
             'version' => '~2.0.0',
         ],
+        'hyperf/database' => [
+            'version' => '~2.0.0',
+        ],
+        'hyperf/db-connection' => [
+            'version' => '~2.0.0',
+        ],
         'hyperf/model-cache' => [
             'version' => '~2.0.0',
         ],
@@ -24,6 +30,9 @@ return [
             'version' => '~2.0.0',
         ],
         'hyperf/json-rpc' => [
+            'version' => '~2.0.0',
+        ],
+        'hyperf/redis' => [
             'version' => '~2.0.0',
         ],
         'hyperf/rpc' => [
@@ -50,6 +59,9 @@ return [
         'hyperf/config-aliyun-acm' => [
             'version' => '~2.0.0',
         ],
+        'hyperf/config-etcd' => [
+            'version' => '~2.0.0',
+        ],
         'hyperf/tracer' => [
             'version' => '~2.0.0',
         ],
@@ -60,6 +72,41 @@ return [
     'require-dev' => [
     ],
     'questions' => [
+        'database' => [
+            'question' => 'Do you want to use Database (MySQL Client) ?',
+            'default' => 'y',
+            'required' => false,
+            'custom-package' => true,
+            'options' => [
+                'y' => [
+                    'name' => 'yes',
+                    'packages' => [
+                        'hyperf/database',
+                        'hyperf/db-connection',
+                    ],
+                    'resources' => [
+                        'resources/database/databases.php' => 'config/autoload/databases.php',
+                    ],
+                ],
+            ],
+        ],
+        'redis' => [
+            'question' => 'Do you want to use Redis Client ?',
+            'default' => 'y',
+            'required' => false,
+            'custom-package' => true,
+            'options' => [
+                'y' => [
+                    'name' => 'yes',
+                    'packages' => [
+                        'hyperf/redis',
+                    ],
+                    'resources' => [
+                        'resources/database/redis.php' => 'config/autoload/redis.php',
+                    ],
+                ],
+            ],
+        ],
         'rpc' => [
             'question' => 'Which RPC protocol do you want to use ?',
             'default' => 'n',
@@ -67,7 +114,7 @@ return [
             'custom-package' => true,
             'options' => [
                 1 => [
-                    'name' => 'JSON-RPC with Service Governance',
+                    'name' => 'JSON RPC with Service Governance',
                     'packages' => [
                         'hyperf/json-rpc',
                         'hyperf/rpc',
@@ -79,7 +126,7 @@ return [
                     ],
                 ],
                 2 => [
-                    'name' => 'JSON-RPC',
+                    'name' => 'JSON RPC',
                     'packages' => [
                         'hyperf/json-rpc',
                         'hyperf/rpc',
@@ -125,6 +172,16 @@ return [
                         'resources/config_center/aliyun_acm.php' => 'config/autoload/aliyun_acm.php',
                     ],
                 ],
+                3 => [
+                    'name' => 'ETCD',
+                    'packages' => [
+                        'hyperf/config-etcd',
+                    ],
+                    'resources' => [
+                        'resources/config_center/etcd.php' => 'config/autoload/etcd.php',
+                        'resources/config_center/config_etcd.php' => 'config/autoload/config_etcd.php',
+                    ],
+                ],
             ],
         ],
         'constants' => [
@@ -134,7 +191,7 @@ return [
             'force' => true,
             'custom-package' => false,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/constants',
@@ -153,7 +210,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/async-queue',
@@ -162,6 +219,7 @@ return [
                         'resources/async_queue/async_queue.php' => 'config/autoload/async_queue.php',
                         'resources/async_queue/AsyncQueueConsumer.php' => 'app/Process/AsyncQueueConsumer.php',
                         'resources/async_queue/QueueHandleListener.php' => 'app/Listener/QueueHandleListener.php',
+                        'resources/database/redis.php' => 'config/autoload/redis.php',
                     ],
                 ],
             ],
@@ -173,7 +231,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/amqp',
@@ -191,7 +249,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/model-cache',
@@ -199,6 +257,7 @@ return [
                     'resources' => [
                         'resources/model_cache/Model.php' => 'app/Model/Model.php',
                         'resources/model_cache/databases.php' => 'config/autoload/databases.php',
+                        'resources/database/redis.php' => 'config/autoload/redis.php',
                     ],
                 ],
             ],
@@ -210,13 +269,12 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/elasticsearch',
                     ],
                     'resources' => [
-                        // 'resources/elasticsearch/elasticsearch.php' => 'config/autoload/elasticsearch.php',
                     ],
                 ],
             ],
@@ -228,7 +286,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/tracer',
