@@ -188,7 +188,7 @@ return [
             'force' => true,
             'custom-package' => false,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/constants',
@@ -207,7 +207,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/async-queue',
@@ -227,7 +227,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/amqp',
@@ -245,7 +245,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/model-cache',
@@ -264,13 +264,12 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/elasticsearch',
                     ],
                     'resources' => [
-                        // 'resources/elasticsearch/elasticsearch.php' => 'config/autoload/elasticsearch.php',
                     ],
                 ],
             ],
@@ -282,7 +281,7 @@ return [
             'force' => true,
             'custom-package' => true,
             'options' => [
-                1 => [
+                'y' => [
                     'name' => 'yes',
                     'packages' => [
                         'hyperf/tracer',
