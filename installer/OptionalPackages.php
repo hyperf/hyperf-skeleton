@@ -420,7 +420,7 @@ class OptionalPackages
             if (is_numeric($answer) && isset($question['options'][(int) $answer])) {
                 return (int) $answer;
             }
-            // Handle numeric options
+            // Handle string options
             if (isset($question['options'][$answer])) {
                 return $answer;
             }
