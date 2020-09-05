@@ -5,11 +5,10 @@ declare(strict_types=1);
  * This file is part of Hyperf.
  *
  * @link     https://www.hyperf.io
- * @document https://doc.hyperf.io
+ * @document https://hyperf.wiki
  * @contact  group@hyperf.io
- * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 namespace Installer;
 
 use Composer\Composer;
@@ -118,6 +117,20 @@ class OptionalPackages
         $this->config = require __DIR__ . '/config.php';
         // Source path for this file
         $this->installerSource = realpath(__DIR__) . '/';
+    }
+
+    public function installHyperfScript()
+    {
+        $ask[] = "\n  <question>What time zone do you want to setup ?</question>\n";
+        $ask[] = "  [<comment>n</comment>] Default time zone for php.ini\n";
+        $ask[] = "Make your selection or type a time zone name, like Asia/Shanghai (n):\n";
+        $answer = $this->io->ask(implode('', $ask), 'n');
+
+        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
+        if ($answer != 'n') {
+            $content = str_replace('%TIME_ZONE%', $answer, $content);
+            file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
+        }
     }
 
     /**

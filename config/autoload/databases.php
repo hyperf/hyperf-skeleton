@@ -5,11 +5,10 @@ declare(strict_types=1);
  * This file is part of Hyperf.
  *
  * @link     https://www.hyperf.io
- * @document https://doc.hyperf.io
+ * @document https://hyperf.wiki
  * @contact  group@hyperf.io
- * @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 return [
     'default' => [
         'driver' => env('DB_DRIVER', 'mysql'),
@@ -30,7 +29,7 @@ return [
             'max_idle_time' => (float) env('DB_MAX_IDLE_TIME', 60),
         ],
         'commands' => [
-            'db:model' => [
+            'gen:model' => [
                 'path' => 'app/Model',
                 'force_casts' => true,
                 'inheritance' => 'Model',
