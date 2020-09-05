@@ -18,7 +18,7 @@ return [
             'version' => '~2.0.0',
         ],
         'hyperf/database' => [
-            'version' => '~1.0.0',
+            'version' => '~2.0.0',
         ],
         'hyperf/model-cache' => [
             'version' => '~2.0.0',
@@ -30,7 +30,7 @@ return [
             'version' => '~2.0.0',
         ],
         'hyperf/redis' => [
-            'version' => '~1.0.0',
+            'version' => '~2.0.0',
         ],
         'hyperf/rpc' => [
             'version' => '~2.0.0',
