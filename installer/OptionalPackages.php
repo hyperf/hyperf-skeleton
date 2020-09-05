@@ -252,7 +252,7 @@ class OptionalPackages
      */
     public function processAnswer(array $question, $answer): bool
     {
-        if (is_numeric($answer) && isset($question['options'][$answer])) {
+        if (isset($question['options'][$answer])) {
             // Add packages to install
             if (isset($question['options'][$answer]['packages'])) {
                 foreach ($question['options'][$answer]['packages'] as $packageName) {
