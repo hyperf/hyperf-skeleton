@@ -23,9 +23,8 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 RUN set -ex \
     # install composer
     && cd /tmp \
-    && wget https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
-    && chmod u+x composer.phar \
-    && mv composer.phar /usr/local/bin/composer \
+    && wget -nv -O /usr/local/bin/composer https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
+    && chmod u+x /usr/local/bin/composer \
     # show php version and extensions
     && php -v \
     && php -m \
