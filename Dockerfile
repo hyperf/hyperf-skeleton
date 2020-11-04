@@ -15,16 +15,11 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    COMPOSER_VERSION=1.10.10 \
     APP_ENV=prod \
     SCAN_CACHEABLE=(true)
 
 # update
 RUN set -ex \
-    # install composer
-    && cd /tmp \
-    && wget -nv -O /usr/local/bin/composer https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
-    && chmod u+x /usr/local/bin/composer \
     # show php version and extensions
     && php -v \
     && php -m \
