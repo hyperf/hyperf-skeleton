@@ -12,27 +12,25 @@
     "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=7.2",
-        "ext-swoole": ">=4.5",
-        "hyperf/cache": "~2.0.0",
-        "hyperf/command": "~2.0.0",
-        "hyperf/config": "~2.0.0",
-        "hyperf/db-connection": "~2.0.0",
-        "hyperf/framework": "~2.0.0",
-        "hyperf/guzzle": "~2.0.0",
-        "hyperf/http-server": "~2.0.0",
-        "hyperf/logger": "~2.0.0",
-        "hyperf/memory": "~2.0.0",
-        "hyperf/process": "~2.0.0",
-        "hyperf/redis": "~2.0.0"
+        "php": ">=7.3",
+        "hyperf/cache": "~2.1.0",
+        "hyperf/command": "~2.1.0",
+        "hyperf/config": "~2.1.0",
+        "hyperf/db-connection": "~2.1.0",
+        "hyperf/framework": "~2.1.0",
+        "hyperf/guzzle": "~2.1.0",
+        "hyperf/http-server": "~2.1.0",
+        "hyperf/logger": "~2.1.0",
+        "hyperf/memory": "~2.1.0",
+        "hyperf/process": "~2.1.0"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mockery/mockery": "^1.0",
         "phpstan/phpstan": "^0.12",
-        "hyperf/devtool": "~2.0.0",
-        "hyperf/testing": "~2.0.0"
+        "hyperf/devtool": "~2.1.0",
+        "hyperf/testing": "~2.1.0"
     },
     "suggest": {
         "ext-openssl": "Required to use HTTPS.",
@@ -56,8 +54,11 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "extra": {
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     },
+    "extra": {},
     "scripts": {
         "pre-install-cmd": "Installer\\Script::install",
         "pre-update-cmd": "Installer\\Script::install",

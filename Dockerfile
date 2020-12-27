@@ -3,7 +3,7 @@
 # @link     https://www.hyperf.io
 # @document https://hyperf.wiki
 # @contact  group@hyperf.io
-# @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
+# @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
 
 FROM hyperf/hyperf:7.4-alpine-v3.11-swoole
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"

@@ -12,61 +12,61 @@ declare(strict_types=1);
 return [
     'packages' => [
         'hyperf/amqp' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/async-queue' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/database' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/db-connection' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/model-cache' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/constants' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/json-rpc' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/redis' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/rpc' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/rpc-client' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/rpc-server' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/grpc-client' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/grpc-server' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/elasticsearch' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/config-apollo' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/config-aliyun-acm' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/config-etcd' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/tracer' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
         'hyperf/service-governance' => [
-            'version' => '~2.0.0',
+            'version' => '~2.1.0',
         ],
     ],
     'require-dev' => [
