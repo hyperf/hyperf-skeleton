@@ -9,6 +9,6 @@ vendor/
 .phpintel/
 .env
 .DS_Store
-*.lock
 .phpunit*
 *.cache
+composer.lock
