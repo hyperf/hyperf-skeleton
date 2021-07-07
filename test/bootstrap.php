@@ -26,4 +26,4 @@ Hyperf\Di\ClassLoader::init();
 
 $container = require BASE_PATH . '/config/container.php';
 
-$container->get(Hyperf\Contract\ApplicationInterface::class);
+\Swoole\Coroutine\run(fn() => $container->get(Hyperf\Contract\ApplicationInterface::class));
