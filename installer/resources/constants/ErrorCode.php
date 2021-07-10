@@ -22,5 +22,5 @@ class ErrorCode extends AbstractConstants
     /**
      * @Message("Server Error！")
      */
-    const SERVER_ERROR = 500;
+    public const SERVER_ERROR = 500;
 }

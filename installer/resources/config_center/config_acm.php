@@ -14,7 +14,7 @@ use Hyperf\ConfigCenter\Mode;
 
 return [
     'enable' => (bool) env('CONFIG_CENTER_ENABLE', true),
-    'driver' => env('CONFIG_CENTER_DRIVER', 'etcd'),
+    'driver' => env('CONFIG_CENTER_DRIVER', 'aliyun_acm'),
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
         'apollo' => [
