@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Listener;
 
+use Hyperf\AsyncQueue\AnnotationJob;
 use Hyperf\AsyncQueue\Event\AfterHandle;
 use Hyperf\AsyncQueue\Event\BeforeHandle;
 use Hyperf\AsyncQueue\Event\Event;
@@ -57,6 +58,9 @@ class QueueHandleListener implements ListenerInterface
         if ($event instanceof Event && $event->message->job()) {
             $job = $event->message->job();
             $jobClass = get_class($job);
+            if ($job instanceof AnnotationJob) {
+                $jobClass = sprintf('Job[%s@%s]', $job->class, $job->method);
+            }
             $date = date('Y-m-d H:i:s');
 
             switch (true) {

@@ -12,61 +12,61 @@ declare(strict_types=1);
 return [
     'packages' => [
         'hyperf/amqp' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/async-queue' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/database' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/db-connection' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/model-cache' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/constants' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/json-rpc' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/redis' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/rpc' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/rpc-client' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/rpc-server' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/grpc-client' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/grpc-server' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/elasticsearch' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/config-apollo' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/config-aliyun-acm' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/config-etcd' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/tracer' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
         'hyperf/service-governance' => [
-            'version' => '~2.1.0',
+            'version' => '~2.2.0',
         ],
     ],
     'require-dev' => [
@@ -160,7 +160,7 @@ return [
                         'hyperf/config-apollo',
                     ],
                     'resources' => [
-                        'resources/config_center/apollo.php' => 'config/autoload/apollo.php',
+                        'resources/config_center/config_apollo.php' => 'config/autoload/config_center.php',
                     ],
                 ],
                 2 => [
@@ -169,7 +169,7 @@ return [
                         'hyperf/config-aliyun-acm',
                     ],
                     'resources' => [
-                        'resources/config_center/aliyun_acm.php' => 'config/autoload/aliyun_acm.php',
+                        'resources/config_center/config_acm.php' => 'config/autoload/config_center.php',
                     ],
                 ],
                 3 => [
@@ -179,7 +179,17 @@ return [
                     ],
                     'resources' => [
                         'resources/config_center/etcd.php' => 'config/autoload/etcd.php',
-                        'resources/config_center/config_etcd.php' => 'config/autoload/config_etcd.php',
+                        'resources/config_center/config_etcd.php' => 'config/autoload/config_center.php',
+                    ],
+                ],
+                4 => [
+                    'name' => 'Nacos',
+                    'packages' => [
+                        'hyperf/config-nacos',
+                    ],
+                    'resources' => [
+                        'resources/config_center/nacos.php' => 'config/autoload/nacos.php',
+                        'resources/config_center/config_nacos.php' => 'config/autoload/config_center.php',
                     ],
                 ],
             ],
