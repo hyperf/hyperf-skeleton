@@ -62,6 +62,9 @@ return [
         'hyperf/config-etcd' => [
             'version' => '~2.2.0',
         ],
+        'hyperf/config-nacos' => [
+            'version' => '~2.2.0',
+        ],
         'hyperf/tracer' => [
             'version' => '~2.2.0',
         ],
