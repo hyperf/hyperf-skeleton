@@ -9,7 +9,6 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-use Hyperf\ConfigApollo\PullMode;
 use Hyperf\ConfigCenter\Mode;
 
 return [
@@ -17,51 +16,6 @@ return [
     'driver' => env('CONFIG_CENTER_DRIVER', 'etcd'),
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
-        'apollo' => [
-            'driver' => Hyperf\ConfigApollo\ApolloDriver::class,
-            'pull_mode' => PullMode::INTERVAL,
-            'server' => 'http://127.0.0.1:9080',
-            'appid' => 'test',
-            'cluster' => 'default',
-            'namespaces' => [
-                'application',
-            ],
-            'interval' => 5,
-            'strict_mode' => false,
-            'client_ip' => current(swoole_get_local_ip()),
-            'pullTimeout' => 10,
-            'interval_timeout' => 1,
-        ],
-        'nacos' => [
-            'driver' => Hyperf\ConfigNacos\NacosDriver::class,
-            'merge_mode' => Hyperf\ConfigNacos\Constants::CONFIG_MERGE_OVERWRITE,
-            'interval' => 3,
-            'default_key' => 'nacos_config',
-            'listener_config' => [
-                // dataId, group, tenant, type, content
-                'nacos_config' => [
-                    'tenant' => 'tenant', // corresponding with service.namespaceId
-                    'data_id' => 'hyperf-service-config',
-                    'group' => 'DEFAULT_GROUP',
-                ],
-                'nacos_config.data' => [
-                    'data_id' => 'hyperf-service-config-yml',
-                    'group' => 'DEFAULT_GROUP',
-                    'type' => 'yml',
-                ],
-            ],
-        ],
-        'aliyun_acm' => [
-            'driver' => Hyperf\ConfigAliyunAcm\AliyunAcmDriver::class,
-            'interval' => 5,
-            'endpoint' => env('ALIYUN_ACM_ENDPOINT', 'acm.aliyun.com'),
-            'namespace' => env('ALIYUN_ACM_NAMESPACE', ''),
-            'data_id' => env('ALIYUN_ACM_DATA_ID', ''),
-            'group' => env('ALIYUN_ACM_GROUP', 'DEFAULT_GROUP'),
-            'access_key' => env('ALIYUN_ACM_AK', ''),
-            'secret_key' => env('ALIYUN_ACM_SK', ''),
-            'ecs_ram_role' => env('ALIYUN_ACM_RAM_ROLE', ''),
-        ],
         'etcd' => [
             'driver' => Hyperf\ConfigEtcd\EtcdDriver::class,
             'packer' => Hyperf\Utils\Packer\JsonPacker::class,
@@ -72,12 +26,6 @@ return [
                 // etcd key => config key
                 '/application/test' => 'test',
             ],
-            'interval' => 5,
-        ],
-        'zookeeper' => [
-            'driver' => Hyperf\ConfigZookeeper\ZookeeperDriver::class,
-            'server' => env('ZOOKEEPER_SERVER', '127.0.0.1:2181'),
-            'path' => env('ZOOKEEPER_CONFIG_PATH', '/conf'),
             'interval' => 5,
         ],
     ],
