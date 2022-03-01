@@ -131,14 +131,14 @@ class OptionalPackages
                     throw new \InvalidArgumentException('You should type a time zone name, like Asia/Shanghai. Or type n to skip.');
                 }
 
-                return $value;
+                return trim($value);
             },
             null,
             'n'
         );
 
-        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
         if ($answer != 'n') {
+            $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
             $content = str_replace('%TIME_ZONE%', $answer, $content);
             file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
         }
