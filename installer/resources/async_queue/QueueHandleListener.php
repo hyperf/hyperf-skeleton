@@ -21,26 +21,16 @@ use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
 use Hyperf\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
-/**
- * @Listener
- */
+#[Listener]
 class QueueHandleListener implements ListenerInterface
 {
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
-    protected $logger;
+    protected LoggerInterface $logger;
 
-    /**
-     * @var FormatterInterface
-     */
-    protected $formatter;
-
-    public function __construct(LoggerFactory $loggerFactory, FormatterInterface $formatter)
+    public function __construct(LoggerFactory $loggerFactory, protected FormatterInterface $formatter)
     {
         $this->logger = $loggerFactory->get('queue');
-        $this->formatter = $formatter;
     }
 
     public function listen(): array
