@@ -9,15 +9,24 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\ConfigCenter\Mode;
+
 return [
-    'enable' => false,
-    'packer' => Hyperf\Utils\Packer\JsonPacker::class,
-    'use_standalone_process' => true,
-    'namespaces' => [
-        '/application',
+    'enable' => (bool) env('CONFIG_CENTER_ENABLE', true),
+    'driver' => env('CONFIG_CENTER_DRIVER', 'etcd'),
+    'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
+    'drivers' => [
+        'etcd' => [
+            'driver' => Hyperf\ConfigEtcd\EtcdDriver::class,
+            'packer' => Hyperf\Utils\Packer\JsonPacker::class,
+            'namespaces' => [
+                '/application',
+            ],
+            'mapping' => [
+                // etcd key => config key
+                '/application/test' => 'test',
+            ],
+            'interval' => 5,
+        ],
     ],
-    'mapping' => [
-        '/application/test' => 'test',
-    ],
-    'interval' => 5,
 ];

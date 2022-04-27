@@ -124,10 +124,21 @@ class OptionalPackages
         $ask[] = "\n  <question>What time zone do you want to setup ?</question>\n";
         $ask[] = "  [<comment>n</comment>] Default time zone for php.ini\n";
         $ask[] = "Make your selection or type a time zone name, like Asia/Shanghai (n):\n";
-        $answer = $this->io->ask(implode('', $ask), 'n');
+        $answer = $this->io->askAndValidate(
+            implode('', $ask),
+            function ($value) {
+                if ($value === 'y' || $value === 'yes') {
+                    throw new \InvalidArgumentException('You should type a time zone name, like Asia/Shanghai. Or type n to skip.');
+                }
 
-        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
+                return trim($value);
+            },
+            null,
+            'n'
+        );
+
         if ($answer != 'n') {
+            $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
             $content = str_replace('%TIME_ZONE%', $answer, $content);
             file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
         }

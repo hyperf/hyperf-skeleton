@@ -14,9 +14,7 @@ namespace App\Process;
 use Hyperf\AsyncQueue\Process\ConsumerProcess;
 use Hyperf\Process\Annotation\Process;
 
-/**
- * @Process
- */
+#[Process]
 class AsyncQueueConsumer extends ConsumerProcess
 {
 }
