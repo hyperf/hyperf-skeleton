@@ -16,7 +16,6 @@ use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Utils\Arr;
-use Hyperf\Utils\Str;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -48,8 +47,15 @@ class DbQueryExecutedListener implements ListenerInterface
         if ($event instanceof QueryExecuted) {
             $sql = $event->sql;
             if (! Arr::isAssoc($event->bindings)) {
-                foreach ($event->bindings as $key => $value) {
-                    $sql = Str::replaceFirst('?', "'{$value}'", $sql);
+                $position = 0;
+                foreach ($event->bindings as $value) {
+                    $position = strpos($sql, '?', $position);
+                    if ($position !== false) {
+                        $sql = substr_replace($sql, "'{$value}'", $position, 1);
+                        $position += strlen("'{$value}'");
+                    } else {
+                        break;
+                    }
                 }
             }
 
