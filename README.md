@@ -10,13 +10,16 @@ The various versions of Dockerfile have been prepared for you in the [hyperf/hyp
 
 When you don't want to use Docker as the basis for your running environment, you need to make sure that your operating environment meets the following requirements:  
 
- - PHP >= 7.3
- - Swoole PHP extension >= 4.5，and Disabled `Short Name`
- - OpenSSL PHP extension
+ - PHP >= 8.0
+ - Any of the following network engines
+   - Swoole PHP extension >= 4.5，with `swoole.use_shortname` set to `Off` in your `php.ini`
+   - Swow PHP extension (Beta)
  - JSON PHP extension
- - PDO PHP extension （If you need to use MySQL Client）
- - Redis PHP extension （If you need to use Redis Client）
- - Protobuf PHP extension （If you need to use gRPC Server of Client）
+ - Pcntl PHP extension
+ - OpenSSL PHP extension （If you need to use the HTTPS）
+ - PDO PHP extension （If you need to use the MySQL Client）
+ - Redis PHP extension （If you need to use the Redis Client）
+ - Protobuf PHP extension （If you need to use the gRPC Server or Client）
 
 # Installation using Composer
 
