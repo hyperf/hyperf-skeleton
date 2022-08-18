@@ -50,12 +50,12 @@ class DbQueryExecutedListener implements ListenerInterface
                 $position = 0;
                 foreach ($event->bindings as $value) {
                     $position = strpos($sql, '?', $position);
-                    if ($position !== false) {
-                        $sql = substr_replace($sql, "'{$value}'", $position, 1);
-                        $position += strlen("'{$value}'");
-                    } else {
+                    if ($position === false) {
                         break;
                     }
+                    $value = "'$value'";
+                    $sql = substr_replace($sql, $value, $position, 1);
+                    $position += strlen($value);
                 }
             }
 
