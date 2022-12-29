@@ -23,16 +23,20 @@ When you don't want to use Docker as the basis for your running environment, you
 
 # Installation using Composer
 
-The easiest way to create a new Hyperf project is to use Composer. If you don't have it already installed, then please install as per the documentation.
+The easiest way to create a new Hyperf project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per [the documentation](https://getcomposer.org/download/).
 
 To create your new Hyperf project:
 
+```bash
 $ composer create-project hyperf/hyperf-skeleton path/to/install
+```
 
 Once installed, you can run the server immediately using the command below.
 
+```bash
 $ cd path/to/install
 $ php bin/hyperf.php start
+```
 
 This will start the cli-server on port `9501`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9501/`
 
