@@ -19,8 +19,8 @@ use Hyperf\AsyncQueue\Event\FailedHandle;
 use Hyperf\AsyncQueue\Event\RetryHandle;
 use Hyperf\Event\Annotation\Listener;
 use Hyperf\Event\Contract\ListenerInterface;
-use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
 use Hyperf\Logger\LoggerFactory;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 #[Listener]
@@ -28,9 +28,9 @@ class QueueHandleListener implements ListenerInterface
 {
     protected LoggerInterface $logger;
 
-    public function __construct(LoggerFactory $loggerFactory, protected FormatterInterface $formatter)
+    public function __construct(ContainerInterface $container)
     {
-        $this->logger = $loggerFactory->get('queue');
+        $this->logger = $container->get(LoggerFactory::class)->get('queue');
     }
 
     public function listen(): array
@@ -45,8 +45,8 @@ class QueueHandleListener implements ListenerInterface
 
     public function process(object $event): void
     {
-        if ($event instanceof Event && $event->message->job()) {
-            $job = $event->message->job();
+        if ($event instanceof Event && $event->getMessage()->job()) {
+            $job = $event->getMessage()->job();
             $jobClass = get_class($job);
             if ($job instanceof AnnotationJob) {
                 $jobClass = sprintf('Job[%s@%s]', $job->class, $job->method);
@@ -62,7 +62,7 @@ class QueueHandleListener implements ListenerInterface
                     break;
                 case $event instanceof FailedHandle:
                     $this->logger->error(sprintf('[%s] Failed %s.', $date, $jobClass));
-                    $this->logger->error($this->formatter->format($event->getThrowable()));
+                    $this->logger->error((string) $event->getThrowable());
                     break;
                 case $event instanceof RetryHandle:
                     $this->logger->warning(sprintf('[%s] Retried %s.', $date, $jobClass));
