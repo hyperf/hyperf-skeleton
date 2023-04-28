@@ -30,7 +30,6 @@
         "hyperf/testing": "~3.0.0",
         "mockery/mockery": "^1.0",
         "phpstan/phpstan": "^1.0",
-        "phpstan/phpstan-deprecation-rules": "^1.1",
         "swoole/ide-helper": "^5.0"
     },
     "suggest": {
