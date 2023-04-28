@@ -1,5 +1,14 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 $header = <<<'EOF'
 This file is part of Hyperf.
 
@@ -23,13 +32,18 @@ return (new PhpCsFixer\Config())
             'location' => 'after_declare_strict',
         ],
         'array_syntax' => [
-            'syntax' => 'short'
+            'syntax' => 'short',
         ],
         'list_syntax' => [
-            'syntax' => 'short'
+            'syntax' => 'short',
         ],
         'concat_space' => [
-            'spacing' => 'one'
+            'spacing' => 'one',
+        ],
+        'global_namespace_import' => [
+            'import_classes' => true,
+            'import_constants' => true,
+            'import_functions' => null,
         ],
         'blank_line_before_statement' => [
             'statements' => [
@@ -38,7 +52,7 @@ return (new PhpCsFixer\Config())
         ],
         'general_phpdoc_annotation_remove' => [
             'annotations' => [
-                'author'
+                'author',
             ],
         ],
         'ordered_imports' => [

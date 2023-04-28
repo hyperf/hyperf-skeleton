@@ -20,6 +20,7 @@ use Composer\Package\Link;
 use Composer\Package\RootPackageInterface;
 use Composer\Package\Version\VersionParser;
 use FilesystemIterator;
+use InvalidArgumentException;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -128,7 +129,7 @@ class OptionalPackages
             implode('', $ask),
             function ($value) {
                 if ($value === 'y' || $value === 'yes') {
-                    throw new \InvalidArgumentException('You should type a time zone name, like Asia/Shanghai. Or type n to skip.');
+                    throw new InvalidArgumentException('You should type a time zone name, like Asia/Shanghai. Or type n to skip.');
                 }
 
                 return trim($value);
