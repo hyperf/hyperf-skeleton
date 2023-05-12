@@ -27,7 +27,7 @@ return [
             ],
             'options' => [
                 // Whether to enable request lifecycle event
-                'enable_request_lifecycle' => true,
+                'enable_request_lifecycle' => false,
             ],
         ],
     ],
