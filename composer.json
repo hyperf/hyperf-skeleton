@@ -19,7 +19,7 @@
         "hyperf/db-connection": "~3.0.0",
         "hyperf/framework": "~3.0.0",
         "hyperf/guzzle": "~3.0.0",
-        "hyperf/http-server": "~3.0.20",
+        "hyperf/http-server": "~3.0.0",
         "hyperf/logger": "~3.0.0",
         "hyperf/memory": "~3.0.0",
         "hyperf/process": "~3.0.0"
