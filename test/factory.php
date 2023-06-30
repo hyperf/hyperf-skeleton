@@ -19,6 +19,6 @@ $container->set(FakerGenerator::class, FakerFactory::create('en_US'));
 $container->set(
     ModelFactory::class,
     tap(new ModelFactory($container->get(FakerGenerator::class)), function ($factory) {
-        $factory->load('factory');
+        $factory->load('test/factory');
     })
 );
