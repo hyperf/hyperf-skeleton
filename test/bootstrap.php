@@ -26,4 +26,6 @@ Hyperf\Di\ClassLoader::init();
 
 $container = require BASE_PATH . '/config/container.php';
 
+require BASE_PATH . '/test/factory.php';
+
 $container->get(Hyperf\Contract\ApplicationInterface::class);

@@ -25,6 +25,7 @@
         "hyperf/process": "~3.0.0"
     },
     "require-dev": {
+        "fakerphp/faker": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.0",
         "hyperf/devtool": "~3.0.0",
         "hyperf/testing": "~3.0.0",
