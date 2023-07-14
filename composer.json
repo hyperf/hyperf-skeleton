@@ -17,13 +17,13 @@
         "hyperf/command": "~3.0.0",
         "hyperf/config": "~3.0.0",
         "hyperf/db-connection": "~3.0.0",
+        "hyperf/engine": "^2.10",
         "hyperf/framework": "~3.0.0",
         "hyperf/guzzle": "~3.0.0",
         "hyperf/http-server": "~3.0.0",
         "hyperf/logger": "~3.0.0",
         "hyperf/memory": "~3.0.0",
-        "hyperf/process": "~3.0.0",
-        "hyperf/engine": "^2.10.0"
+        "hyperf/process": "~3.0.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
