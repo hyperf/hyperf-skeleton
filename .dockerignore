@@ -1,0 +1,5 @@
+**
+!app/
+!bin/
+!config/
+!composer.*

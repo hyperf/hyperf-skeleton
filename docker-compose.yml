@@ -1,0 +1,18 @@
+version: '3'
+services:
+  hyperf-skeleton:
+    container_name: hyperf-skeleton
+    image: hyperf-skeleton
+    build:
+      context: .
+    volumes:
+      - ./:/opt/www
+    ports:
+      - 9501:9501
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+
+networks:
+  default:
+    name: hyperf-skeleton

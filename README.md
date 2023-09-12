@@ -28,16 +28,36 @@ The easiest way to create a new Hyperf project is to use [Composer](https://getc
 To create your new Hyperf project:
 
 ```bash
-$ composer create-project hyperf/hyperf-skeleton path/to/install
+composer create-project hyperf/hyperf-skeleton path/to/install
 ```
+
+If your development environment is based on Docker you can use the official Composer image to create a new Hyperf project:
+
+```bash
+docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-reqs hyperf/hyperf-skeleton path/to/install
+```
+
+# Getting started
 
 Once installed, you can run the server immediately using the command below.
 
 ```bash
-$ cd path/to/install
-$ php bin/hyperf.php start
+cd path/to/install
+php bin/hyperf.php start
 ```
 
-This will start the cli-server on port `9501`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9501/`
+Or if in a Docker based environment you can use the `docker-compose.yml` provided by the template:
 
-which will bring up Hyperf default home page.
+```bash
+cd path/to/install
+docker-compose up
+```
+
+This will start the cli-server on port `9501`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9501/` which will bring up Hyperf default home page.
+
+## Hints
+
+- A nice tip is to rename `hyperf-skeleton` of files like `composer.json` and `docker-compose.yml` to your actual project name.
+- Take a look at `config/routes.php` and `app/Controller/IndexController.php` to see an example of a HTTP entrypoint.
+
+**Remember:** you can always replace the contents of this README.md file to something that fits your project description.
