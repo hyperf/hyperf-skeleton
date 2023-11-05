@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 return [
     'default' => [
-        'driver' => Hyperf\AsyncQueue\Driver\RedisDriver::class,
+        'driver' => \Hyperf\AsyncQueue\Driver\RedisDriver::class,
         'redis' => [
             'pool' => 'default',
         ],

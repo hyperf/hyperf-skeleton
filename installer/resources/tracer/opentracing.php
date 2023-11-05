@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use Zipkin\Samplers\BinarySampler;
+use function Hyperf\Support\env;
 
 return [
     'default' => env('TRACER_DRIVER', 'zipkin'),
