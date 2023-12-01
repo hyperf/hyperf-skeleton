@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 use Hyperf\ConfigApollo\PullMode;
 use Hyperf\ConfigCenter\Mode;
+
 use function Hyperf\Support\env;
 
 return [
