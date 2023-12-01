@@ -12,64 +12,64 @@ declare(strict_types=1);
 return [
     'packages' => [
         'hyperf/amqp' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/async-queue' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/database' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/db-connection' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/model-cache' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/constants' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/json-rpc' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/redis' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/rpc' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/rpc-client' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/rpc-server' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/grpc-client' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/grpc-server' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/elasticsearch' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/config-apollo' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/config-aliyun-acm' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/config-etcd' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/config-nacos' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/tracer' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
         'hyperf/service-governance' => [
-            'version' => '~3.0.0',
+            'version' => '~3.1.0',
         ],
     ],
     'require-dev' => [

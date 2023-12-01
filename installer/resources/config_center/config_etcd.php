@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 use Hyperf\ConfigCenter\Mode;
 
+use function Hyperf\Support\env;
+
 return [
     'enable' => (bool) env('CONFIG_CENTER_ENABLE', true),
     'driver' => env('CONFIG_CENTER_DRIVER', 'etcd'),
