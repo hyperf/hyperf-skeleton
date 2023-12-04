@@ -4,7 +4,7 @@ services:
     image: $REGISTRY_URL/$PROJECT_NAME:test
     environment:
       - "APP_PROJECT=hyperf"
-      - "APP_ENV=test"
+      - "APP_ENV=testing"
     ports:
       - "9501:9501"
     deploy:
