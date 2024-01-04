@@ -13,3 +13,5 @@ vendor/
 *.cache
 composer.lock
 .vscode/
+/phpstan.neon
+/phpunit.xml

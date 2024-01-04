@@ -4,6 +4,10 @@
 # vendor/bin/phpstan analyse app --memory-limit 200M -l 0
 #
 parameters:
+  level: 0
+  paths:
+    - ./app
+    - ./config
   reportUnmatchedIgnoredErrors: false
   ignoreErrors:
     - '#Static call to instance method Hyperf\\HttpServer\\Router\\Router::[a-zA-Z0-9\\_]+\(\)#'
