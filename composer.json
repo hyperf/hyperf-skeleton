@@ -45,8 +45,7 @@
             "App\\": "app/",
             "Installer\\": "installer/"
         },
-        "files": [
-        ]
+        "files": ["./lib/helpers/global.php"]
     },
     "autoload-dev": {
         "psr-4": {
