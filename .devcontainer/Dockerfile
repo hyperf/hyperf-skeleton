@@ -1,4 +1,4 @@
-# Default Dockerfile
+# Dev Container Dockerfile
 #
 # @link     https://www.hyperf.io
 # @document https://hyperf.wiki
@@ -15,8 +15,8 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    APP_ENV=prod \
-    SCAN_CACHEABLE=(true)
+    APP_ENV=dev \
+    SCAN_CACHEABLE=(false)
 
 # update
 RUN set -ex \
@@ -47,8 +47,6 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN print "\n" | composer install -o && php bin/hyperf.php
+RUN composer install && php bin/hyperf.php
 
 EXPOSE 9501
-
-ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]
