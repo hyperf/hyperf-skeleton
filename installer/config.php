@@ -71,6 +71,9 @@ return [
         'hyperf/service-governance' => [
             'version' => '~3.1.0',
         ],
+        'pestphp/pest' => [
+            'version' => '^2.34',
+        ],
     ],
     'require-dev' => [
         'pestphp/pest',
