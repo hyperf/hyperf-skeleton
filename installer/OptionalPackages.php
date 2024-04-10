@@ -103,7 +103,7 @@ class OptionalPackages
      */
     private $stabilityFlags;
 
-    public function __construct(IOInterface $io, Composer $composer, string $projectRoot = null)
+    public function __construct(IOInterface $io, Composer $composer, ?string $projectRoot = null)
     {
         $this->io = $io;
         $this->composer = $composer;
@@ -139,11 +139,13 @@ class OptionalPackages
             'n'
         );
 
-        if ($answer != 'n') {
-            $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
-            $content = str_replace('%TIME_ZONE%', $answer, $content);
-            file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
+        if ($answer == 'n') {
+            $answer = date_default_timezone_get();
         }
+
+        $content = file_get_contents($this->installerSource . '/resources/bin/hyperf.stub');
+        $content = str_replace('%TIME_ZONE%', $answer, $content);
+        file_put_contents($this->projectRoot . '/bin/hyperf.php', $content);
     }
 
     /**
