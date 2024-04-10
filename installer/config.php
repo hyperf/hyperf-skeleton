@@ -71,8 +71,12 @@ return [
         'hyperf/service-governance' => [
             'version' => '~3.1.0',
         ],
+        'pestphp/pest' => [
+            'version' => '^2.34',
+        ],
     ],
     'require-dev' => [
+        'pestphp/pest',
     ],
     'questions' => [
         'database' => [
@@ -306,6 +310,28 @@ return [
                     ],
                     'resources' => [
                         'resources/tracer/opentracing.php' => 'config/autoload/opentracing.php',
+                    ],
+                ],
+            ],
+        ],
+        'pest' => [
+            'question' => 'Do you want to use pestphp/pest component ? (Pest is a testing framework with a focus on simplicity,
+            meticulously designed to bring back the joy of testing in PHP.)',
+            'default' => 'n',
+            'required' => false,
+            'force' => true,
+            'custom-package' => true,
+            'options' => [
+                'y' => [
+                    'name' => 'yes',
+                    'packages' => [
+                        'pestphp/pest',
+                    ],
+                    'resources' => [
+                        'resources/pest/Feature/ExampleTest.php' => 'test/Feature/ExampleTest.php',
+                        'resources/pest/Unit/ExampleTest.php' => 'test/Unit/ExampleTest.php',
+                        'resources/pest/Pest.php' => 'test/Pest.php',
+                        'resources/pest/TestCase.php' => 'test/TestCase.php',
                     ],
                 ],
             ],
