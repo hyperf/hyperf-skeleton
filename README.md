@@ -34,7 +34,7 @@ composer create-project hyperf/hyperf-skeleton path/to/install
 If your development environment is based on Docker you can use the official Composer image to create a new Hyperf project:
 
 ```bash
-docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-reqs hyperf/hyperf-skeleton path/to/install
+docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-reqs hyperf/hyperf path/to/install
 ```
 
 # Getting started
