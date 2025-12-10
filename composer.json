@@ -68,7 +68,7 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-autoload-dump": [
-            "rm -rf runtime/container"
+            "@php -r \"if(is_dir('runtime/container')) if (PHP_OS_FAMILY === 'Windows') { @system('rmdir /s /q runtime\\\\container'); } else { @system('rm -rf runtime/container'); }\""
         ],
         "test": "co-phpunit --prepend test/bootstrap.php --colors=always",
         "cs-fix": "php-cs-fixer fix $1",
