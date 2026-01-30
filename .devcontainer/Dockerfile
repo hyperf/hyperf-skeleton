@@ -5,7 +5,7 @@
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
 
-FROM hyperf/hyperf:8.3-alpine-v3.19-swoole
+FROM hyperf/hyperf:8.4-alpine-v3.21-swoole
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
