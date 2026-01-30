@@ -1,4 +1,4 @@
-# Default Dockerfile
+# Local Dev Dockerfile
 #
 # @link     https://www.hyperf.io
 # @document https://hyperf.wiki
@@ -13,10 +13,16 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ##
 # --build-arg timezone=Asia/Shanghai
 ARG timezone
+ARG UID=1000
+ARG GID=1000
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    APP_ENV=prod \
-    SCAN_CACHEABLE=(true)
+    APP_ENV=dev \
+    SCAN_CACHEABLE=(false)
+
+# Make local user to avoid file permissions on runtime
+RUN addgroup -g ${GID} application && \
+    adduser -S -D -u ${UID} -G application -s /bin/ash -h /home/application application
 
 # update
 RUN set -ex \
@@ -40,6 +46,10 @@ RUN set -ex \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
+RUN chmod +x /usr/local/bin/composer
+
+USER application
+
 WORKDIR /opt/www
 
 # Composer Cache
@@ -47,7 +57,7 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN composer install --no-dev -o && php bin/hyperf.php
+RUN composer install --no-scripts
 
 EXPOSE 9501
 
