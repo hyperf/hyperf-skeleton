@@ -22,8 +22,7 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 
 # Make local user to avoid file permissions on runtime
 RUN addgroup -g ${GID} application && \
-    adduser -S -D -H -u ${UID} -G application -s /bin/ash application
-
+    adduser -S -D -u ${UID} -G application -s /bin/ash -h /home/application application
 
 # update
 RUN set -ex \
