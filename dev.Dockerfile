@@ -18,7 +18,7 @@ ARG GID=1000
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
     APP_ENV=dev \
-    SCAN_CACHEABLE=(false)
+    SCAN_CACHEABLE=false
 
 # Make local user to avoid file permissions on runtime
 RUN addgroup -g ${GID} application && \
