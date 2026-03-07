@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\ConfigApollo\ApolloDriver;
 use Hyperf\ConfigApollo\PullMode;
 use Hyperf\ConfigCenter\Mode;
 
@@ -20,7 +21,7 @@ return [
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
         'apollo' => [
-            'driver' => Hyperf\ConfigApollo\ApolloDriver::class,
+            'driver' => ApolloDriver::class,
             'pull_mode' => PullMode::INTERVAL,
             'server' => 'http://127.0.0.1:9080',
             'appid' => 'test',
