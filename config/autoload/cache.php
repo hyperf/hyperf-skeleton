@@ -14,7 +14,7 @@ use Hyperf\Codec\Packer\PhpSerializerPacker;
 
 return [
     'default' => 'default',
-    'channels' => [
+    'stores' => [
         'default' => [
             'driver' => RedisDriver::class,
             'packer' => PhpSerializerPacker::class,
