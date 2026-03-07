@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\ConfigAliyunAcm\AliyunAcmDriver;
 use Hyperf\ConfigCenter\Mode;
 
 use function Hyperf\Support\env;
@@ -19,7 +20,7 @@ return [
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
         'aliyun_acm' => [
-            'driver' => Hyperf\ConfigAliyunAcm\AliyunAcmDriver::class,
+            'driver' => AliyunAcmDriver::class,
             'interval' => 5,
             'endpoint' => env('ALIYUN_ACM_ENDPOINT', 'acm.aliyun.com'),
             'namespace' => env('ALIYUN_ACM_NAMESPACE', ''),

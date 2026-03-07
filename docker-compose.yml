@@ -1,10 +1,12 @@
-version: '3'
 services:
   hyperf-skeleton:
     container_name: hyperf-skeleton
     image: hyperf-skeleton
     build:
-      context: .
+      dockerfile: dev.Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
     volumes:
       - ./:/opt/www
     ports:

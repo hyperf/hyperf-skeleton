@@ -1,5 +1,7 @@
 #!/usr/bin/env php
 <?php
+
+declare(strict_types=1);
 /**
  * This file is part of Hyperf.
  *
@@ -8,6 +10,11 @@
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\Contract\ApplicationInterface;
+use Hyperf\Di\ClassLoader;
+use Hyperf\Engine\DefaultOption;
+use Psr\Container\ContainerInterface;
+
 ini_set('display_errors', 'on');
 ini_set('display_startup_errors', 'on');
 ini_set('memory_limit', '1G');
@@ -18,14 +25,14 @@ error_reporting(E_ALL);
 
 require BASE_PATH . '/vendor/autoload.php';
 
-! defined('SWOOLE_HOOK_FLAGS') && define('SWOOLE_HOOK_FLAGS', Hyperf\Engine\DefaultOption::hookFlags());
+! defined('SWOOLE_HOOK_FLAGS') && define('SWOOLE_HOOK_FLAGS', DefaultOption::hookFlags());
 
 // Self-called anonymous function that creates its own scope and keep the global namespace clean.
 (function () {
-    Hyperf\Di\ClassLoader::init();
-    /** @var Psr\Container\ContainerInterface $container */
+    ClassLoader::init();
+    /** @var ContainerInterface $container */
     $container = require BASE_PATH . '/config/container.php';
 
-    $application = $container->get(Hyperf\Contract\ApplicationInterface::class);
+    $application = $container->get(ApplicationInterface::class);
     $application->run();
 })();

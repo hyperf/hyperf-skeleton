@@ -9,6 +9,8 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\Tracer\Adapter\JaegerTracerFactory;
+use Hyperf\Tracer\Adapter\ZipkinTracerFactory;
 use Zipkin\Samplers\BinarySampler;
 
 use function Hyperf\Support\env;
@@ -23,7 +25,7 @@ return [
     ],
     'tracer' => [
         'zipkin' => [
-            'driver' => \Hyperf\Tracer\Adapter\ZipkinTracerFactory::class,
+            'driver' => ZipkinTracerFactory::class,
             'app' => [
                 'name' => env('APP_NAME', 'skeleton'),
                 // Hyperf will detect the system info automatically as the value if ipv4, ipv6, port is null
@@ -38,7 +40,7 @@ return [
             'sampler' => BinarySampler::createAsAlwaysSample(),
         ],
         'jaeger' => [
-            'driver' => \Hyperf\Tracer\Adapter\JaegerTracerFactory::class,
+            'driver' => JaegerTracerFactory::class,
             'name' => env('APP_NAME', 'skeleton'),
             'options' => [
                 'local_agent' => [

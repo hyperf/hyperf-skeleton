@@ -10,6 +10,8 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use Hyperf\ConfigCenter\Mode;
+use Hyperf\ConfigNacos\Constants;
+use Hyperf\ConfigNacos\NacosDriver;
 
 use function Hyperf\Support\env;
 
@@ -19,8 +21,8 @@ return [
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
         'nacos' => [
-            'driver' => Hyperf\ConfigNacos\NacosDriver::class,
-            'merge_mode' => Hyperf\ConfigNacos\Constants::CONFIG_MERGE_OVERWRITE,
+            'driver' => NacosDriver::class,
+            'merge_mode' => Constants::CONFIG_MERGE_OVERWRITE,
             'interval' => 3,
             'default_key' => 'nacos_config',
             'listener_config' => [
