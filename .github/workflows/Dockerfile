@@ -47,7 +47,7 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN print "\n" | composer install -o && php bin/hyperf.php
+RUN echo "\n" | composer install -o && php bin/hyperf.php
 
 EXPOSE 9501
 
