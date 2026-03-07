@@ -13,10 +13,13 @@ use Hyperf\Cache\Driver\RedisDriver;
 use Hyperf\Codec\Packer\PhpSerializerPacker;
 
 return [
-    'default' => [
-        'driver' => RedisDriver::class,
-        'packer' => PhpSerializerPacker::class,
-        'prefix' => 'c:',
-        'skip_cache_results' => [],
+    'default' => 'default',
+    'stores' => [
+        'default' => [
+            'driver' => RedisDriver::class,
+            'packer' => PhpSerializerPacker::class,
+            'prefix' => 'c:',
+            'skip_cache_results' => [],
+        ],
     ],
 ];
