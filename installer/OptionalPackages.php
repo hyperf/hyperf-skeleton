@@ -28,7 +28,7 @@ use RecursiveIteratorIterator;
 class OptionalPackages
 {
     /**
-     * @const string Regular expression for matching package name and version
+     * @var string Regular expression for matching package name and version
      */
     public const PACKAGE_REGEX = '/^(?P<name>[^:]+\/[^:]+)([:]*)(?P<version>.*)$/';
 

@@ -9,7 +9,9 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\Codec\Packer\JsonPacker;
 use Hyperf\ConfigCenter\Mode;
+use Hyperf\ConfigEtcd\EtcdDriver;
 
 use function Hyperf\Support\env;
 
@@ -19,8 +21,8 @@ return [
     'mode' => env('CONFIG_CENTER_MODE', Mode::PROCESS),
     'drivers' => [
         'etcd' => [
-            'driver' => Hyperf\ConfigEtcd\EtcdDriver::class,
-            'packer' => Hyperf\Codec\Packer\JsonPacker::class,
+            'driver' => EtcdDriver::class,
+            'packer' => JsonPacker::class,
             'namespaces' => [
                 '/application',
             ],
