@@ -10,7 +10,7 @@ The various versions of Dockerfile have been prepared for you in the [hyperf/hyp
 
 When you don't want to use Docker as the basis for your running environment, you need to make sure that your operating environment meets the following requirements:  
 
- - PHP >= 8.1
+ - PHP >= 8.2
  - Any of the following network engines
    - Swoole PHP extension >= 5.0，with `swoole.use_shortname` set to `Off` in your `php.ini`
    - Swow PHP extension >= 1.3
